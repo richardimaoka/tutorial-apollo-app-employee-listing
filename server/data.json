@@ -1,9 +1,28 @@
 {
-  "me": {
-    "imgSrc": "http://localhost:8080/images/profile.png",
-    "name": "エメラルド 君沢",
-    "jobTitle": "データベース エンジニア",
-    "residence": "東京都 南アザラシ区 ペンギン町",
-    "description": " データベース エンジニアのエメラルド 君沢です。金融関連の会社の社内IT部門にて9年勤めたあと、3年ほどベンチャー企業を転々とし、いまは広告関連の会社でエンジニアをやっています。"
+  "divisions": {
+    "__typename": "Division",
+    "divisionName": "トレーディング部門",
+    "deparments": [
+      {
+        "__typename": "",
+        "name": "為替トレーディング部"
+      },
+      {
+        "__typename": "",
+        "name": "債券トレーディング部"
+      },
+      {
+        "__typename": "",
+        "name": "商品先物トレーディング部"
+      },
+      {
+        "__typename": "",
+        "name": "株式トレーディング部"
+      },
+      {
+        "__typename": "",
+        "name": "ストラクチャード・デリバティブ・トレーディング部"
+      }
+    ]
   }
 }

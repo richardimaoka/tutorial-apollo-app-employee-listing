@@ -1,0 +1,11 @@
+type Query {
+  me: Profile
+}
+
+type Profile {
+  imgSrc: String
+  name: String
+  residence: String
+  jobTitle: String
+  description: String
+}

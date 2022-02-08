@@ -1,0 +1,9 @@
+{
+  me {
+    name
+    residence
+    imgSrc
+    jobTitle
+    description
+  }
+}

@@ -27,14 +27,14 @@ function sleep(ms: number) {
 
 const resolvers = {
   Query: {
-    me: async (
+    divisions: async (
       parent: any,
       args: any,
       context: any,
       info: any
     ): Promise<Profile> => {
       await sleep(1000);
-      return context.data.me;
+      return context.data.divisions;
     },
   },
 };
@@ -44,7 +44,7 @@ const server = new ApolloServer({
   resolvers,
   context: async ({ req }: any) => {
     try {
-      const jsonDataFile = __dirname.concat("/data.json");
+      const jsonDataFile = __dirname.concat("/data1.json");
       const fileContent = await fs.promises.readFile(jsonDataFile, "utf8");
       const jsonData = JSON.parse(fileContent);
       return { data: jsonData };

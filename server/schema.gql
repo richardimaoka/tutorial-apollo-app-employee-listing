@@ -1,11 +1,7 @@
 type Query {
-  me: Profile
+  divisions: [Division]
 }
 
-type Profile {
-  imgSrc: String
-  name: String
-  residence: String
-  jobTitle: String
-  description: String
+type Division {
+  divisionName: String
 }

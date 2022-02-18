@@ -1,13 +1,17 @@
 import { gql, useQuery } from "@apollo/client";
+import { Division, useGetDivisionsQuery } from "../generated/graphql";
+
+//This is read by GraphQL codegen to generate types
+gql`
+  query GetDivisions {
+    divisions {
+      divisionName
+    }
+  }
+`;
 
 const InnerComponent = (): JSX.Element => {
-  const { loading, error, data } = useQuery<any>(gql`
-    {
-      divisions {
-        divisionName
-      }
-    }
-  `);
+  const { loading, error, data } = useGetDivisionsQuery();
 
   if (loading) {
     return <></>;

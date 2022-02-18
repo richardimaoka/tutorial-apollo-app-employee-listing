@@ -31,9 +31,9 @@ export type Query = {
   divisions: Maybe<Array<Maybe<Division>>>;
 };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never }>;
+export type GetDivisionsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type Unnamed_1_Query = {
+export type GetDivisionsQuery = {
   __typename?: "Query";
   divisions: Array<{
     __typename?: "Division";
@@ -41,8 +41,8 @@ export type Unnamed_1_Query = {
   } | null> | null;
 };
 
-export const Document = gql`
-  {
+export const GetDivisionsDocument = gql`
+  query GetDivisions {
     divisions {
       divisionName
     }
@@ -50,32 +50,51 @@ export const Document = gql`
 `;
 
 /**
- * __useQuery__
+ * __useGetDivisionsQuery__
  *
- * To run a query within a React component, call `useQuery` and pass it any options that fit your needs.
- * When your component renders, `useQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetDivisionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetDivisionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useQuery({
+ * const { data, loading, error } = useGetDivisionsQuery({
  *   variables: {
  *   },
  * });
  */
-export function useQuery(
-  baseOptions?: Apollo.QueryHookOptions<Query, QueryVariables>
+export function useGetDivisionsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetDivisionsQuery,
+    GetDivisionsQueryVariables
+  >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<Query, QueryVariables>(Document, options);
+  return Apollo.useQuery<GetDivisionsQuery, GetDivisionsQueryVariables>(
+    GetDivisionsDocument,
+    options
+  );
 }
-export function useLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<Query, QueryVariables>
+export function useGetDivisionsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetDivisionsQuery,
+    GetDivisionsQueryVariables
+  >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<Query, QueryVariables>(Document, options);
+  return Apollo.useLazyQuery<GetDivisionsQuery, GetDivisionsQueryVariables>(
+    GetDivisionsDocument,
+    options
+  );
 }
-export type QueryHookResult = ReturnType<typeof useQuery>;
-export type LazyQueryHookResult = ReturnType<typeof useLazyQuery>;
-export type QueryResult = Apollo.QueryResult<Query, QueryVariables>;
+export type GetDivisionsQueryHookResult = ReturnType<
+  typeof useGetDivisionsQuery
+>;
+export type GetDivisionsLazyQueryHookResult = ReturnType<
+  typeof useGetDivisionsLazyQuery
+>;
+export type GetDivisionsQueryResult = Apollo.QueryResult<
+  GetDivisionsQuery,
+  GetDivisionsQueryVariables
+>;

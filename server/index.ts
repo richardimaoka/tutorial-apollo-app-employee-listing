@@ -5,24 +5,8 @@ const typeDefs = gql`
   ${fs.readFileSync(__dirname.concat("/schema.gql"), "utf8")}
 `;
 
-interface Profile {
-  imgSrc: string;
-  name: string;
-  residence: string;
-  jobTitle: string;
-  description: string;
-}
-
-async function init() {
-  console.log(1);
-  await sleep(1000);
-  console.log(2);
-}
-
-function sleep(ms: number) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
+interface Division {
+  divisionNameescription: string;
 }
 
 const resolvers = {
@@ -32,8 +16,7 @@ const resolvers = {
       args: any,
       context: any,
       info: any
-    ): Promise<Profile> => {
-      await sleep(1000);
+    ): Promise<Division> => {
       return context.data.divisions;
     },
   },

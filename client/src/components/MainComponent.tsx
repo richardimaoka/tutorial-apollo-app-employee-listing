@@ -1,12 +1,13 @@
 import { gql, useQuery } from "@apollo/client";
 import { useGetDivisionsQuery } from "../generated/graphql";
+import { DivisionComponent } from "./DivisionComponent";
 import { DivisionListComponent } from "./DivisionListComponent";
 
 //This is read by GraphQL codegen to generate types
 gql`
   query GetDivisions {
     divisions {
-      ...DivisionComponent
+      divisionName
     }
   }
 `;
@@ -22,7 +23,7 @@ const InnerComponent = (): JSX.Element => {
     return <></>;
   } else {
     console.log(data);
-    return <DivisionListComponent fragments={data.divisions} />;
+    return <DivisionListComponent list={data.divisions} />;
   }
 };
 

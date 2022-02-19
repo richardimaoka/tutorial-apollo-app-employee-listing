@@ -11,12 +11,8 @@ export const DivisionComponent = ({
   return <div>{fragment.divisionName}</div>;
 };
 
-DivisionComponent.fragments = gql`
+DivisionComponent.fragment = gql`
   fragment DivisionComponent on Division {
     divisionName
-    another {
-      anotherNumber
-      anotherName
-    }
   }
 `;

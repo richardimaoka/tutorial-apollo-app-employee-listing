@@ -41,11 +41,6 @@ export type Query = {
 export type DivisionComponentFragment = {
   __typename?: "Division";
   divisionName: string | null;
-  another: {
-    __typename?: "AnotherType";
-    anotherNumber: number | null;
-    anotherName: string | null;
-  } | null;
 };
 
 export type DivisionListComponentFragment = {
@@ -60,21 +55,12 @@ export type GetDivisionsQuery = {
   divisions: Array<{
     __typename?: "Division";
     divisionName: string | null;
-    another: {
-      __typename?: "AnotherType";
-      anotherNumber: number | null;
-      anotherName: string | null;
-    } | null;
   } | null> | null;
 };
 
 export const DivisionComponentFragmentDoc = gql`
   fragment DivisionComponent on Division {
     divisionName
-    another {
-      anotherNumber
-      anotherName
-    }
   }
 `;
 export const DivisionListComponentFragmentDoc = gql`
@@ -85,10 +71,9 @@ export const DivisionListComponentFragmentDoc = gql`
 export const GetDivisionsDocument = gql`
   query GetDivisions {
     divisions {
-      ...DivisionComponent
+      divisionName
     }
   }
-  ${DivisionComponentFragmentDoc}
 `;
 
 /**

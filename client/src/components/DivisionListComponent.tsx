@@ -9,7 +9,7 @@ export interface DivisionListComponentProps {
 const excludeNullElements = (
   list: (DivisionComponentFragment | null)[]
 ): DivisionComponentFragment[] => {
-  return list.filter((elem) => !elem) as DivisionComponentFragment[];
+  return list.filter((elem) => elem) as DivisionComponentFragment[];
 };
 
 export const DivisionListComponent = ({

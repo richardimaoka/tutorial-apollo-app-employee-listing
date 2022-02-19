@@ -21,15 +21,17 @@ export const DivisionComponent = ({
         style={{ margin: "8px", height: "180px", backgroundColor: "#1470C3" }}
       >
         <div style={{ padding: "16px" }}>
-          <div
+          <span
             style={{
               color: "#f3f3f3",
               fontSize: "28px",
               fontFamily: "'Zen Antique Soft', serif",
+              paddingBottom: "2px",
+              borderBottom: "1px solid",
             }}
           >
             {fragment.divisionName}
-          </div>
+          </span>
         </div>
       </div>
     </div>

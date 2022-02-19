@@ -20,11 +20,11 @@ export const DivisionListComponent = ({
     return <></>;
   } else {
     return (
-      <>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         {nonNullList.map((x) => (
           <DivisionComponent fragment={x} />
         ))}
-      </>
+      </div>
     );
   }
 };

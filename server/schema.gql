@@ -4,4 +4,10 @@ type Query {
 
 type Division {
   divisionName: String
+  another: AnotherType
+}
+
+type AnotherType {
+  anotherName: String
+  anotherNumber: Int
 }

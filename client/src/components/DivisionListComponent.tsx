@@ -3,24 +3,27 @@ import { DivisionComponentFragment } from "../generated/graphql";
 import { DivisionComponent } from "./DivisionComponent";
 
 export interface DivisionListComponentProps {
-  fragments: (DivisionComponentFragment | null)[];
+  list: (DivisionComponentFragment | null)[];
 }
 
+const excludeNullElements = (
+  list: (DivisionComponentFragment | null)[]
+): DivisionComponentFragment[] => {
+  return list.filter((elem) => !elem) as DivisionComponentFragment[];
+};
+
 export const DivisionListComponent = ({
-  fragments,
+  list,
 }: DivisionListComponentProps): JSX.Element => {
-  if (!fragments || fragments.length === 0) {
+  const nonNullList = excludeNullElements(list);
+  if (nonNullList.length === 0) {
     return <></>;
   } else {
     return (
       <>
-        {fragments.map((x) => {
-          if (!x) {
-            return <></>;
-          } else {
-            return <DivisionComponent fragment={x} />;
-          }
-        })}
+        {nonNullList.map((x) => (
+          <DivisionComponent fragment={x} />
+        ))}
       </>
     );
   }

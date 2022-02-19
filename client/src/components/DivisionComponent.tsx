@@ -14,5 +14,9 @@ export const DivisionComponent = ({
 DivisionComponent.fragments = gql`
   fragment DivisionComponent on Division {
     divisionName
+    another {
+      anotherNumber
+      anotherName
+    }
   }
 `;

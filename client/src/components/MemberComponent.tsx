@@ -14,23 +14,32 @@ export const MemberComponent = ({ fragment }: MemberComponentProps) => {
       }}
     >
       <div
-        style={{ backgroundColor: "#ffffff", margin: "8px", display: "flex" }}
+        style={{
+          backgroundColor: "#ffffff",
+          margin: "8px",
+          display: "flex",
+          padding: "8px",
+        }}
       >
         <div>
           {fragment.imageUrl ? (
-            <img width="100px" src={fragment.imageUrl} />
+            <img width="110px" src={fragment.imageUrl} />
           ) : (
             <></>
           )}
         </div>
-        <div>
-          <div>{fragment.name}</div>
-          <div>{fragment.title}</div>
-          <div>{fragment.divisionDisplayName}</div>
-          <div>{fragment.departmentDisplayName}</div>
-          <div>{fragment.location}</div>
-          <div>{fragment.telephone}</div>
-          <div>{fragment.mailAddress}</div>
+        <div style={{ marginLeft: "8px" }}>
+          <div style={{}}>{fragment.name}</div>
+          <div style={{ fontSize: "12px" }}>
+            <span>{fragment.divisionDisplayName}</span>
+            <span style={{ marginLeft: "8px" }}>
+              {fragment.departmentDisplayName}
+            </span>
+          </div>
+          <div style={{ fontSize: "12px" }}>{fragment.title}</div>
+          <div style={{ fontSize: "12px" }}>勤務地: {fragment.location}</div>
+          <div style={{ fontSize: "12px" }}>電話: {fragment.telephone}</div>
+          <div style={{ fontSize: "12px" }}>メール: {fragment.mailAddress}</div>
         </div>
       </div>
     </div>

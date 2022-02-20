@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
-import { MemberComponentFragment } from "../generated/graphql";
-import { excludeNullElements } from "../utils/arrayUtils";
+import { MemberComponentFragment } from "../../generated/graphql";
+import { excludeNullElements } from "../../utils/arrayUtils";
 import { MemberComponent } from "./MemberComponent";
-import { DivisionContainerFragment } from "../generated/graphql";
+import { DivisionContainerFragment } from "../../generated/graphql";
 
 interface DivisionContainerProps {
   fragment: DivisionContainerFragment;

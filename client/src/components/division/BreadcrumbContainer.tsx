@@ -1,6 +1,5 @@
 import { gql } from "@apollo/client";
-import { useParams } from "react-router-dom";
-import { BreadcrumbContainerFragment } from "../generated/graphql";
+import { BreadcrumbContainerFragment } from "../../generated/graphql";
 
 interface BreadCrumContainerProps {
   fragment: BreadcrumbContainerFragment;

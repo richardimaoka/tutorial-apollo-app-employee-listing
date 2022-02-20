@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { useGetSingleDivisionQuery } from "../generated/graphql";
+import { useGetSingleDivisionQuery } from "../../generated/graphql";
 import { BreadcrumbContainer } from "./BreadcrumbContainer";
 import { DivisionContainer } from "./DivisionContainer";
 import { DivisionSideBar, DivisionSideBarWidth } from "./DivisionSideBar";

@@ -1,6 +1,5 @@
 import { gql } from "@apollo/client";
-import { DivisionSideBarFragment } from "../generated/graphql";
-import { excludeNullElements } from "../utils/arrayUtils";
+import { DivisionSideBarFragment } from "../../generated/graphql";
 
 interface DivisionSideBarProps {
   fragments: (DivisionSideBarFragment | null)[];

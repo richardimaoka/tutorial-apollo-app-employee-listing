@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import { MemberComponentFragment } from "../generated/graphql";
+import { MemberComponentFragment } from "../../generated/graphql";
 
 export interface MemberComponentProps {
   fragment: MemberComponentFragment;

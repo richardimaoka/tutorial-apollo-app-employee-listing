@@ -16,8 +16,21 @@ const resolvers = {
       args: any,
       context: any,
       info: any
-    ): Promise<Division> => {
+    ): Promise<Division[]> => {
       return context.data.divisions;
+    },
+    division: async (
+      parent: any,
+      args: { divisionName: string },
+      context: any,
+      info: any
+    ): Promise<Division> => {
+      console.log("divisionName = ", args.divisionName);
+      const divisionData = context.data.divisions.find(
+        (x: any) => x.divisionName === args.divisionName
+      );
+      console.log(context);
+      return divisionData;
     },
   },
 };

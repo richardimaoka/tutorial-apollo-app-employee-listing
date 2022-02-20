@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
 import { useGetSingleDivisionQuery } from "../generated/graphql";
 
 //This is read by GraphQL codegen to generate types
@@ -6,12 +7,27 @@ gql`
   query GetSingleDivision($divisionName: String) {
     division(divisionName: $divisionName) {
       divisionName
+      divisionDisplayName
+      numMembers
+      numDepartments
+      divisionColor
+      members {
+        name
+      }
     }
   }
 `;
 
-const InnerComponent = (): JSX.Element => {
-  const { loading, error, data } = useGetSingleDivisionQuery();
+interface InnerComponentProps {
+  divisionName: string;
+}
+
+const InnerComponent = ({ divisionName }: InnerComponentProps): JSX.Element => {
+  const { loading, error, data } = useGetSingleDivisionQuery({
+    variables: {
+      divisionName: divisionName,
+    },
+  });
 
   if (loading) {
     return <></>;
@@ -26,6 +42,7 @@ const InnerComponent = (): JSX.Element => {
 };
 
 export const DivisionContainer = (): JSX.Element => {
+  const params = useParams<"divisionName">();
   return (
     <main
       style={{
@@ -35,7 +52,11 @@ export const DivisionContainer = (): JSX.Element => {
       }}
     >
       <div>
-        <InnerComponent />
+        {params.divisionName ? (
+          <InnerComponent divisionName={params.divisionName} />
+        ) : (
+          <></>
+        )}
       </div>
     </main>
   );

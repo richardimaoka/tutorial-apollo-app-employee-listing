@@ -30,7 +30,9 @@ export type Deparment = {
 export type Division = {
   __typename?: "Division";
   divisionColor: Maybe<Scalars["String"]>;
+  divisionDisplayName: Maybe<Scalars["String"]>;
   divisionName: Maybe<Scalars["String"]>;
+  members: Maybe<Array<Maybe<Member>>>;
   numDepartments: Maybe<Scalars["Int"]>;
   numMembers: Maybe<Scalars["Int"]>;
 };
@@ -83,7 +85,18 @@ export type GetSingleDivisionQueryVariables = Exact<{
 
 export type GetSingleDivisionQuery = {
   __typename?: "Query";
-  division: { __typename?: "Division"; divisionName: string | null } | null;
+  division: {
+    __typename?: "Division";
+    divisionName: string | null;
+    divisionDisplayName: string | null;
+    numMembers: number | null;
+    numDepartments: number | null;
+    divisionColor: string | null;
+    members: Array<{
+      __typename?: "Member";
+      name: string | null;
+    } | null> | null;
+  } | null;
 };
 
 export type DivisionListComponentFragment = {
@@ -166,6 +179,13 @@ export const GetSingleDivisionDocument = gql`
   query GetSingleDivision($divisionName: String) {
     division(divisionName: $divisionName) {
       divisionName
+      divisionDisplayName
+      numMembers
+      numDepartments
+      divisionColor
+      members {
+        name
+      }
     }
   }
 `;

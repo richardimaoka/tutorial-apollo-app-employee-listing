@@ -2,23 +2,21 @@
   "divisions": [
     {
       "__typename": "Division",
-      "divisionName": "トレーディング部門",
+      "divisionName": "trading",
+      "divisionDisplayName": "トレーディング部門",
       "divisionColor": "blue",
       "numMembers": 180,
       "numDepartments": 9,
       "departments": [
         {
           "__typename": "Deparments",
-          "departmentName": "為替トレーディング部",
+          "departmentDisplayName": "為替トレーディング部",
           "members": [
             {
-              "__typename": "Deparments",
+              "__typename": "Member",
               "name": "リチャード 伊真岡",
-              "divisionName": "トレーディング部門",
-              "departmentName": "為替トレーディング部",
-              "numMembers": "",
-              "numDepartments": "",
-              "divisionColor": ""
+              "divisionDisplayName": "トレーディング部門",
+              "departmentDisplayName": "為替トレーディング部"
             }
           ]
         }
@@ -26,49 +24,56 @@
     },
     {
       "__typename": "Division",
-      "divisionName": "セールス部門",
+      "divisionName": "sales",
+      "divisionDisplayName": "セールス部門",
       "divisionColor": "purple",
       "numMembers": 340,
       "numDepartments": 19
     },
     {
       "__typename": "Division",
-      "divisionName": "業務部門",
+      "divisionName": "operations",
+      "divisionDisplayName": "業務部門",
       "divisionColor": "green",
       "numMembers": 1035,
       "numDepartments": 50
     },
     {
       "__typename": "Division",
-      "divisionName": "リスク管理部門",
+      "divisionName": "risk-management",
+      "divisionDisplayName": "リスク管理部門",
       "divisionColor": "red",
       "numMembers": 299,
       "numDepartments": 8
     },
     {
       "__typename": "Division",
-      "divisionName": "会計部門",
+      "divisionName": "accounting",
+      "divisionDisplayName": "会計部門",
       "divisionColor": "pink",
       "numMembers": 388,
       "numDepartments": 11
     },
     {
       "__typename": "Division",
-      "divisionName": "法務部門",
+      "divisionName": "legal",
+      "divisionDisplayName": "法務部門",
       "divisionColor": "black",
       "numMembers": 81,
       "numDepartments": 4
     },
     {
       "__typename": "Division",
-      "divisionName": "IT部門",
+      "divisionName": "information-technology",
+      "divisionDisplayName": "IT部門",
       "divisionColor": "orange",
       "numMembers": 982,
       "numDepartments": 17
     },
     {
       "__typename": "Division",
-      "divisionName": "社長室",
+      "divisionName": "executive-office",
+      "divisionDisplayName": "社長室",
       "divisionColor": "emeraldgreen",
       "numMembers": 17,
       "numDepartments": 3

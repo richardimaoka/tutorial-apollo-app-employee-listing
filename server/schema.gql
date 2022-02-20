@@ -5,9 +5,11 @@ type Query {
 
 type Division {
   divisionName: String
+  divisionDisplayName: String
   numMembers: Int
   numDepartments: Int
   divisionColor: String
+  members: [Member]
 }
 
 type Deparment {

@@ -19,7 +19,7 @@ export const App = (): JSX.Element => {
         <Routes>
           <Route path="/" element={<CompanyWideContainer />} />
           <Route
-            path=":division"
+            path=":divisionName"
             element={
               <>
                 <BreadCrumbContainer />

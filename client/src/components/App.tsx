@@ -1,4 +1,5 @@
-import { MainComponent } from "./MainComponent";
+import { MainComponent } from "./MainContainer";
+import { HeaderContainer } from "./HeaderContainer";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
@@ -9,6 +10,7 @@ const client = new ApolloClient({
 export const App = (): JSX.Element => {
   return (
     <ApolloProvider client={client}>
+      <HeaderContainer />
       <MainComponent />
     </ApolloProvider>
   );

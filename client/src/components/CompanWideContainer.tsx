@@ -29,7 +29,7 @@ const InnerComponent = (): JSX.Element => {
   }
 };
 
-export const MainComponent = (): JSX.Element => {
+export const CompanyWideContainer = (): JSX.Element => {
   return (
     <main
       style={{

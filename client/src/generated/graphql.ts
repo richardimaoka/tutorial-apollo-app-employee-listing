@@ -51,19 +51,6 @@ export type Query = {
   divisions: Maybe<Array<Maybe<Division>>>;
 };
 
-export type DivisionComponentFragment = {
-  __typename?: "Division";
-  divisionName: string | null;
-  numDepartments: number | null;
-  numMembers: number | null;
-  divisionColor: string | null;
-};
-
-export type DivisionListComponentFragment = {
-  __typename?: "Division";
-  divisionName: string | null;
-};
-
 export type GetDivisionsQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetDivisionsQuery = {
@@ -75,6 +62,19 @@ export type GetDivisionsQuery = {
     numMembers: number | null;
     divisionColor: string | null;
   } | null> | null;
+};
+
+export type DivisionComponentFragment = {
+  __typename?: "Division";
+  divisionName: string | null;
+  numDepartments: number | null;
+  numMembers: number | null;
+  divisionColor: string | null;
+};
+
+export type DivisionListComponentFragment = {
+  __typename?: "Division";
+  divisionName: string | null;
 };
 
 export const DivisionComponentFragmentDoc = gql`

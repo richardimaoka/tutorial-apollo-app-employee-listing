@@ -1,5 +1,9 @@
 const InnerComponent = (): JSX.Element => {
-  return <div />;
+  return (
+    <div>
+      <span>&gt;トレーディング部門</span>
+    </div>
+  );
 };
 
 export const BreadCrumbContainer = (): JSX.Element => {

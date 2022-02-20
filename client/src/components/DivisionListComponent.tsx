@@ -1,16 +1,10 @@
 import { gql } from "@apollo/client";
 import { DivisionComponentFragment } from "../generated/graphql";
 import { DivisionComponent } from "./DivisionComponent";
-
+import { excludeNullElements } from "../utils/arrayUtils";
 export interface DivisionListComponentProps {
   list: (DivisionComponentFragment | null)[];
 }
-
-const excludeNullElements = (
-  list: (DivisionComponentFragment | null)[]
-): DivisionComponentFragment[] => {
-  return list.filter((elem) => elem) as DivisionComponentFragment[];
-};
 
 export const DivisionListComponent = ({
   list,

@@ -9,9 +9,6 @@ generates:
       - "typescript-react-apollo"
     config:
       avoidOptionals: true
-  ./graphql.schema.json:
-    plugins:
-      - "introspection"
 hooks:
   afterOneFileWrite:
     - npx prettier --write

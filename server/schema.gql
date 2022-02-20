@@ -7,10 +7,19 @@ type Division {
   numMembers: Int
   numDepartments: Int
   divisionColor: String
-  another: AnotherType
 }
 
-type AnotherType {
-  anotherName: String
-  anotherNumber: Int
+type Deparment {
+  departmentName: String
+  members: [Member]
+}
+
+type Member {
+  name: String
+  divisionName: String
+  departmentName: String
+  title: String
+  location: String
+  telephone: String
+  mailAddress: String
 }

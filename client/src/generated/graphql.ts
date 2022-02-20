@@ -21,19 +21,29 @@ export type Scalars = {
   Float: number;
 };
 
-export type AnotherType = {
-  __typename?: "AnotherType";
-  anotherName: Maybe<Scalars["String"]>;
-  anotherNumber: Maybe<Scalars["Int"]>;
+export type Deparment = {
+  __typename?: "Deparment";
+  departmentName: Maybe<Scalars["String"]>;
+  members: Maybe<Array<Maybe<Member>>>;
 };
 
 export type Division = {
   __typename?: "Division";
-  another: Maybe<AnotherType>;
   divisionColor: Maybe<Scalars["String"]>;
   divisionName: Maybe<Scalars["String"]>;
   numDepartments: Maybe<Scalars["Int"]>;
   numMembers: Maybe<Scalars["Int"]>;
+};
+
+export type Member = {
+  __typename?: "Member";
+  departmentName: Maybe<Scalars["String"]>;
+  divisionName: Maybe<Scalars["String"]>;
+  location: Maybe<Scalars["String"]>;
+  mailAddress: Maybe<Scalars["String"]>;
+  name: Maybe<Scalars["String"]>;
+  telephone: Maybe<Scalars["String"]>;
+  title: Maybe<Scalars["String"]>;
 };
 
 export type Query = {

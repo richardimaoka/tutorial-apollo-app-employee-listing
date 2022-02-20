@@ -101,6 +101,11 @@ export type GetSingleDivisionQuery = {
   } | null;
 };
 
+export type MemberComponentFragment = {
+  __typename?: "Member";
+  name: string | null;
+};
+
 export const DivisionComponentFragmentDoc = gql`
   fragment DivisionComponent on Division {
     divisionDisplayName
@@ -108,6 +113,11 @@ export const DivisionComponentFragmentDoc = gql`
     numDepartments
     numMembers
     divisionColor
+  }
+`;
+export const MemberComponentFragmentDoc = gql`
+  fragment MemberComponent on Member {
+    name
   }
 `;
 export const GetDivisionsDocument = gql`

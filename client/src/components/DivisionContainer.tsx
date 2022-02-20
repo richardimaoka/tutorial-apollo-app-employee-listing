@@ -1,6 +1,11 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { useGetSingleDivisionQuery } from "../generated/graphql";
+import {
+  MemberComponentFragment,
+  useGetSingleDivisionQuery,
+} from "../generated/graphql";
+import { excludeNullElements } from "../utils/arrayUtils";
+import { MemberComponent } from "./MemberComponent";
 
 //This is read by GraphQL codegen to generate types
 gql`
@@ -33,11 +38,19 @@ const InnerComponent = ({ divisionName }: InnerComponentProps): JSX.Element => {
     return <></>;
   } else if (error) {
     return <></>;
-  } else if (!data) {
+  } else if (!data || !data.division || !data.division.members) {
     return <></>;
   } else {
-    console.log(data);
-    return <div />;
+    const nonNullList = excludeNullElements<MemberComponentFragment>(
+      data.division.members
+    );
+    return (
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {nonNullList.map((x) => (
+          <MemberComponent fragment={x} />
+        ))}
+      </div>
+    );
   }
 };
 

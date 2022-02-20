@@ -30,17 +30,13 @@ const InnerComponent = (): JSX.Element => {
     const nonNullList = excludeNullElements<DivisionComponentFragment>(
       data.divisions
     );
-    if (nonNullList.length === 0) {
-      return <></>;
-    } else {
-      return (
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
-          {nonNullList.map((x) => (
-            <DivisionComponent fragment={x} />
-          ))}
-        </div>
-      );
-    }
+    return (
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {nonNullList.map((x) => (
+          <DivisionComponent key={x.divisionName} fragment={x} />
+        ))}
+      </div>
+    );
   }
 };
 

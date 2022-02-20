@@ -48,7 +48,12 @@ export type Member = {
 
 export type Query = {
   __typename?: "Query";
+  division: Maybe<Division>;
   divisions: Maybe<Array<Maybe<Division>>>;
+};
+
+export type QueryDivisionArgs = {
+  divisionName: InputMaybe<Scalars["String"]>;
 };
 
 export type GetDivisionsQueryVariables = Exact<{ [key: string]: never }>;
@@ -70,6 +75,15 @@ export type DivisionComponentFragment = {
   numDepartments: number | null;
   numMembers: number | null;
   divisionColor: string | null;
+};
+
+export type GetSingleDivisionQueryVariables = Exact<{
+  divisionName: InputMaybe<Scalars["String"]>;
+}>;
+
+export type GetSingleDivisionQuery = {
+  __typename?: "Query";
+  division: { __typename?: "Division"; divisionName: string | null } | null;
 };
 
 export type DivisionListComponentFragment = {
@@ -147,4 +161,62 @@ export type GetDivisionsLazyQueryHookResult = ReturnType<
 export type GetDivisionsQueryResult = Apollo.QueryResult<
   GetDivisionsQuery,
   GetDivisionsQueryVariables
+>;
+export const GetSingleDivisionDocument = gql`
+  query GetSingleDivision($divisionName: String) {
+    division(divisionName: $divisionName) {
+      divisionName
+    }
+  }
+`;
+
+/**
+ * __useGetSingleDivisionQuery__
+ *
+ * To run a query within a React component, call `useGetSingleDivisionQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSingleDivisionQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSingleDivisionQuery({
+ *   variables: {
+ *      divisionName: // value for 'divisionName'
+ *   },
+ * });
+ */
+export function useGetSingleDivisionQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetSingleDivisionQuery,
+    GetSingleDivisionQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    GetSingleDivisionQuery,
+    GetSingleDivisionQueryVariables
+  >(GetSingleDivisionDocument, options);
+}
+export function useGetSingleDivisionLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetSingleDivisionQuery,
+    GetSingleDivisionQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetSingleDivisionQuery,
+    GetSingleDivisionQueryVariables
+  >(GetSingleDivisionDocument, options);
+}
+export type GetSingleDivisionQueryHookResult = ReturnType<
+  typeof useGetSingleDivisionQuery
+>;
+export type GetSingleDivisionLazyQueryHookResult = ReturnType<
+  typeof useGetSingleDivisionLazyQuery
+>;
+export type GetSingleDivisionQueryResult = Apollo.QueryResult<
+  GetSingleDivisionQuery,
+  GetSingleDivisionQueryVariables
 >;

@@ -24,7 +24,6 @@ const InnerComponent = (): JSX.Element => {
   } else if (!data || !data.divisions) {
     return <></>;
   } else {
-    console.log(data);
     return <DivisionListComponent list={data.divisions} />;
   }
 };

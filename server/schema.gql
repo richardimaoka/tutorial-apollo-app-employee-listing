@@ -1,5 +1,6 @@
 type Query {
   divisions: [Division]
+  division(divisionName: String): Division
 }
 
 type Division {

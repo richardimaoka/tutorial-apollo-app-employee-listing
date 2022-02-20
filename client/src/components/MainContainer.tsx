@@ -31,8 +31,14 @@ const InnerComponent = (): JSX.Element => {
 
 export const MainComponent = (): JSX.Element => {
   return (
-    <main>
-      <div style={{ width: "1080px", margin: "0 auto" }}>
+    <main
+      style={{
+        width: "1080px",
+        margin: "0 auto",
+        padding: "10px 0",
+      }}
+    >
+      <div>
         <InnerComponent />
       </div>
     </main>

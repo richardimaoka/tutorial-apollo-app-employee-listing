@@ -3,7 +3,6 @@ export const HeaderContainer = () => {
     <header
       style={{
         backgroundColor: "#1470C3",
-        marginBottom: "10px",
       }}
     >
       <div

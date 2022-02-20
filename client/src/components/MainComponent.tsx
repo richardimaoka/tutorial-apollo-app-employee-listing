@@ -7,9 +7,11 @@ import { DivisionListComponent } from "./DivisionListComponent";
 gql`
   query GetDivisions {
     divisions {
-      divisionName
+      ...DivisionComponent
     }
   }
+
+  ${DivisionComponent.fragment}
 `;
 
 const InnerComponent = (): JSX.Element => {

@@ -27,7 +27,7 @@ const server = new ApolloServer({
   resolvers,
   context: async ({ req }: any) => {
     try {
-      const jsonDataFile = __dirname.concat("/data1.json");
+      const jsonDataFile = __dirname.concat("/data.json");
       const fileContent = await fs.promises.readFile(jsonDataFile, "utf8");
       const jsonData = JSON.parse(fileContent);
       return { data: jsonData };

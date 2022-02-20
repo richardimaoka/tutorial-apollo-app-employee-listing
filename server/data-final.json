@@ -1,0 +1,47 @@
+{
+  "divisions": {
+    "__typename": "Division",
+    "divisionName": "トレーディング部門",
+    "deparments": [
+      {
+        "__typename": "Department",
+        "departmentName": "為替トレーディング部"
+      },
+      {
+        "__typename": "Department",
+        "departmentName": "債券トレーディング部",
+        "units": [
+          {
+            "__typename": "Unit",
+            "unitName": "国債トレーディング課",
+            "teams": [
+              {
+                "__typename": "Team",
+                "teamName": "東京国債トレーディング・チーム",
+                "members": [
+                  {
+                    "__typename": "Employee",
+                    "employeeName": "リチャード 伊真岡"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "__typename": "Department",
+        "departmentName": "商品先物トレーディング部"
+      },
+      {
+        "__typename": "Department",
+        "departmentName": "株式トレーディング部"
+      },
+      {
+        "__typename": "Department",
+        "departmentName": "ストラクチャード・デリバティブ・トレーディング部"
+      }
+    ],
+    "members": []
+  }
+}

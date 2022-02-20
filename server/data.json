@@ -1,47 +1,52 @@
 {
-  "divisions": {
-    "__typename": "Division",
-    "divisionName": "トレーディング部門",
-    "deparments": [
-      {
-        "__typename": "Department",
-        "departmentName": "為替トレーディング部"
-      },
-      {
-        "__typename": "Department",
-        "departmentName": "債券トレーディング部",
-        "units": [
-          {
-            "__typename": "Unit",
-            "unitName": "国債トレーディング課",
-            "teams": [
-              {
-                "__typename": "Team",
-                "teamName": "東京国債トレーディング・チーム",
-                "members": [
-                  {
-                    "__typename": "Employee",
-                    "employeeName": "リチャード 伊真岡"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "__typename": "Department",
-        "departmentName": "商品先物トレーディング部"
-      },
-      {
-        "__typename": "Department",
-        "departmentName": "株式トレーディング部"
-      },
-      {
-        "__typename": "Department",
-        "departmentName": "ストラクチャード・デリバティブ・トレーディング部"
-      }
-    ],
-    "members": []
-  }
+  "divisions": [
+    {
+      "__typename": "Division",
+      "divisionName": "トレーディング部門",
+      "numMembers": 180,
+      "numDepartments": 9
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "セールス部門",
+      "numMembers": 340,
+      "numDepartments": 19
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "業務部門",
+      "numMembers": 1035,
+      "numDepartments": 50
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "リスク管理部門",
+      "numMembers": 299,
+      "numDepartments": 8
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "会計部門",
+      "numMembers": 388,
+      "numDepartments": 11
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "法務部門",
+      "numMembers": 81,
+      "numDepartments": 4
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "IT部門",
+      "numMembers": 982,
+      "numDepartments": 17
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "社長室",
+      "numMembers": 17,
+      "numDepartments": 3
+    }
+  ]
 }

@@ -31,6 +31,8 @@ export type Division = {
   __typename?: "Division";
   another: Maybe<AnotherType>;
   divisionName: Maybe<Scalars["String"]>;
+  numDepartments: Maybe<Scalars["Int"]>;
+  numMembers: Maybe<Scalars["Int"]>;
 };
 
 export type Query = {
@@ -41,6 +43,8 @@ export type Query = {
 export type DivisionComponentFragment = {
   __typename?: "Division";
   divisionName: string | null;
+  numDepartments: number | null;
+  numMembers: number | null;
 };
 
 export type DivisionListComponentFragment = {
@@ -55,12 +59,16 @@ export type GetDivisionsQuery = {
   divisions: Array<{
     __typename?: "Division";
     divisionName: string | null;
+    numDepartments: number | null;
+    numMembers: number | null;
   } | null> | null;
 };
 
 export const DivisionComponentFragmentDoc = gql`
   fragment DivisionComponent on Division {
     divisionName
+    numDepartments
+    numMembers
   }
 `;
 export const DivisionListComponentFragmentDoc = gql`
@@ -71,9 +79,10 @@ export const DivisionListComponentFragmentDoc = gql`
 export const GetDivisionsDocument = gql`
   query GetDivisions {
     divisions {
-      divisionName
+      ...DivisionComponent
     }
   }
+  ${DivisionComponentFragmentDoc}
 `;
 
 /**

@@ -7,9 +7,33 @@ export interface DivisionComponentProps {
   fragment: DivisionComponentFragment;
 }
 
+const divisionColorCode = (colorName: string | null): string => {
+  switch (colorName) {
+    case "blue":
+      return "#1470C3";
+    case "purple":
+      return "#6014C3";
+    case "green":
+      return "#14C314";
+    case "red":
+      return "#C3142C";
+    case "pink":
+      return "#C3148E";
+    case "black":
+      return "#000000";
+    case "orange":
+      return "#C37714";
+    case "emeraldgreen":
+      return "#14C3BD";
+    default:
+      return "#1470C3";
+  }
+};
+
 export const DivisionComponent = ({
   fragment,
 }: DivisionComponentProps): JSX.Element => {
+  const divisionColor = divisionColorCode(fragment.divisionColor);
   return (
     <div
       //calculating layout grid
@@ -20,7 +44,11 @@ export const DivisionComponent = ({
     >
       <div
         //background
-        style={{ margin: "8px", height: "180px", backgroundColor: "#1470C3" }}
+        style={{
+          margin: "8px",
+          height: "180px",
+          backgroundColor: divisionColor,
+        }}
       >
         <div style={{ padding: "16px" }}>
           <span
@@ -59,5 +87,6 @@ DivisionComponent.fragment = gql`
     divisionName
     numDepartments
     numMembers
+    divisionColor
   }
 `;

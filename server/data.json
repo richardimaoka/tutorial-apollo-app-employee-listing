@@ -3,48 +3,56 @@
     {
       "__typename": "Division",
       "divisionName": "トレーディング部門",
+      "divisionColor": "blue",
       "numMembers": 180,
       "numDepartments": 9
     },
     {
       "__typename": "Division",
       "divisionName": "セールス部門",
+      "divisionColor": "purple",
       "numMembers": 340,
       "numDepartments": 19
     },
     {
       "__typename": "Division",
       "divisionName": "業務部門",
+      "divisionColor": "green",
       "numMembers": 1035,
       "numDepartments": 50
     },
     {
       "__typename": "Division",
       "divisionName": "リスク管理部門",
+      "divisionColor": "red",
       "numMembers": 299,
       "numDepartments": 8
     },
     {
       "__typename": "Division",
       "divisionName": "会計部門",
+      "divisionColor": "pink",
       "numMembers": 388,
       "numDepartments": 11
     },
     {
       "__typename": "Division",
       "divisionName": "法務部門",
+      "divisionColor": "black",
       "numMembers": 81,
       "numDepartments": 4
     },
     {
       "__typename": "Division",
       "divisionName": "IT部門",
+      "divisionColor": "orange",
       "numMembers": 982,
       "numDepartments": 17
     },
     {
       "__typename": "Division",
       "divisionName": "社長室",
+      "divisionColor": "emeraldgreen",
       "numMembers": 17,
       "numDepartments": 3
     }

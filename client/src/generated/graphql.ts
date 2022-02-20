@@ -30,6 +30,7 @@ export type AnotherType = {
 export type Division = {
   __typename?: "Division";
   another: Maybe<AnotherType>;
+  divisionColor: Maybe<Scalars["String"]>;
   divisionName: Maybe<Scalars["String"]>;
   numDepartments: Maybe<Scalars["Int"]>;
   numMembers: Maybe<Scalars["Int"]>;
@@ -45,6 +46,7 @@ export type DivisionComponentFragment = {
   divisionName: string | null;
   numDepartments: number | null;
   numMembers: number | null;
+  divisionColor: string | null;
 };
 
 export type DivisionListComponentFragment = {
@@ -61,6 +63,7 @@ export type GetDivisionsQuery = {
     divisionName: string | null;
     numDepartments: number | null;
     numMembers: number | null;
+    divisionColor: string | null;
   } | null> | null;
 };
 
@@ -69,6 +72,7 @@ export const DivisionComponentFragmentDoc = gql`
     divisionName
     numDepartments
     numMembers
+    divisionColor
   }
 `;
 export const DivisionListComponentFragmentDoc = gql`

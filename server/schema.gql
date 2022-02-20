@@ -6,6 +6,7 @@ type Division {
   divisionName: String
   numMembers: Int
   numDepartments: Int
+  divisionColor: String
   another: AnotherType
 }
 

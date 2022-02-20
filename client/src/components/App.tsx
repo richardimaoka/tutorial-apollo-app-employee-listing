@@ -1,7 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HeaderContainer } from "./HeaderContainer";
-import { CompanyWideContainer } from "./CompanWideContainer";
+import { CompanyWideContainer } from "./company/CompanWideContainer";
 import { DivisionPage } from "./DivisionPage";
 
 const client = new ApolloClient({

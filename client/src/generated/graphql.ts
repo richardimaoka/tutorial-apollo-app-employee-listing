@@ -68,20 +68,6 @@ export type BreadcrumbContainerFragment = {
   divisionDisplayName: string | null;
 };
 
-export type GetDivisionsQueryVariables = Exact<{ [key: string]: never }>;
-
-export type GetDivisionsQuery = {
-  __typename?: "Query";
-  divisions: Array<{
-    __typename?: "Division";
-    divisionDisplayName: string | null;
-    divisionName: string | null;
-    numDepartments: number | null;
-    numMembers: number | null;
-    divisionColor: string | null;
-  } | null> | null;
-};
-
 export type DivisionComponentFragment = {
   __typename?: "Division";
   divisionDisplayName: string | null;
@@ -163,6 +149,20 @@ export type MemberComponentFragment = {
   imageUrl: string | null;
 };
 
+export type GetDivisionsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetDivisionsQuery = {
+  __typename?: "Query";
+  divisions: Array<{
+    __typename?: "Division";
+    divisionDisplayName: string | null;
+    divisionName: string | null;
+    numDepartments: number | null;
+    numMembers: number | null;
+    divisionColor: string | null;
+  } | null> | null;
+};
+
 export const BreadcrumbContainerFragmentDoc = gql`
   fragment BreadcrumbContainer on Division {
     divisionName
@@ -208,64 +208,6 @@ export const DivisionSideBarFragmentDoc = gql`
     }
   }
 `;
-export const GetDivisionsDocument = gql`
-  query GetDivisions {
-    divisions {
-      ...DivisionComponent
-    }
-  }
-  ${DivisionComponentFragmentDoc}
-`;
-
-/**
- * __useGetDivisionsQuery__
- *
- * To run a query within a React component, call `useGetDivisionsQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetDivisionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useGetDivisionsQuery({
- *   variables: {
- *   },
- * });
- */
-export function useGetDivisionsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetDivisionsQuery,
-    GetDivisionsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetDivisionsQuery, GetDivisionsQueryVariables>(
-    GetDivisionsDocument,
-    options
-  );
-}
-export function useGetDivisionsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetDivisionsQuery,
-    GetDivisionsQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetDivisionsQuery, GetDivisionsQueryVariables>(
-    GetDivisionsDocument,
-    options
-  );
-}
-export type GetDivisionsQueryHookResult = ReturnType<
-  typeof useGetDivisionsQuery
->;
-export type GetDivisionsLazyQueryHookResult = ReturnType<
-  typeof useGetDivisionsLazyQuery
->;
-export type GetDivisionsQueryResult = Apollo.QueryResult<
-  GetDivisionsQuery,
-  GetDivisionsQueryVariables
->;
 export const GetSingleDivisionDocument = gql`
   query GetSingleDivision($divisionName: String) {
     divisions {
@@ -330,4 +272,62 @@ export type GetSingleDivisionLazyQueryHookResult = ReturnType<
 export type GetSingleDivisionQueryResult = Apollo.QueryResult<
   GetSingleDivisionQuery,
   GetSingleDivisionQueryVariables
+>;
+export const GetDivisionsDocument = gql`
+  query GetDivisions {
+    divisions {
+      ...DivisionComponent
+    }
+  }
+  ${DivisionComponentFragmentDoc}
+`;
+
+/**
+ * __useGetDivisionsQuery__
+ *
+ * To run a query within a React component, call `useGetDivisionsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetDivisionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetDivisionsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetDivisionsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetDivisionsQuery,
+    GetDivisionsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetDivisionsQuery, GetDivisionsQueryVariables>(
+    GetDivisionsDocument,
+    options
+  );
+}
+export function useGetDivisionsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetDivisionsQuery,
+    GetDivisionsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetDivisionsQuery, GetDivisionsQueryVariables>(
+    GetDivisionsDocument,
+    options
+  );
+}
+export type GetDivisionsQueryHookResult = ReturnType<
+  typeof useGetDivisionsQuery
+>;
+export type GetDivisionsLazyQueryHookResult = ReturnType<
+  typeof useGetDivisionsLazyQuery
+>;
+export type GetDivisionsQueryResult = Apollo.QueryResult<
+  GetDivisionsQuery,
+  GetDivisionsQueryVariables
 >;

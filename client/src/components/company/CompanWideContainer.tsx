@@ -2,9 +2,9 @@ import { gql } from "@apollo/client";
 import {
   DivisionComponentFragment,
   useGetDivisionsQuery,
-} from "../generated/graphql";
-import { excludeNullElements } from "../utils/arrayUtils";
-import { DivisionComponent } from "./DivisionComponent";
+} from "../../generated/graphql";
+import { excludeNullElements } from "../../utils/arrayUtils";
+import { DivisionComponent } from "../DivisionComponent";
 
 //This is read by GraphQL codegen to generate types
 gql`

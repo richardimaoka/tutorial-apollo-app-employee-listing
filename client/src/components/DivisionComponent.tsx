@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import { DivisionComponentFragment } from "../generated/graphql";
+import { DepartmentsIcon } from "./DepartmentsIcon";
 
 export interface DivisionComponentProps {
   fragment: DivisionComponentFragment;
@@ -32,6 +33,10 @@ export const DivisionComponent = ({
           >
             {fragment.divisionName}
           </span>
+          <div style={{ marginTop: "8px" }}>
+            <DepartmentsIcon />
+            <span>18人</span>
+          </div>
         </div>
       </div>
     </div>

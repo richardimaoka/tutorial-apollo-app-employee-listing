@@ -12,67 +12,89 @@
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "title": "アソシエイト",
+          "location": "東京",
+          "telephone": "03-12xy-45ab",
+          "mailAddress": "richard.imaoka@mondrickson.com",
+          "imageUrl": "http://localhost:8080/images/face0.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face1.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face2.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face3.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face4.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face5.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face6.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face7.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face8.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face9.jpg"
         },
         {
           "__typename": "Member",
           "name": "リチャード 伊真岡",
           "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face10.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "リチャード 伊真岡",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face11.jpg"
         }
       ],
       "departments": [

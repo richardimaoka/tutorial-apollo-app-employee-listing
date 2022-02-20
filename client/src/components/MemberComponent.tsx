@@ -13,14 +13,25 @@ export const MemberComponent = ({ fragment }: MemberComponentProps) => {
         wordWrap: "break-word",
       }}
     >
-      <div style={{ backgroundColor: "#ffffff", margin: "8px" }}>
-        <div>{fragment.name}</div>
-        <div>{fragment.title}</div>
-        <div>{fragment.divisionDisplayName}</div>
-        <div>{fragment.departmentDisplayName}</div>
-        <div>{fragment.location}</div>
-        <div>{fragment.telephone}</div>
-        <div>{fragment.mailAddress}</div>
+      <div
+        style={{ backgroundColor: "#ffffff", margin: "8px", display: "flex" }}
+      >
+        <div>
+          {fragment.imageUrl ? (
+            <img width="100px" src={fragment.imageUrl} />
+          ) : (
+            <></>
+          )}
+        </div>
+        <div>
+          <div>{fragment.name}</div>
+          <div>{fragment.title}</div>
+          <div>{fragment.divisionDisplayName}</div>
+          <div>{fragment.departmentDisplayName}</div>
+          <div>{fragment.location}</div>
+          <div>{fragment.telephone}</div>
+          <div>{fragment.mailAddress}</div>
+        </div>
       </div>
     </div>
   );
@@ -35,5 +46,6 @@ MemberComponent.fragment = gql`
     location
     telephone
     mailAddress
+    imageUrl
   }
 `;

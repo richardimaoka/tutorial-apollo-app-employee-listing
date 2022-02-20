@@ -25,4 +25,5 @@ type Member {
   location: String
   telephone: String
   mailAddress: String
+  imageUrl: String
 }

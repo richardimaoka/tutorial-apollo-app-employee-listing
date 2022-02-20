@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const HeaderContainer = () => {
   return (
     <header
@@ -13,16 +15,23 @@ export const HeaderContainer = () => {
           display: "flex", //vertically center the company name
         }}
       >
-        <span
+        <div
           style={{
             margin: "auto 0", //vertically center the company name
-            color: "#f3f3f3",
-            fontSize: "28px",
-            fontFamily: "'Zen Antique Soft', serif",
           }}
         >
-          モンドリクソン・アンド・カンパニー・ジャパン株式会社
-        </span>
+          <Link style={{ textDecoration: "none" }} to="/">
+            <span
+              style={{
+                color: "#f3f3f3",
+                fontSize: "28px",
+                fontFamily: "'Zen Antique Soft', serif",
+              }}
+            >
+              モンドリクソン・アンド・カンパニー・ジャパン株式会社
+            </span>
+          </Link>
+        </div>
       </div>
     </header>
   );

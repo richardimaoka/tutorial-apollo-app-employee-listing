@@ -1,12 +1,19 @@
-const InnerComponent = (): JSX.Element => {
+import { useParams } from "react-router-dom";
+
+interface InnerComponentProps {
+  divisionName: string;
+}
+
+const InnerComponent = ({ divisionName }: InnerComponentProps): JSX.Element => {
   return (
     <div>
-      <span>&gt;トレーディング部門</span>
+      <span>&gt;{divisionName}</span>
     </div>
   );
 };
 
 export const BreadCrumbContainer = (): JSX.Element => {
+  const params = useParams<"divisionName">();
   return (
     <main
       style={{
@@ -16,7 +23,11 @@ export const BreadCrumbContainer = (): JSX.Element => {
       }}
     >
       <div>
-        <InnerComponent />
+        {params.divisionName ? (
+          <InnerComponent divisionName={params.divisionName} />
+        ) : (
+          <></>
+        )}
       </div>
     </main>
   );

@@ -6,14 +6,17 @@ type Query {
 type Division {
   divisionName: String
   divisionDisplayName: String
-  numMembers: Int
-  numDepartments: Int
   divisionColor: String
+  numDepartments: Int
+  departments: [Department]
+  numMembers: Int
   members: [Member]
 }
 
-type Deparment {
+type Department {
   departmentName: String
+  departmentDisplayName: String
+  numMembers: Int
   members: [Member]
 }
 

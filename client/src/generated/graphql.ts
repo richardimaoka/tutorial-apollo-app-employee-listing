@@ -21,14 +21,17 @@ export type Scalars = {
   Float: number;
 };
 
-export type Deparment = {
-  __typename?: "Deparment";
+export type Department = {
+  __typename?: "Department";
+  departmentDisplayName: Maybe<Scalars["String"]>;
   departmentName: Maybe<Scalars["String"]>;
   members: Maybe<Array<Maybe<Member>>>;
+  numMembers: Maybe<Scalars["Int"]>;
 };
 
 export type Division = {
   __typename?: "Division";
+  departments: Maybe<Array<Maybe<Department>>>;
   divisionColor: Maybe<Scalars["String"]>;
   divisionDisplayName: Maybe<Scalars["String"]>;
   divisionName: Maybe<Scalars["String"]>;
@@ -109,6 +112,16 @@ export type GetSingleDivisionQueryVariables = Exact<{
 
 export type GetSingleDivisionQuery = {
   __typename?: "Query";
+  divisions: Array<{
+    __typename?: "Division";
+    divisionName: string | null;
+    divisionDisplayName: string | null;
+    departments: Array<{
+      __typename?: "Department";
+      departmentName: string | null;
+      departmentDisplayName: string | null;
+    } | null> | null;
+  } | null> | null;
   division: {
     __typename?: "Division";
     divisionName: string | null;
@@ -125,6 +138,17 @@ export type GetSingleDivisionQuery = {
       imageUrl: string | null;
     } | null> | null;
   } | null;
+};
+
+export type DivisionSideBarFragment = {
+  __typename?: "Division";
+  divisionName: string | null;
+  divisionDisplayName: string | null;
+  departments: Array<{
+    __typename?: "Department";
+    departmentName: string | null;
+    departmentDisplayName: string | null;
+  } | null> | null;
 };
 
 export type MemberComponentFragment = {
@@ -173,6 +197,16 @@ export const DivisionContainerFragmentDoc = gql`
     }
   }
   ${MemberComponentFragmentDoc}
+`;
+export const DivisionSideBarFragmentDoc = gql`
+  fragment DivisionSideBar on Division {
+    divisionName
+    divisionDisplayName
+    departments {
+      departmentName
+      departmentDisplayName
+    }
+  }
 `;
 export const GetDivisionsDocument = gql`
   query GetDivisions {
@@ -234,11 +268,15 @@ export type GetDivisionsQueryResult = Apollo.QueryResult<
 >;
 export const GetSingleDivisionDocument = gql`
   query GetSingleDivision($divisionName: String) {
+    divisions {
+      ...DivisionSideBar
+    }
     division(divisionName: $divisionName) {
       ...BreadcrumbContainer
       ...DivisionContainer
     }
   }
+  ${DivisionSideBarFragmentDoc}
   ${BreadcrumbContainerFragmentDoc}
   ${DivisionContainerFragmentDoc}
 `;

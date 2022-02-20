@@ -64,6 +64,7 @@ export type GetDivisionsQuery = {
   __typename?: "Query";
   divisions: Array<{
     __typename?: "Division";
+    divisionDisplayName: string | null;
     divisionName: string | null;
     numDepartments: number | null;
     numMembers: number | null;
@@ -73,6 +74,7 @@ export type GetDivisionsQuery = {
 
 export type DivisionComponentFragment = {
   __typename?: "Division";
+  divisionDisplayName: string | null;
   divisionName: string | null;
   numDepartments: number | null;
   numMembers: number | null;
@@ -101,6 +103,7 @@ export type GetSingleDivisionQuery = {
 
 export const DivisionComponentFragmentDoc = gql`
   fragment DivisionComponent on Division {
+    divisionDisplayName
     divisionName
     numDepartments
     numMembers

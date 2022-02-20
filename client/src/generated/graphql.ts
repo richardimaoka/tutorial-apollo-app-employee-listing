@@ -68,15 +68,6 @@ export type BreadcrumbContainerFragment = {
   divisionDisplayName: string | null;
 };
 
-export type DivisionComponentFragment = {
-  __typename?: "Division";
-  divisionDisplayName: string | null;
-  divisionName: string | null;
-  numDepartments: number | null;
-  numMembers: number | null;
-  divisionColor: string | null;
-};
-
 export type DivisionContainerFragment = {
   __typename?: "Division";
   members: Array<{
@@ -163,19 +154,19 @@ export type GetDivisionsQuery = {
   } | null> | null;
 };
 
+export type DivisionComponentFragment = {
+  __typename?: "Division";
+  divisionDisplayName: string | null;
+  divisionName: string | null;
+  numDepartments: number | null;
+  numMembers: number | null;
+  divisionColor: string | null;
+};
+
 export const BreadcrumbContainerFragmentDoc = gql`
   fragment BreadcrumbContainer on Division {
     divisionName
     divisionDisplayName
-  }
-`;
-export const DivisionComponentFragmentDoc = gql`
-  fragment DivisionComponent on Division {
-    divisionDisplayName
-    divisionName
-    numDepartments
-    numMembers
-    divisionColor
   }
 `;
 export const MemberComponentFragmentDoc = gql`
@@ -206,6 +197,15 @@ export const DivisionSideBarFragmentDoc = gql`
       departmentName
       departmentDisplayName
     }
+  }
+`;
+export const DivisionComponentFragmentDoc = gql`
+  fragment DivisionComponent on Division {
+    divisionDisplayName
+    divisionName
+    numDepartments
+    numMembers
+    divisionColor
   }
 `;
 export const GetSingleDivisionDocument = gql`

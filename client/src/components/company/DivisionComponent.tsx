@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { DivisionComponentFragment } from "../generated/graphql";
+import { DivisionComponentFragment } from "../../generated/graphql";
 import { DepartmentsIcon } from "./DepartmentsIcon";
 import { MembersIcon } from "./MembersIcon";
 

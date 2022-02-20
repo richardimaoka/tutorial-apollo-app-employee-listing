@@ -4,7 +4,7 @@ import {
   useGetDivisionsQuery,
 } from "../../generated/graphql";
 import { excludeNullElements } from "../../utils/arrayUtils";
-import { DivisionComponent } from "../DivisionComponent";
+import { DivisionComponent } from "./DivisionComponent";
 
 //This is read by GraphQL codegen to generate types
 gql`

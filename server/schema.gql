@@ -19,8 +19,8 @@ type Deparment {
 
 type Member {
   name: String
-  divisionName: String
-  departmentName: String
+  divisionDisplayName: String
+  departmentDisplayName: String
   title: String
   location: String
   telephone: String

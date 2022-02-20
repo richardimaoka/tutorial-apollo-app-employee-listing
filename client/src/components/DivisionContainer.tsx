@@ -17,7 +17,7 @@ gql`
       numDepartments
       divisionColor
       members {
-        name
+        ...MemberComponent
       }
     }
   }

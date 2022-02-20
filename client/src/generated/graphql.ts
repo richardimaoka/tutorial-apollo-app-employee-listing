@@ -39,8 +39,8 @@ export type Division = {
 
 export type Member = {
   __typename?: "Member";
-  departmentName: Maybe<Scalars["String"]>;
-  divisionName: Maybe<Scalars["String"]>;
+  departmentDisplayName: Maybe<Scalars["String"]>;
+  divisionDisplayName: Maybe<Scalars["String"]>;
   location: Maybe<Scalars["String"]>;
   mailAddress: Maybe<Scalars["String"]>;
   name: Maybe<Scalars["String"]>;
@@ -97,6 +97,12 @@ export type GetSingleDivisionQuery = {
     members: Array<{
       __typename?: "Member";
       name: string | null;
+      divisionDisplayName: string | null;
+      departmentDisplayName: string | null;
+      title: string | null;
+      location: string | null;
+      telephone: string | null;
+      mailAddress: string | null;
     } | null> | null;
   } | null;
 };
@@ -104,6 +110,12 @@ export type GetSingleDivisionQuery = {
 export type MemberComponentFragment = {
   __typename?: "Member";
   name: string | null;
+  divisionDisplayName: string | null;
+  departmentDisplayName: string | null;
+  title: string | null;
+  location: string | null;
+  telephone: string | null;
+  mailAddress: string | null;
 };
 
 export const DivisionComponentFragmentDoc = gql`
@@ -118,6 +130,12 @@ export const DivisionComponentFragmentDoc = gql`
 export const MemberComponentFragmentDoc = gql`
   fragment MemberComponent on Member {
     name
+    divisionDisplayName
+    departmentDisplayName
+    title
+    location
+    telephone
+    mailAddress
   }
 `;
 export const GetDivisionsDocument = gql`
@@ -187,10 +205,11 @@ export const GetSingleDivisionDocument = gql`
       numDepartments
       divisionColor
       members {
-        name
+        ...MemberComponent
       }
     }
   }
+  ${MemberComponentFragmentDoc}
 `;
 
 /**

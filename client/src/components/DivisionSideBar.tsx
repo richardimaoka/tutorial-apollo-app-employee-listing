@@ -4,16 +4,10 @@ const InnerComponent = (): JSX.Element => {
 
 export const DivisionSideBar = (): JSX.Element => {
   return (
-    <main
-      style={{
-        width: "1080px",
-        margin: "0 auto",
-        padding: "10px 0",
-      }}
-    >
+    <nav>
       <div>
         <InnerComponent />
       </div>
-    </main>
+    </nav>
   );
 };

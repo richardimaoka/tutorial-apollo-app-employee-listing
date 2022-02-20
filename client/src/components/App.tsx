@@ -2,9 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HeaderContainer } from "./HeaderContainer";
 import { CompanyWideContainer } from "./CompanWideContainer";
-import { DivisionContainer } from "./DivisionContainer";
-import { DivisionSideBar } from "./DivisionSideBar";
-import { BreadCrumbContainer } from "./BreadCrumbContainer";
+import { DivisionPage } from "./DivisionPage";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",
@@ -18,16 +16,7 @@ export const App = (): JSX.Element => {
         <HeaderContainer />
         <Routes>
           <Route path="/" element={<CompanyWideContainer />} />
-          <Route
-            path=":divisionName"
-            element={
-              <>
-                <BreadCrumbContainer />
-                <DivisionSideBar />
-                <DivisionContainer />
-              </>
-            }
-          />
+          <Route path=":divisionName" element={<DivisionPage />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>

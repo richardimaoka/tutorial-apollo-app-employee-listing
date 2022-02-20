@@ -1,7 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HeaderContainer } from "./HeaderContainer";
-import { CompanyWideContainer } from "./company/CompanWideContainer";
+import { CompanyPage } from "./company/CompanyPage";
 import { DivisionPage } from "./DivisionPage";
 
 const client = new ApolloClient({
@@ -15,7 +15,7 @@ export const App = (): JSX.Element => {
       <BrowserRouter>
         <HeaderContainer />
         <Routes>
-          <Route path="/" element={<CompanyWideContainer />} />
+          <Route path="/" element={<CompanyPage />} />
           <Route path=":divisionName" element={<DivisionPage />} />
         </Routes>
       </BrowserRouter>

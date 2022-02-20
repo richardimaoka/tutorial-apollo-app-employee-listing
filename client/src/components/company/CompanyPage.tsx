@@ -40,7 +40,7 @@ const InnerComponent = (): JSX.Element => {
   }
 };
 
-export const CompanyWideContainer = (): JSX.Element => {
+export const CompanyPage = (): JSX.Element => {
   return (
     <main
       style={{

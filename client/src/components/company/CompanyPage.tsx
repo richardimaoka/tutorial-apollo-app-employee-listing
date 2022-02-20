@@ -1,20 +1,20 @@
 import { gql } from "@apollo/client";
 import {
-  DivisionComponentFragment,
+  DivisionCardFragment,
   useGetDivisionsQuery,
 } from "../../generated/graphql";
 import { excludeNullElements } from "../../utils/arrayUtils";
-import { DivisionComponent } from "./DivisionComponent";
+import { DivisionCard } from "./DivisionCard";
 
 //This is read by GraphQL codegen to generate types
 gql`
   query GetDivisions {
     divisions {
-      ...DivisionComponent
+      ...DivisionCard
     }
   }
 
-  ${DivisionComponent.fragment}
+  ${DivisionCard.fragment}
 `;
 
 const InnerComponent = (): JSX.Element => {
@@ -27,13 +27,13 @@ const InnerComponent = (): JSX.Element => {
   } else if (!data || !data.divisions) {
     return <></>;
   } else {
-    const nonNullList = excludeNullElements<DivisionComponentFragment>(
+    const nonNullList = excludeNullElements<DivisionCardFragment>(
       data.divisions
     );
     return (
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {nonNullList.map((x) => (
-          <DivisionComponent key={x.divisionName} fragment={x} />
+          <DivisionCard key={x.divisionName} fragment={x} />
         ))}
       </div>
     );

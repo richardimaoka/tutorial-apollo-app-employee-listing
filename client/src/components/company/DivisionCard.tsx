@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { DivisionComponentFragment } from "../../generated/graphql";
+import { DivisionCardFragment } from "../../generated/graphql";
 import { DepartmentsIcon } from "./DepartmentsIcon";
 import { MembersIcon } from "./MembersIcon";
 
-export interface DivisionComponentProps {
-  fragment: DivisionComponentFragment;
+export interface DivisionCardProps {
+  fragment: DivisionCardFragment;
 }
 
 const divisionColorCode = (colorName: string | null): string => {
@@ -31,9 +31,7 @@ const divisionColorCode = (colorName: string | null): string => {
   }
 };
 
-export const DivisionComponent = ({
-  fragment,
-}: DivisionComponentProps): JSX.Element => {
+export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
   const divisionColor = divisionColorCode(fragment.divisionColor);
   return (
     <div
@@ -85,8 +83,8 @@ export const DivisionComponent = ({
   );
 };
 
-DivisionComponent.fragment = gql`
-  fragment DivisionComponent on Division {
+DivisionCard.fragment = gql`
+  fragment DivisionCard on Division {
     divisionDisplayName
     divisionName
     numDepartments

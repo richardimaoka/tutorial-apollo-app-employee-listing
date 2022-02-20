@@ -154,7 +154,7 @@ export type GetDivisionsQuery = {
   } | null> | null;
 };
 
-export type DivisionComponentFragment = {
+export type DivisionCardFragment = {
   __typename?: "Division";
   divisionDisplayName: string | null;
   divisionName: string | null;
@@ -199,8 +199,8 @@ export const DivisionSideBarFragmentDoc = gql`
     }
   }
 `;
-export const DivisionComponentFragmentDoc = gql`
-  fragment DivisionComponent on Division {
+export const DivisionCardFragmentDoc = gql`
+  fragment DivisionCard on Division {
     divisionDisplayName
     divisionName
     numDepartments
@@ -276,10 +276,10 @@ export type GetSingleDivisionQueryResult = Apollo.QueryResult<
 export const GetDivisionsDocument = gql`
   query GetDivisions {
     divisions {
-      ...DivisionComponent
+      ...DivisionCard
     }
   }
-  ${DivisionComponentFragmentDoc}
+  ${DivisionCardFragmentDoc}
 `;
 
 /**

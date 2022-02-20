@@ -99,22 +99,12 @@ export type GetSingleDivisionQuery = {
   } | null;
 };
 
-export type DivisionListComponentFragment = {
-  __typename?: "Division";
-  divisionName: string | null;
-};
-
 export const DivisionComponentFragmentDoc = gql`
   fragment DivisionComponent on Division {
     divisionName
     numDepartments
     numMembers
     divisionColor
-  }
-`;
-export const DivisionListComponentFragmentDoc = gql`
-  fragment DivisionListComponent on Division {
-    divisionName
   }
 `;
 export const GetDivisionsDocument = gql`

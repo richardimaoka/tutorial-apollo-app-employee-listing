@@ -1,7 +1,10 @@
-import { gql, useQuery } from "@apollo/client";
-import { useGetDivisionsQuery } from "../generated/graphql";
+import { gql } from "@apollo/client";
+import {
+  DivisionComponentFragment,
+  useGetDivisionsQuery,
+} from "../generated/graphql";
+import { excludeNullElements } from "../utils/arrayUtils";
 import { DivisionComponent } from "./DivisionComponent";
-import { DivisionListComponent } from "./DivisionListComponent";
 
 //This is read by GraphQL codegen to generate types
 gql`
@@ -24,7 +27,20 @@ const InnerComponent = (): JSX.Element => {
   } else if (!data || !data.divisions) {
     return <></>;
   } else {
-    return <DivisionListComponent list={data.divisions} />;
+    const nonNullList = excludeNullElements<DivisionComponentFragment>(
+      data.divisions
+    );
+    if (nonNullList.length === 0) {
+      return <></>;
+    } else {
+      return (
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {nonNullList.map((x) => (
+            <DivisionComponent fragment={x} />
+          ))}
+        </div>
+      );
+    }
   }
 };
 
@@ -37,9 +53,7 @@ export const CompanyWideContainer = (): JSX.Element => {
         padding: "10px 0",
       }}
     >
-      <div>
-        <InnerComponent />
-      </div>
+      <InnerComponent />
     </main>
   );
 };

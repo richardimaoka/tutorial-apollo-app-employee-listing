@@ -1,0 +1,172 @@
+{
+  "divisions": [
+    {
+      "__typename": "Division",
+      "divisionName": "trading",
+      "divisionDisplayName": "トレーディング部門",
+      "divisionColor": "blue",
+      "numMembers": 180,
+      "numDepartments": 9,
+      "members": [
+        {
+          "__typename": "Member",
+          "name": "リチャード 伊真岡",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "title": "アソシエイト",
+          "location": "東京",
+          "telephone": "03-12xy-45ab",
+          "mailAddress": "richard.imaoka@mondrickson.com",
+          "imageUrl": "http://localhost:8080/images/face0.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "アデリーン リン",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face1.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "ケイコ ハワード",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face2.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "キャシー イヴ",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face3.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "ジョン 中谷",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face4.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "カトリーヌ エヴァンス",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face5.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "達郎 モーガン",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face6.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "ケイト 羽賀",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face7.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "井波 美津子",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face8.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "サトシ キジマ",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face9.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "サーシャ ホワイト",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face10.jpg"
+        },
+        {
+          "__typename": "Member",
+          "name": "サラ ロング",
+          "divisionDisplayName": "トレーディング部門",
+          "departmentDisplayName": "為替トレーディング部",
+          "imageUrl": "http://localhost:8080/images/face11.jpg"
+        }
+      ],
+      "departments": [
+        {
+          "__typename": "Deparments",
+          "departmentDisplayName": "為替トレーディング部",
+          "members": [
+            {
+              "__typename": "Member",
+              "name": "リチャード 伊真岡",
+              "divisionDisplayName": "トレーディング部門",
+              "departmentDisplayName": "為替トレーディング部"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "sales",
+      "divisionDisplayName": "セールス部門",
+      "divisionColor": "purple",
+      "numMembers": 340,
+      "numDepartments": 19
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "operations",
+      "divisionDisplayName": "業務部門",
+      "divisionColor": "green",
+      "numMembers": 1035,
+      "numDepartments": 50
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "risk-management",
+      "divisionDisplayName": "リスク管理部門",
+      "divisionColor": "red",
+      "numMembers": 299,
+      "numDepartments": 8
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "accounting",
+      "divisionDisplayName": "会計部門",
+      "divisionColor": "pink",
+      "numMembers": 388,
+      "numDepartments": 11
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "legal",
+      "divisionDisplayName": "法務部門",
+      "divisionColor": "black",
+      "numMembers": 81,
+      "numDepartments": 4
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "information-technology",
+      "divisionDisplayName": "IT部門",
+      "divisionColor": "orange",
+      "numMembers": 982,
+      "numDepartments": 17
+    },
+    {
+      "__typename": "Division",
+      "divisionName": "executive-office",
+      "divisionDisplayName": "社長室",
+      "divisionColor": "emeraldgreen",
+      "numMembers": 17,
+      "numDepartments": 3
+    }
+  ]
+}

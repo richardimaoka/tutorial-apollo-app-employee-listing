@@ -8,7 +8,7 @@ export interface DivisionSideBarDepartmentComponentProps {
 export const DivisionSideBarDepartmentComponent = ({
   fragment,
 }: DivisionSideBarDepartmentComponentProps) => {
-  return <></>;
+  return <div>{fragment.departmentDisplayName}</div>;
 };
 
 DivisionSideBarDepartmentComponent.fragment = gql`

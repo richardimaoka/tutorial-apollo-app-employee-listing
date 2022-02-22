@@ -13,11 +13,17 @@ export const DivisionSideBar = ({
   fragments,
 }: DivisionSideBarProps): JSX.Element => {
   const nonNullList = excludeNullElements<DivisionSideBarFragment>(fragments);
+  console.log(nonNullList);
   return (
     <nav>
-      <div style={{ width: DivisionSideBarWidth }}>
-        {nonNullList.map((x) => (
-          <DivisionSideBarDivisionComponent key={x.divisionName} fragment={x} />
+      <div
+        style={{
+          width: DivisionSideBarWidth,
+          marginTop: "8px",
+        }}
+      >
+        {nonNullList.map((x, index) => (
+          <DivisionSideBarDivisionComponent key={index} fragment={x} />
         ))}
       </div>
     </nav>

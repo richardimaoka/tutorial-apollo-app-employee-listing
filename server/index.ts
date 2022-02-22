@@ -32,7 +32,6 @@ const resolvers = {
     ): Promise<Division> => {
       console.log("divisionName = ", args.divisionName);
       if (args.divisionName === "trading") {
-        console.log("ddfsdfdsfsdfsdvisionName = ", context.tradingDivision);
         return context.tradingDivision;
       } else {
         throw new Error(

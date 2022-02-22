@@ -14,27 +14,33 @@ export interface DivisionSideBarDivisionComponentProps {
 export const DivisionSideBarDivisionComponent = ({
   fragment,
 }: DivisionSideBarDivisionComponentProps) => {
-  if (!fragment.departments) {
-    return <></>;
-  } else {
-    const departments =
-      excludeNullElements<DivisionSideBarDepartmentComponentFragment>(
+  const departments = fragment.departments
+    ? excludeNullElements<DivisionSideBarDepartmentComponentFragment>(
         fragment.departments
-      );
-    return (
-      <>
-        <div>
-          <a href="">{fragment.divisionDisplayName}</a>
-        </div>
-        {departments.map((d) => (
-          <DivisionSideBarDepartmentComponent
-            key={d.departmentName}
-            fragment={d}
-          />
-        ))}
-      </>
-    );
-  }
+      )
+    : [];
+
+  return (
+    <>
+      <div
+        style={{
+          backgroundColor: "#1470C3",
+          padding: "2px 4px",
+          marginBottom: "1px",
+        }}
+      >
+        <a style={{ color: "#ffffff" }} href="">
+          {fragment.divisionDisplayName}
+        </a>
+      </div>
+      {departments.map((d) => (
+        <DivisionSideBarDepartmentComponent
+          key={d.departmentName}
+          fragment={d}
+        />
+      ))}
+    </>
+  );
 };
 
 DivisionSideBarDivisionComponent.fragment = gql`

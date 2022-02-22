@@ -4,20 +4,6 @@
   "divisionDisplayName": "トレーディング部門",
   "divisionColor": "blue",
   "numDepartmens": 9,
-  "departments": [
-    {
-      "__typename": "Deparments",
-      "departmentDisplayName": "為替トレーディング部",
-      "members": [
-        {
-          "__typename": "Member",
-          "name": "リチャード 伊真岡",
-          "divisionDisplayName": "トレーディング部門",
-          "departmentDisplayName": "為替トレーディング部"
-        }
-      ]
-    }
-  ],
   "numMembers": 180,
   "members": [
     {

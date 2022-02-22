@@ -1,4 +1,5 @@
 import { gql } from "@apollo/client";
+import { Link } from "react-router-dom";
 import { DivisionSideBarDepartmentComponentFragment } from "../../generated/graphql";
 
 export interface DivisionSideBarDepartmentComponentProps {
@@ -12,11 +13,16 @@ export const DivisionSideBarDepartmentComponent = ({
     <div
       style={{
         backgroundColor: "#ffffff",
-        padding: "2px 4px",
+        padding: "8px",
         marginBottom: "1px",
       }}
     >
-      <a href="">{fragment.departmentDisplayName}</a>
+      <Link
+        style={{ textDecorationColor: "#dbe1f1", color: "#050505" }}
+        to={`${fragment.departmentName}`}
+      >
+        {fragment.departmentDisplayName}
+      </Link>
     </div>
   );
 };

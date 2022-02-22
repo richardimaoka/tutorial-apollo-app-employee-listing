@@ -20,8 +20,7 @@ const SelectedDivisionComponent = ({
     <div
       style={{
         backgroundColor: "#1470C3",
-        padding: "2px 4px",
-        marginBottom: "1px",
+        padding: "8px",
         color: "#ffffff",
       }}
     >
@@ -38,12 +37,11 @@ const NonSelectedDivisionComponent = ({
   return (
     <div
       style={{
-        backgroundColor: "#3277b3",
-        padding: "2px 4px",
-        marginBottom: "1px",
+        backgroundColor: "#1470C3",
+        padding: "8px",
       }}
     >
-      <a style={{ color: "#ffffff" }} href="">
+      <a style={{ color: "#ffffff", textDecorationColor: "#89a3eb" }} href="">
         {fragment.divisionDisplayName}
       </a>
     </div>
@@ -61,7 +59,7 @@ export const DivisionSideBarDivisionComponent = ({
     : [];
 
   return (
-    <>
+    <div style={{ marginBottom: "16px" }}>
       {fragment.divisionName === selectedDivision ? (
         <SelectedDivisionComponent fragment={fragment} />
       ) : (
@@ -73,7 +71,7 @@ export const DivisionSideBarDivisionComponent = ({
           fragment={d}
         />
       ))}
-    </>
+    </div>
   );
 };
 

@@ -20,9 +20,10 @@ gql`
 
 export const DivisionPage = (): JSX.Element => {
   const params = useParams<"divisionName">();
+  const divisionName = params.divisionName ? params.divisionName : "";
   const { loading, error, data } = useGetSingleDivisionQuery({
     variables: {
-      divisionName: params.divisionName ? params.divisionName : "",
+      divisionName,
     },
   });
 
@@ -35,7 +36,10 @@ export const DivisionPage = (): JSX.Element => {
   } else {
     return (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <DivisionSideBar fragments={data.divisions} />
+        <DivisionSideBar
+          fragments={data.divisions}
+          selectedDivision={divisionName}
+        />
         <div>
           <BreadcrumbContainer fragment={data.division} />
           <DivisionContainer fragment={data.division} />

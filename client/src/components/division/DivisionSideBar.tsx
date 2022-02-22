@@ -5,12 +5,14 @@ import { DivisionSideBarDivisionComponent } from "./DivisionSideBarDivisionCompo
 
 interface DivisionSideBarProps {
   fragments: (DivisionSideBarFragment | null)[];
+  selectedDivision: string;
 }
 
 export const DivisionSideBarWidth = "200px";
 
 export const DivisionSideBar = ({
   fragments,
+  selectedDivision,
 }: DivisionSideBarProps): JSX.Element => {
   const nonNullList = excludeNullElements<DivisionSideBarFragment>(fragments);
   console.log(nonNullList);
@@ -19,11 +21,15 @@ export const DivisionSideBar = ({
       <div
         style={{
           width: DivisionSideBarWidth,
-          marginTop: "8px",
+          marginTop: "40px",
         }}
       >
         {nonNullList.map((x, index) => (
-          <DivisionSideBarDivisionComponent key={index} fragment={x} />
+          <DivisionSideBarDivisionComponent
+            key={index}
+            fragment={x}
+            selectedDivision={selectedDivision}
+          />
         ))}
       </div>
     </nav>

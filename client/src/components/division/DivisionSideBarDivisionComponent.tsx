@@ -1,6 +1,5 @@
 import { gql } from "@apollo/client";
 import {
-  Department,
   DivisionSideBarDepartmentComponentFragment,
   DivisionSideBarDivisionComponentFragment,
 } from "../../generated/graphql";
@@ -9,11 +8,52 @@ import { DivisionSideBarDepartmentComponent } from "./DivisionSideBarDepartmentC
 
 export interface DivisionSideBarDivisionComponentProps {
   fragment: DivisionSideBarDivisionComponentFragment;
+  selectedDivision: string;
 }
+
+const SelectedDivisionComponent = ({
+  fragment,
+}: {
+  fragment: DivisionSideBarDivisionComponentFragment;
+}): JSX.Element => {
+  return (
+    <div
+      style={{
+        backgroundColor: "#1470C3",
+        padding: "2px 4px",
+        marginBottom: "1px",
+        color: "#ffffff",
+      }}
+    >
+      {fragment.divisionDisplayName}
+    </div>
+  );
+};
+
+const NonSelectedDivisionComponent = ({
+  fragment,
+}: {
+  fragment: DivisionSideBarDivisionComponentFragment;
+}): JSX.Element => {
+  return (
+    <div
+      style={{
+        backgroundColor: "#3277b3",
+        padding: "2px 4px",
+        marginBottom: "1px",
+      }}
+    >
+      <a style={{ color: "#ffffff" }} href="">
+        {fragment.divisionDisplayName}
+      </a>
+    </div>
+  );
+};
 
 export const DivisionSideBarDivisionComponent = ({
   fragment,
-}: DivisionSideBarDivisionComponentProps) => {
+  selectedDivision,
+}: DivisionSideBarDivisionComponentProps): JSX.Element => {
   const departments = fragment.departments
     ? excludeNullElements<DivisionSideBarDepartmentComponentFragment>(
         fragment.departments
@@ -22,17 +62,11 @@ export const DivisionSideBarDivisionComponent = ({
 
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#1470C3",
-          padding: "2px 4px",
-          marginBottom: "1px",
-        }}
-      >
-        <a style={{ color: "#ffffff" }} href="">
-          {fragment.divisionDisplayName}
-        </a>
-      </div>
+      {fragment.divisionName === selectedDivision ? (
+        <SelectedDivisionComponent fragment={fragment} />
+      ) : (
+        <NonSelectedDivisionComponent fragment={fragment} />
+      )}
       {departments.map((d) => (
         <DivisionSideBarDepartmentComponent
           key={d.departmentName}

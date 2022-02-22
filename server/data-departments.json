@@ -1,0 +1,26 @@
+[
+  {
+    "__typename": "Department",
+    "departmentName": "currency-trading",
+    "departmentDisplayName": "為替トレーディング部",
+    "numMembers": 180
+  },
+  {
+    "__typename": "Department",
+    "departmentName": "currency-trading",
+    "departmentDisplayName": "債券トレーディング部",
+    "numMembers": 180
+  },
+  {
+    "__typename": "Department",
+    "departmentName": "currency-trading",
+    "departmentDisplayName": "株式トレーディング部",
+    "numMembers": 180
+  },
+  {
+    "__typename": "Department",
+    "departmentName": "currency-trading",
+    "departmentDisplayName": "商品先物トレーディング部",
+    "numMembers": 180
+  }
+]

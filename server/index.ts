@@ -6,12 +6,18 @@ const typeDefs = gql`
 `;
 
 interface Division {
-  divisionNameescription: string;
+  divisionDisplayName: string;
+}
+
+interface Department {
+  departmentDisplayName: string;
 }
 
 interface ServerContext {
   tradingDivision: Division;
+  currencyTradingDepartment: Department;
   divisions: any;
+  departments: any;
 }
 
 const resolvers = {
@@ -39,6 +45,33 @@ const resolvers = {
         );
       }
     },
+    departments: async (
+      parent: any,
+      args: any,
+      context: ServerContext,
+      info: any
+    ): Promise<Division[]> => {
+      return context.departments;
+    },
+    department: async (
+      parent: any,
+      args: { divisionName: string; departmentName: string },
+      context: ServerContext,
+      info: any
+    ): Promise<Department> => {
+      console.log("divisionName = ", args.divisionName);
+      if (
+        args.divisionName === "trading" &&
+        args.departmentName === "currency-trading"
+      ) {
+        return context.currencyTradingDepartment;
+      } else {
+        throw new Error(
+          `divisionName = "${args.divisionName}" & department = ${args.departmentName} was passed, ` +
+            `but currently only divisionName = "trading" & departmentName = "currency-trading" is handled.`
+        );
+      }
+    },
   },
 };
 
@@ -54,9 +87,18 @@ const server = new ApolloServer({
   resolvers,
   context: async ({ req }: any) => {
     try {
-      const tradingDivision = await readJsonFile("/data-trading-division.json");
       const divisions = await readJsonFile("/data-divisions.json");
-      return { tradingDivision, divisions };
+      const tradingDivision = await readJsonFile("/data-trading-division.json");
+      const departments = await readJsonFile("/data-departments.json");
+      const currencyTradingDepartment = await readJsonFile(
+        "/data-currency-trading-department.json"
+      );
+      return {
+        tradingDivision,
+        divisions,
+        departments,
+        currencyTradingDepartment,
+      };
     } catch (err) {
       console.log("***ERROR OCURRED***");
       console.log(err);

@@ -2,7 +2,7 @@
   "divisions": {
     "__typename": "Division",
     "divisionName": "トレーディング部門",
-    "deparments": [
+    "departments": [
       {
         "__typename": "Department",
         "departmentName": "為替トレーディング部"

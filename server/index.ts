@@ -1,41 +1,24 @@
 import { ApolloServer, gql } from "apollo-server";
 import * as fs from "fs";
+import { Department, Division, QueryResolvers } from "./generated/graphql";
 
 const typeDefs = gql`
   ${fs.readFileSync(__dirname.concat("/schema.gql"), "utf8")}
 `;
 
-interface Division {
-  divisionDisplayName: string;
-}
-
-interface Department {
-  departmentDisplayName: string;
-}
-
 interface ServerContext {
   tradingDivision: Division;
   currencyTradingDepartment: Department;
-  divisions: any;
-  departments: any;
+  divisions: Division[];
+  departments: Department[];
 }
 
-const resolvers = {
+const resolvers: { Query: QueryResolvers<ServerContext> } = {
   Query: {
-    divisions: async (
-      parent: any,
-      args: any,
-      context: ServerContext,
-      info: any
-    ): Promise<Division[]> => {
+    divisions: async (parent, args, context, info) => {
       return context.divisions;
     },
-    division: async (
-      parent: any,
-      args: { divisionName: string },
-      context: ServerContext,
-      info: any
-    ): Promise<Division> => {
+    division: async (parent, args, context, info) => {
       console.log("divisionName = ", args.divisionName);
       if (args.divisionName === "trading") {
         return context.tradingDivision;
@@ -45,20 +28,10 @@ const resolvers = {
         );
       }
     },
-    departments: async (
-      parent: any,
-      args: any,
-      context: ServerContext,
-      info: any
-    ): Promise<Division[]> => {
+    departments: async (paremtn, args, context, info) => {
       return context.departments;
     },
-    department: async (
-      parent: any,
-      args: { divisionName: string; departmentName: string },
-      context: ServerContext,
-      info: any
-    ): Promise<Department> => {
+    department: async (paremtn, args, context, info) => {
       console.log("divisionName = ", args.divisionName);
       if (
         args.divisionName === "trading" &&

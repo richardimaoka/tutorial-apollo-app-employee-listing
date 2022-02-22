@@ -17,7 +17,7 @@ export const DivisionSideBar = ({
     <nav>
       <div style={{ width: DivisionSideBarWidth }}>
         {nonNullList.map((x) => (
-          <DivisionSideBarDivisionComponent fragment={x} />
+          <DivisionSideBarDivisionComponent key={x.divisionName} fragment={x} />
         ))}
       </div>
     </nav>

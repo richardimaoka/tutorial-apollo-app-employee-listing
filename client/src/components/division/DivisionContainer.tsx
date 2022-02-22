@@ -25,8 +25,8 @@ export const DivisionContainer = ({
         }}
       >
         <div style={{ display: "flex", flexWrap: "wrap" }}>
-          {nonNullList.map((x) => (
-            <MemberComponent fragment={x} />
+          {nonNullList.map((x, index) => (
+            <MemberComponent key={index} fragment={x} />
           ))}
         </div>
       </main>

@@ -9,30 +9,45 @@ interface Division {
   divisionNameescription: string;
 }
 
+interface ServerContext {
+  tradingDivision: Division;
+  divisions: any;
+}
+
 const resolvers = {
   Query: {
     divisions: async (
       parent: any,
       args: any,
-      context: any,
+      context: ServerContext,
       info: any
     ): Promise<Division[]> => {
-      return context.data.divisions;
+      return context.divisions;
     },
     division: async (
       parent: any,
       args: { divisionName: string },
-      context: any,
+      context: ServerContext,
       info: any
     ): Promise<Division> => {
       console.log("divisionName = ", args.divisionName);
-      const divisionData = context.data.divisions.find(
-        (x: any) => x.divisionName === args.divisionName
-      );
-      console.log(context);
-      return divisionData;
+      if (args.divisionName === "trading") {
+        console.log("ddfsdfdsfsdfsdvisionName = ", context.tradingDivision);
+        return context.tradingDivision;
+      } else {
+        throw new Error(
+          `divisionName = "${args.divisionName}" was passed, but currently on divisionName = "trading" is handled.`
+        );
+      }
     },
   },
+};
+
+const readJsonFile = async (relativeFileName: string): Promise<any> => {
+  const jsonDataFile = __dirname.concat(relativeFileName);
+  const fileContent = await fs.promises.readFile(jsonDataFile, "utf8");
+  const jsonData = JSON.parse(fileContent);
+  return jsonData;
 };
 
 const server = new ApolloServer({
@@ -40,10 +55,9 @@ const server = new ApolloServer({
   resolvers,
   context: async ({ req }: any) => {
     try {
-      const jsonDataFile = __dirname.concat("/data.json");
-      const fileContent = await fs.promises.readFile(jsonDataFile, "utf8");
-      const jsonData = JSON.parse(fileContent);
-      return { data: jsonData };
+      const tradingDivision = await readJsonFile("/data-trading-division.json");
+      const divisions = await readJsonFile("/data-divisions.json");
+      return { tradingDivision, divisions };
     } catch (err) {
       console.log("***ERROR OCURRED***");
       console.log(err);

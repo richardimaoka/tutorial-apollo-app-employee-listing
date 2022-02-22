@@ -27,7 +27,10 @@ export const DivisionSideBarDivisionComponent = ({
           <a href="">{fragment.divisionDisplayName}</a>
         </div>
         {departments.map((d) => (
-          <DivisionSideBarDepartmentComponent fragment={d} />
+          <DivisionSideBarDepartmentComponent
+            key={d.departmentName}
+            fragment={d}
+          />
         ))}
       </>
     );

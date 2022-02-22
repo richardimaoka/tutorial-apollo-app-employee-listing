@@ -17,7 +17,7 @@ gql`
   ${DivisionCard.fragment}
 `;
 
-const InnerComponent = (): JSX.Element => {
+export const CompanyPage = (): JSX.Element => {
   const { loading, error, data } = useGetDivisionsQuery();
 
   if (loading) {
@@ -31,25 +31,19 @@ const InnerComponent = (): JSX.Element => {
       data.divisions
     );
     return (
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {nonNullList.map((x) => (
-          <DivisionCard key={x.divisionName} fragment={x} />
-        ))}
-      </div>
+      <main
+        style={{
+          width: "1080px",
+          margin: "0 auto",
+          padding: "10px 0",
+        }}
+      >
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {nonNullList.map((x) => (
+            <DivisionCard key={x.divisionName} fragment={x} />
+          ))}
+        </div>
+      </main>
     );
   }
-};
-
-export const CompanyPage = (): JSX.Element => {
-  return (
-    <main
-      style={{
-        width: "1080px",
-        margin: "0 auto",
-        padding: "10px 0",
-      }}
-    >
-      <InnerComponent />
-    </main>
-  );
 };

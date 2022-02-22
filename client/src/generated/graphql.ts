@@ -151,6 +151,23 @@ export type DivisionSideBarFragment = {
   } | null> | null;
 };
 
+export type DivisionSideBarDepartmentComponentFragment = {
+  __typename?: "Department";
+  departmentName: string | null;
+  departmentDisplayName: string | null;
+};
+
+export type DivisionSideBarDivisionComponentFragment = {
+  __typename?: "Division";
+  divisionName: string | null;
+  divisionDisplayName: string | null;
+  departments: Array<{
+    __typename?: "Department";
+    departmentName: string | null;
+    departmentDisplayName: string | null;
+  } | null> | null;
+};
+
 export type MemberComponentFragment = {
   __typename?: "Member";
   name: string | null;
@@ -198,15 +215,27 @@ export const DivisionContainerFragmentDoc = gql`
   }
   ${MemberComponentFragmentDoc}
 `;
-export const DivisionSideBarFragmentDoc = gql`
-  fragment DivisionSideBar on Division {
+export const DivisionSideBarDepartmentComponentFragmentDoc = gql`
+  fragment DivisionSideBarDepartmentComponent on Department {
+    departmentName
+    departmentDisplayName
+  }
+`;
+export const DivisionSideBarDivisionComponentFragmentDoc = gql`
+  fragment DivisionSideBarDivisionComponent on Division {
     divisionName
     divisionDisplayName
     departments {
-      departmentName
-      departmentDisplayName
+      ...DivisionSideBarDepartmentComponent
     }
   }
+  ${DivisionSideBarDepartmentComponentFragmentDoc}
+`;
+export const DivisionSideBarFragmentDoc = gql`
+  fragment DivisionSideBar on Division {
+    ...DivisionSideBarDivisionComponent
+  }
+  ${DivisionSideBarDivisionComponentFragmentDoc}
 `;
 export const GetDivisionsDocument = gql`
   query GetDivisions {

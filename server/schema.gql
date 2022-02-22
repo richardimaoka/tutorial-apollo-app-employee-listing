@@ -1,6 +1,8 @@
 type Query {
   divisions: [Division]
   division(divisionName: String): Division
+  departments: [Department]
+  department(divisionName: String, departmentName: String): Department
 }
 
 type Division {

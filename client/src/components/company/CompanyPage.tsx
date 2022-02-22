@@ -4,6 +4,7 @@ import {
   useGetDivisionsQuery,
 } from "../../generated/graphql";
 import { excludeNullElements } from "../../utils/arrayUtils";
+import { HeaderContainer } from "../HeaderContainer";
 import { DivisionCard } from "./DivisionCard";
 
 //This is read by GraphQL codegen to generate types
@@ -31,19 +32,22 @@ export const CompanyPage = (): JSX.Element => {
       data.divisions
     );
     return (
-      <main
-        style={{
-          width: "1080px",
-          margin: "0 auto",
-          padding: "10px 0",
-        }}
-      >
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
-          {nonNullList.map((x) => (
-            <DivisionCard key={x.divisionName} fragment={x} />
-          ))}
-        </div>
-      </main>
+      <>
+        <HeaderContainer />
+        <main
+          style={{
+            width: "1080px",
+            margin: "0 auto",
+            padding: "10px 0",
+          }}
+        >
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            {nonNullList.map((x) => (
+              <DivisionCard key={x.divisionName} fragment={x} />
+            ))}
+          </div>
+        </main>
+      </>
     );
   }
 };

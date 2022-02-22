@@ -54,8 +54,15 @@ export type Member = {
 
 export type Query = {
   __typename?: "Query";
+  department: Maybe<Department>;
+  departments: Maybe<Array<Maybe<Department>>>;
   division: Maybe<Division>;
   divisions: Maybe<Array<Maybe<Division>>>;
+};
+
+export type QueryDepartmentArgs = {
+  departmentName: InputMaybe<Scalars["String"]>;
+  divisionName: InputMaybe<Scalars["String"]>;
 };
 
 export type QueryDivisionArgs = {
@@ -83,6 +90,24 @@ export type DivisionCardFragment = {
   numDepartments: number | null;
   numMembers: number | null;
   divisionColor: string | null;
+};
+
+export type GetSingleDepartmentQueryVariables = Exact<{
+  divisionName: InputMaybe<Scalars["String"]>;
+  departmentName: InputMaybe<Scalars["String"]>;
+}>;
+
+export type GetSingleDepartmentQuery = {
+  __typename?: "Query";
+  departments: Array<{
+    __typename?: "Department";
+    departmentName: string | null;
+    departmentDisplayName: string | null;
+  } | null> | null;
+  department: {
+    __typename?: "Department";
+    departmentName: string | null;
+  } | null;
 };
 
 export type BreadcrumbContainerFragment = {
@@ -294,6 +319,69 @@ export type GetDivisionsLazyQueryHookResult = ReturnType<
 export type GetDivisionsQueryResult = Apollo.QueryResult<
   GetDivisionsQuery,
   GetDivisionsQueryVariables
+>;
+export const GetSingleDepartmentDocument = gql`
+  query GetSingleDepartment($divisionName: String, $departmentName: String) {
+    departments {
+      departmentName
+      departmentDisplayName
+    }
+    department(divisionName: $divisionName, departmentName: $departmentName) {
+      departmentName
+    }
+  }
+`;
+
+/**
+ * __useGetSingleDepartmentQuery__
+ *
+ * To run a query within a React component, call `useGetSingleDepartmentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSingleDepartmentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSingleDepartmentQuery({
+ *   variables: {
+ *      divisionName: // value for 'divisionName'
+ *      departmentName: // value for 'departmentName'
+ *   },
+ * });
+ */
+export function useGetSingleDepartmentQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetSingleDepartmentQuery,
+    GetSingleDepartmentQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    GetSingleDepartmentQuery,
+    GetSingleDepartmentQueryVariables
+  >(GetSingleDepartmentDocument, options);
+}
+export function useGetSingleDepartmentLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetSingleDepartmentQuery,
+    GetSingleDepartmentQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetSingleDepartmentQuery,
+    GetSingleDepartmentQueryVariables
+  >(GetSingleDepartmentDocument, options);
+}
+export type GetSingleDepartmentQueryHookResult = ReturnType<
+  typeof useGetSingleDepartmentQuery
+>;
+export type GetSingleDepartmentLazyQueryHookResult = ReturnType<
+  typeof useGetSingleDepartmentLazyQuery
+>;
+export type GetSingleDepartmentQueryResult = Apollo.QueryResult<
+  GetSingleDepartmentQuery,
+  GetSingleDepartmentQueryVariables
 >;
 export const GetSingleDivisionDocument = gql`
   query GetSingleDivision($divisionName: String) {

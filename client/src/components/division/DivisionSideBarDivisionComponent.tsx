@@ -5,7 +5,6 @@ import {
   DivisionSideBarDivisionComponentFragment,
 } from "../../generated/graphql";
 import { excludeNullElements } from "../../utils/arrayUtils";
-import { DivisionSideBarDepartmentComponent } from "./DivisionSideBarDepartmentComponent";
 
 export interface DivisionSideBarDivisionComponentProps {
   fragment: DivisionSideBarDivisionComponentFragment;
@@ -50,6 +49,34 @@ const DivisionListItem = ({
   );
 };
 
+const DepartmentListItem = ({
+  departmetName,
+  departmetDisplayName,
+}: {
+  departmetName: string | null;
+  departmetDisplayName: string | null;
+}): JSX.Element => {
+  const to =
+    departmetName && departmetName.length > 1 ? "../" + departmetName : ".";
+
+  return (
+    <div
+      style={{
+        backgroundColor: "#ffffff",
+        padding: "8px",
+        margin: "1px 0px",
+      }}
+    >
+      <Link
+        style={{ textDecorationColor: "#dbe1f1", color: "#050505" }}
+        to={to}
+      >
+        {departmetDisplayName}
+      </Link>
+    </div>
+  );
+};
+
 export const DivisionSideBarDivisionComponent = ({
   fragment,
   selectedDivision,
@@ -67,10 +94,11 @@ export const DivisionSideBarDivisionComponent = ({
         divisionDisplayName={fragment.divisionDisplayName}
         selected={fragment.divisionName === selectedDivision}
       />
-      {departments.map((d) => (
-        <DivisionSideBarDepartmentComponent
-          key={d.departmentName}
-          fragment={d}
+      {departments.map((d, index) => (
+        <DepartmentListItem
+          key={index}
+          departmetName={d.departmentName}
+          departmetDisplayName={d.departmentDisplayName}
         />
       ))}
     </div>

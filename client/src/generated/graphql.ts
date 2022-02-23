@@ -142,16 +142,6 @@ export type GetSingleDivisionQueryVariables = Exact<{
 
 export type GetSingleDivisionQuery = {
   __typename?: "Query";
-  divisions: Array<{
-    __typename?: "Division";
-    divisionName: string | null;
-    divisionDisplayName: string | null;
-    departments: Array<{
-      __typename?: "Department";
-      departmentName: string | null;
-      departmentDisplayName: string | null;
-    } | null> | null;
-  } | null> | null;
   division: {
     __typename?: "Division";
     divisionName: string | null;
@@ -168,6 +158,16 @@ export type GetSingleDivisionQuery = {
       imageUrl: string | null;
     } | null> | null;
   } | null;
+  divisions: Array<{
+    __typename?: "Division";
+    divisionName: string | null;
+    divisionDisplayName: string | null;
+    departments: Array<{
+      __typename?: "Department";
+      departmentName: string | null;
+      departmentDisplayName: string | null;
+    } | null> | null;
+  } | null> | null;
 };
 
 export type MemberComponentFragment = {
@@ -200,13 +200,16 @@ export type DivisionListItemFragment = {
 };
 
 export type SideBarFragment = {
-  __typename?: "Division";
-  divisionName: string | null;
-  divisionDisplayName: string | null;
-  departments: Array<{
-    __typename?: "Department";
-    departmentName: string | null;
-    departmentDisplayName: string | null;
+  __typename?: "Query";
+  divisions: Array<{
+    __typename?: "Division";
+    divisionName: string | null;
+    divisionDisplayName: string | null;
+    departments: Array<{
+      __typename?: "Department";
+      departmentName: string | null;
+      departmentDisplayName: string | null;
+    } | null> | null;
   } | null> | null;
 };
 
@@ -267,8 +270,10 @@ export const DivisionListItemFragmentDoc = gql`
   ${DepartmentListItemFragmentDoc}
 `;
 export const SideBarFragmentDoc = gql`
-  fragment SideBar on Division {
-    ...DivisionListItem
+  fragment SideBar on Query {
+    divisions {
+      ...DivisionListItem
+    }
   }
   ${DivisionListItemFragmentDoc}
 `;
@@ -395,9 +400,7 @@ export type GetSingleDepartmentQueryResult = Apollo.QueryResult<
 >;
 export const GetSingleDivisionDocument = gql`
   query GetSingleDivision($divisionName: String) {
-    divisions {
-      ...SideBar
-    }
+    ...SideBar
     division(divisionName: $divisionName) {
       ...BreadcrumbContainer
       ...DivisionContainer

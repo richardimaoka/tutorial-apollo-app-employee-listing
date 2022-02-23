@@ -9,9 +9,7 @@ import { SideBar, SideBarWidth } from "../sidebar/SideBar";
 //This is read by GraphQL codegen to generate types
 gql`
   query GetSingleDivision($divisionName: String) {
-    divisions {
-      ...SideBar
-    }
+    ...SideBar
     division(divisionName: $divisionName) {
       ...BreadcrumbContainer
       ...DivisionContainer
@@ -39,7 +37,7 @@ export const DivisionPage = (): JSX.Element => {
       <>
         <HeaderContainer />
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <SideBar fragments={data.divisions} selectDivision={divisionName} />
+          <SideBar fragment={data} selectDivision={divisionName} />
           <div>
             <BreadcrumbContainer fragment={data.division} />
             <DivisionContainer fragment={data.division} />

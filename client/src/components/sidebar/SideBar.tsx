@@ -7,18 +7,18 @@ import { excludeNullElements } from "../../utils/arrayUtils";
 import { DivisionListItem } from "./DivisionListItem";
 
 interface SideBarProps {
-  fragments: (SideBarFragment | null)[];
+  fragment: SideBarFragment;
   selectDivision: string;
 }
 
 export const SideBarWidth = "200px";
 
 export const SideBar = ({
-  fragments,
+  fragment,
   selectDivision,
 }: SideBarProps): JSX.Element => {
-  const divisions = fragments
-    ? excludeNullElements<DivisionListItemFragment>(fragments)
+  const divisions = fragment.divisions
+    ? excludeNullElements<DivisionListItemFragment>(fragment.divisions)
     : [];
   const divisionList = divisions.map((d, index) => (
     <DivisionListItem
@@ -43,7 +43,9 @@ export const SideBar = ({
 };
 
 SideBar.fragment = gql`
-  fragment SideBar on Division {
-    ...DivisionListItem
+  fragment SideBar on Query {
+    divisions {
+      ...DivisionListItem
+    }
   }
 `;

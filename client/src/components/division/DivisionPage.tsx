@@ -4,7 +4,10 @@ import { useGetSingleDivisionQuery } from "../../generated/graphql";
 import { HeaderContainer } from "../HeaderContainer";
 import { BreadcrumbContainer } from "./BreadcrumbContainer";
 import { DivisionContainer } from "./DivisionContainer";
-import { DivisionSideBar, DivisionSideBarWidth } from "./DivisionSideBar";
+import {
+  DivisionSideBar,
+  DivisionSideBarWidth,
+} from "../sidebar/DivisionSideBar";
 
 //This is read by GraphQL codegen to generate types
 gql`

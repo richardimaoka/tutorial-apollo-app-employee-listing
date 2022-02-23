@@ -170,6 +170,18 @@ export type GetSingleDivisionQuery = {
   } | null;
 };
 
+export type MemberComponentFragment = {
+  __typename?: "Member";
+  name: string | null;
+  divisionDisplayName: string | null;
+  departmentDisplayName: string | null;
+  title: string | null;
+  location: string | null;
+  telephone: string | null;
+  mailAddress: string | null;
+  imageUrl: string | null;
+};
+
 export type DivisionSideBarFragment = {
   __typename?: "Division";
   divisionName: string | null;
@@ -202,18 +214,6 @@ export type DivisionSideBarDivisionComponentFragment = {
     departmentName: string | null;
     departmentDisplayName: string | null;
   } | null> | null;
-};
-
-export type MemberComponentFragment = {
-  __typename?: "Member";
-  name: string | null;
-  divisionDisplayName: string | null;
-  departmentDisplayName: string | null;
-  title: string | null;
-  location: string | null;
-  telephone: string | null;
-  mailAddress: string | null;
-  imageUrl: string | null;
 };
 
 export const DivisionCardFragmentDoc = gql`

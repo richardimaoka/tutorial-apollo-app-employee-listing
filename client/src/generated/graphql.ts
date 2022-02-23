@@ -151,6 +151,7 @@ export type DivisionContainerFragment = {
 
 export type GetSingleDivisionQueryVariables = Exact<{
   divisionName: InputMaybe<Scalars["String"]>;
+  offset: InputMaybe<Scalars["Int"]>;
 }>;
 
 export type GetSingleDivisionQuery = {
@@ -413,9 +414,9 @@ export type GetSingleDepartmentQueryResult = Apollo.QueryResult<
   GetSingleDepartmentQueryVariables
 >;
 export const GetSingleDivisionDocument = gql`
-  query GetSingleDivision($divisionName: String) {
+  query GetSingleDivision($divisionName: String, $offset: Int) {
     ...SideBar
-    division(divisionName: $divisionName) {
+    division(divisionName: $divisionName, offset: $offset) {
       ...DivisionBreadcrumb
       ...DivisionContainer
     }
@@ -438,6 +439,7 @@ export const GetSingleDivisionDocument = gql`
  * const { data, loading, error } = useGetSingleDivisionQuery({
  *   variables: {
  *      divisionName: // value for 'divisionName'
+ *      offset: // value for 'offset'
  *   },
  * });
  */

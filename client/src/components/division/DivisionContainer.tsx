@@ -14,8 +14,6 @@ interface DivisionContainerProps {
 export const DivisionContainer = ({
   fragment,
 }: DivisionContainerProps): JSX.Element => {
-  const [params] = useSearchParams();
-  const page = params.get("page") || "1";
   if (!fragment.members) {
     return <></>;
   } else {
@@ -36,7 +34,15 @@ export const DivisionContainer = ({
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div>
-            <Link to=".?page=1">1</Link> 2 3 4 5
+            <Link style={{ marginLeft: "10px" }} to=".?page=1">
+              1
+            </Link>
+            <Link style={{ marginLeft: "10px" }} to=".?page=2">
+              2
+            </Link>
+            <Link style={{ marginLeft: "10px" }} to=".?page=3">
+              3
+            </Link>
           </div>
         </div>
       </main>

@@ -1,6 +1,11 @@
 import { gql } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { DivisionListItemFragment } from "../../generated/graphql";
+import {
+  DepartmentListItemFragment,
+  DivisionListItemFragment,
+} from "../../generated/graphql";
+import { excludeNullElements } from "../../utils/arrayUtils";
+import { DepartmentListItem } from "./DepartmentListItem";
 
 export interface DivisionListItemProps {
   fragment: DivisionListItemFragment;
@@ -28,16 +33,28 @@ export const DivisionListItem = ({
     <span style={{ color: "#ffffff" }}>{divisionDisplayName}</span>
   );
 
+  const deparments = fragment.departments
+    ? excludeNullElements<DepartmentListItemFragment>(fragment.departments)
+    : [];
+  const departmentList = deparments.map((d, index) => (
+    <DepartmentListItem key={index} fragment={d} />
+  ));
+
   return (
-    <div
-      style={{
-        backgroundColor: "#1470C3",
-        padding: "8px",
-        borderRadius: select ? borderRadiusTopRounded : borderRadiusAllRounded,
-      }}
-    >
-      {select ? nonLinkText : linkText}
-    </div>
+    <>
+      <div
+        style={{
+          backgroundColor: "#1470C3",
+          padding: "8px",
+          borderRadius: select
+            ? borderRadiusTopRounded
+            : borderRadiusAllRounded,
+        }}
+      >
+        {select ? nonLinkText : linkText}
+      </div>
+      {select ? departmentList : <></>}
+    </>
   );
 };
 
@@ -45,5 +62,8 @@ DivisionListItem.fragment = gql`
   fragment DivisionListItem on Division {
     divisionName
     divisionDisplayName
+    departments {
+      ...DepartmentListItem
+    }
   }
 `;

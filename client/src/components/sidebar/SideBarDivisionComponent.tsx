@@ -1,6 +1,5 @@
 import { gql } from "@apollo/client";
 import { SideBarDivisionComponentFragment } from "../../generated/graphql";
-import { DepartmentList } from "./DepartmentList";
 import { DivisionListItem } from "./DivisionListItem";
 
 export interface SideBarDivisionComponentProps {
@@ -15,7 +14,6 @@ export const SideBarDivisionComponent = ({
   return (
     <div style={{ marginBottom: "16px" }}>
       <DivisionListItem fragment={fragment} select={select} />
-      {select ? <DepartmentList departments={fragment.departments} /> : <></>}
     </div>
   );
 };

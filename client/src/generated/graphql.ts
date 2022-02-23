@@ -182,6 +182,18 @@ export type MemberComponentFragment = {
   imageUrl: string | null;
 };
 
+export type DepartmentListItemFragment = {
+  __typename?: "Department";
+  departmentName: string | null;
+  departmentDisplayName: string | null;
+};
+
+export type DivisionListItemFragment = {
+  __typename?: "Division";
+  divisionName: string | null;
+  divisionDisplayName: string | null;
+};
+
 export type DivisionSideBarFragment = {
   __typename?: "Division";
   divisionName: string | null;
@@ -193,19 +205,7 @@ export type DivisionSideBarFragment = {
   } | null> | null;
 };
 
-export type DivisionListItemFragment = {
-  __typename?: "Division";
-  divisionName: string | null;
-  divisionDisplayName: string | null;
-};
-
-export type DepartmentListItemFragment = {
-  __typename?: "Department";
-  departmentName: string | null;
-  departmentDisplayName: string | null;
-};
-
-export type DivisionSideBarDivisionComponentFragment = {
+export type SideBarDivisionComponentFragment = {
   __typename?: "Division";
   divisionName: string | null;
   divisionDisplayName: string | null;
@@ -268,8 +268,8 @@ export const DepartmentListItemFragmentDoc = gql`
     departmentDisplayName
   }
 `;
-export const DivisionSideBarDivisionComponentFragmentDoc = gql`
-  fragment DivisionSideBarDivisionComponent on Division {
+export const SideBarDivisionComponentFragmentDoc = gql`
+  fragment SideBarDivisionComponent on Division {
     ...DivisionListItem
     departments {
       ...DepartmentListItem
@@ -280,9 +280,9 @@ export const DivisionSideBarDivisionComponentFragmentDoc = gql`
 `;
 export const DivisionSideBarFragmentDoc = gql`
   fragment DivisionSideBar on Division {
-    ...DivisionSideBarDivisionComponent
+    ...SideBarDivisionComponent
   }
-  ${DivisionSideBarDivisionComponentFragmentDoc}
+  ${SideBarDivisionComponentFragmentDoc}
 `;
 export const GetDivisionsDocument = gql`
   query GetDivisions {

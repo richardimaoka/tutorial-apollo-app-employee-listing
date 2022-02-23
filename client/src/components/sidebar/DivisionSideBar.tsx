@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 import { DivisionSideBarFragment } from "../../generated/graphql";
 import { excludeNullElements } from "../../utils/arrayUtils";
-import { DivisionSideBarDivisionComponent } from "./DivisionSideBarDivisionComponent";
+import { SideBarDivisionComponent } from "./SideBarDivisionComponent";
 
 interface DivisionSideBarProps {
   fragments: (DivisionSideBarFragment | null)[];
@@ -25,7 +25,7 @@ export const DivisionSideBar = ({
         }}
       >
         {nonNullList.map((x, index) => (
-          <DivisionSideBarDivisionComponent
+          <SideBarDivisionComponent
             key={index}
             fragment={x}
             select={selectDivision === x.divisionName}
@@ -38,6 +38,5 @@ export const DivisionSideBar = ({
 
 DivisionSideBar.fragment = gql`
   fragment DivisionSideBar on Division {
-    ...DivisionSideBarDivisionComponent
   }
 `;

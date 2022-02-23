@@ -28,6 +28,7 @@ export const MemberComponent = ({ fragment }: MemberComponentProps) => {
               style={{ borderRadius: "8px" }}
               width="110px"
               src={fragment.imageUrl}
+              alt={`${fragment.name}`}
             />
           ) : (
             <></>

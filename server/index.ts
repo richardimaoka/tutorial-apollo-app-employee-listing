@@ -23,7 +23,14 @@ const resolvers: { Query: QueryResolvers<ServerContext> } = {
       console.log("divisionName = ", args.divisionName);
       switch (args.divisionName) {
         case "trading":
-          return context.tradingDivision;
+          const limit = 10;
+          const start = args.offset;
+          const end = start + limit;
+          const members = context.tradingDivision.members || [];
+          return {
+            ...context.tradingDivision,
+            members: members.slice(start, end),
+          };
         case "sales":
           return context.salesDivision;
         default:

@@ -1,8 +1,11 @@
 import { gql } from "@apollo/client";
-import { MemberComponentFragment } from "../../generated/graphql";
+import { Link, useSearchParams } from "react-router-dom";
+import {
+  DivisionContainerFragment,
+  MemberComponentFragment,
+} from "../../generated/graphql";
 import { excludeNullElements } from "../../utils/arrayUtils";
 import { MemberComponent } from "./MemberComponent";
-import { DivisionContainerFragment } from "../../generated/graphql";
 
 interface DivisionContainerProps {
   fragment: DivisionContainerFragment;
@@ -11,6 +14,8 @@ interface DivisionContainerProps {
 export const DivisionContainer = ({
   fragment,
 }: DivisionContainerProps): JSX.Element => {
+  const [params] = useSearchParams();
+  const page = params.get("page") || "1";
   if (!fragment.members) {
     return <></>;
   } else {
@@ -28,6 +33,11 @@ export const DivisionContainer = ({
           {nonNullList.map((x, index) => (
             <MemberComponent key={index} fragment={x} />
           ))}
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div>
+            <Link to=".?page=1">1</Link> 2 3 4 5
+          </div>
         </div>
       </main>
     );

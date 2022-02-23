@@ -20,8 +20,8 @@ gql`
 
 export const DepartmentPage = (): JSX.Element => {
   const params = useParams<{ divisionName: string; departmentName: string }>();
-  const divisionName = params.divisionName ? params.divisionName : "";
-  const departmentName = params.departmentName ? params.departmentName : "";
+  const divisionName = params.divisionName || "";
+  const departmentName = params.departmentName || "";
 
   const { loading, error, data } = useGetSingleDepartmentQuery({
     variables: {

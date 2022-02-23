@@ -10,6 +10,9 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
   [SubKey in K]: Maybe<T[SubKey]>;
 };
+export type RequireFields<T, K extends keyof T> = Omit<T, K> & {
+  [P in K]-?: NonNullable<T[P]>;
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -63,10 +66,12 @@ export type Query = {
 export type QueryDepartmentArgs = {
   departmentName: InputMaybe<Scalars["String"]>;
   divisionName: InputMaybe<Scalars["String"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
 };
 
 export type QueryDivisionArgs = {
   divisionName: InputMaybe<Scalars["String"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
 };
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -302,7 +307,7 @@ export type QueryResolvers<
     Maybe<ResolversTypes["Department"]>,
     ParentType,
     ContextType,
-    Partial<QueryDepartmentArgs>
+    RequireFields<QueryDepartmentArgs, "offset">
   >;
   departments: Resolver<
     Maybe<Array<Maybe<ResolversTypes["Department"]>>>,
@@ -313,7 +318,7 @@ export type QueryResolvers<
     Maybe<ResolversTypes["Division"]>,
     ParentType,
     ContextType,
-    Partial<QueryDivisionArgs>
+    RequireFields<QueryDivisionArgs, "offset">
   >;
   divisions: Resolver<
     Maybe<Array<Maybe<ResolversTypes["Division"]>>>,

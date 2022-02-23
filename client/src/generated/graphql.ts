@@ -65,10 +65,12 @@ export type Query = {
 export type QueryDepartmentArgs = {
   departmentName: InputMaybe<Scalars["String"]>;
   divisionName: InputMaybe<Scalars["String"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
 };
 
 export type QueryDivisionArgs = {
   divisionName: InputMaybe<Scalars["String"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
 };
 
 export type GetDivisionsQueryVariables = Exact<{ [key: string]: never }>;

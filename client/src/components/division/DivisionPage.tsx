@@ -20,7 +20,7 @@ gql`
 export const DivisionPage = (): JSX.Element => {
   const params = useParams<"divisionName">();
   const divisionName = params.divisionName ? params.divisionName : "";
-  const { loading, error, data } = useGetSingleDivisionQuery({
+  const { loading, error, data, fetchMore } = useGetSingleDivisionQuery({
     variables: {
       divisionName,
     },

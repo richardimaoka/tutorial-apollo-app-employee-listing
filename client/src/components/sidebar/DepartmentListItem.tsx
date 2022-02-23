@@ -13,12 +13,6 @@ export const DepartmentListItem = ({
   selectDivision,
   selectDepartment,
 }: DepartmentListItemProps): JSX.Element => {
-  console.log(
-    "selectDivision: ",
-    selectDivision,
-    " selectDepartment: ",
-    selectDepartment
-  );
   const departmentName = fragment.departmentName;
   const departmentDisplayName = fragment.departmentDisplayName;
 

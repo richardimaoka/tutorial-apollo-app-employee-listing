@@ -1,4 +1,5 @@
 import { gql } from "@apollo/client";
+import { Link } from "react-router-dom";
 import {
   DivisionSideBarDepartmentComponentFragment,
   DivisionSideBarDivisionComponentFragment,
@@ -11,39 +12,40 @@ export interface DivisionSideBarDivisionComponentProps {
   selectedDivision: string;
 }
 
-const SelectedDivisionComponent = ({
-  fragment,
+const DivisionListItem = ({
+  divisionName,
+  divisionDisplayName,
+  selected,
 }: {
-  fragment: DivisionSideBarDivisionComponentFragment;
+  divisionName: string | null;
+  divisionDisplayName: string | null;
+  selected: boolean;
 }): JSX.Element => {
-  return (
-    <div
-      style={{
-        backgroundColor: "#1470C3",
-        padding: "8px",
-        color: "#ffffff",
-      }}
-    >
-      {fragment.divisionDisplayName}
-    </div>
-  );
-};
+  const borderRadiusTopRounded = "10px 10px 0px 0px"; //top-left top-right bottom-right bottom-left
+  const borderRadiusAllRounded = "10px";
 
-const NonSelectedDivisionComponent = ({
-  fragment,
-}: {
-  fragment: DivisionSideBarDivisionComponentFragment;
-}): JSX.Element => {
+  const to =
+    divisionName && divisionName.length > 1 ? "../" + divisionName : ".";
+  const linkText = (
+    <Link style={{ color: "#ffffff", textDecorationColor: "#89a3eb" }} to={to}>
+      {divisionDisplayName}
+    </Link>
+  );
+  const nonLinkText = (
+    <span style={{ color: "#ffffff" }}>{divisionDisplayName}</span>
+  );
+
   return (
     <div
       style={{
         backgroundColor: "#1470C3",
         padding: "8px",
+        borderRadius: selected
+          ? borderRadiusTopRounded
+          : borderRadiusAllRounded,
       }}
     >
-      <a style={{ color: "#ffffff", textDecorationColor: "#89a3eb" }} href="">
-        {fragment.divisionDisplayName}
-      </a>
+      {selected ? nonLinkText : linkText}
     </div>
   );
 };
@@ -60,11 +62,11 @@ export const DivisionSideBarDivisionComponent = ({
 
   return (
     <div style={{ marginBottom: "16px" }}>
-      {fragment.divisionName === selectedDivision ? (
-        <SelectedDivisionComponent fragment={fragment} />
-      ) : (
-        <NonSelectedDivisionComponent fragment={fragment} />
-      )}
+      <DivisionListItem
+        divisionName={fragment.divisionName}
+        divisionDisplayName={fragment.divisionDisplayName}
+        selected={fragment.divisionName === selectedDivision}
+      />
       {departments.map((d) => (
         <DivisionSideBarDepartmentComponent
           key={d.departmentName}

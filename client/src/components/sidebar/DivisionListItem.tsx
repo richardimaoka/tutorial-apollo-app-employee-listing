@@ -41,7 +41,7 @@ export const DivisionListItem = ({
   ));
 
   return (
-    <>
+    <div style={{ marginBottom: "16px" }}>
       <div
         style={{
           backgroundColor: "#1470C3",
@@ -54,7 +54,7 @@ export const DivisionListItem = ({
         {select ? nonLinkText : linkText}
       </div>
       {select ? departmentList : <></>}
-    </>
+    </div>
   );
 };
 

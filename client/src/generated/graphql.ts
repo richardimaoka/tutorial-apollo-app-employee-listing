@@ -199,18 +199,7 @@ export type DivisionListItemFragment = {
   } | null> | null;
 };
 
-export type DivisionSideBarFragment = {
-  __typename?: "Division";
-  divisionName: string | null;
-  divisionDisplayName: string | null;
-  departments: Array<{
-    __typename?: "Department";
-    departmentName: string | null;
-    departmentDisplayName: string | null;
-  } | null> | null;
-};
-
-export type SideBarDivisionComponentFragment = {
+export type SideBarFragment = {
   __typename?: "Division";
   divisionName: string | null;
   divisionDisplayName: string | null;
@@ -261,16 +250,6 @@ export const DivisionContainerFragmentDoc = gql`
   }
   ${MemberComponentFragmentDoc}
 `;
-export const DivisionSideBarFragmentDoc = gql`
-  fragment DivisionSideBar on Division {
-    divisionName
-    divisionDisplayName
-    departments {
-      departmentName
-      departmentDisplayName
-    }
-  }
-`;
 export const DepartmentListItemFragmentDoc = gql`
   fragment DepartmentListItem on Department {
     departmentName
@@ -287,15 +266,11 @@ export const DivisionListItemFragmentDoc = gql`
   }
   ${DepartmentListItemFragmentDoc}
 `;
-export const SideBarDivisionComponentFragmentDoc = gql`
-  fragment SideBarDivisionComponent on Division {
+export const SideBarFragmentDoc = gql`
+  fragment SideBar on Division {
     ...DivisionListItem
-    departments {
-      ...DepartmentListItem
-    }
   }
   ${DivisionListItemFragmentDoc}
-  ${DepartmentListItemFragmentDoc}
 `;
 export const GetDivisionsDocument = gql`
   query GetDivisions {
@@ -421,14 +396,14 @@ export type GetSingleDepartmentQueryResult = Apollo.QueryResult<
 export const GetSingleDivisionDocument = gql`
   query GetSingleDivision($divisionName: String) {
     divisions {
-      ...DivisionSideBar
+      ...SideBar
     }
     division(divisionName: $divisionName) {
       ...BreadcrumbContainer
       ...DivisionContainer
     }
   }
-  ${DivisionSideBarFragmentDoc}
+  ${SideBarFragmentDoc}
   ${BreadcrumbContainerFragmentDoc}
   ${DivisionContainerFragmentDoc}
 `;

@@ -4,16 +4,13 @@ import { useGetSingleDivisionQuery } from "../../generated/graphql";
 import { HeaderContainer } from "../HeaderContainer";
 import { BreadcrumbContainer } from "./BreadcrumbContainer";
 import { DivisionContainer } from "./DivisionContainer";
-import {
-  DivisionSideBar,
-  DivisionSideBarWidth,
-} from "../sidebar/DivisionSideBar";
+import { SideBar, SideBarWidth } from "../sidebar/SideBar";
 
 //This is read by GraphQL codegen to generate types
 gql`
   query GetSingleDivision($divisionName: String) {
     divisions {
-      ...DivisionSideBar
+      ...SideBar
     }
     division(divisionName: $divisionName) {
       ...BreadcrumbContainer
@@ -42,10 +39,7 @@ export const DivisionPage = (): JSX.Element => {
       <>
         <HeaderContainer />
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <DivisionSideBar
-            fragments={data.divisions}
-            selectDivision={divisionName}
-          />
+          <SideBar fragments={data.divisions} selectDivision={divisionName} />
           <div>
             <BreadcrumbContainer fragment={data.division} />
             <DivisionContainer fragment={data.division} />
@@ -53,7 +47,7 @@ export const DivisionPage = (): JSX.Element => {
           <div
             style={{
               /*to center the main content, we need side bars with the same width on both sides*/
-              width: DivisionSideBarWidth,
+              width: SideBarWidth,
             }}
           />
         </div>

@@ -24,7 +24,7 @@ export const SideBar = ({
     <DivisionListItem
       key={index}
       fragment={d}
-      select={selectDivision === d.divisionName}
+      selectDivision={selectDivision}
     />
   ));
 

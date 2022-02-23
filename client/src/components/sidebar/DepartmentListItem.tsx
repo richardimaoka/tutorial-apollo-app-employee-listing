@@ -4,13 +4,21 @@ import { DepartmentListItemFragment } from "../../generated/graphql";
 
 export interface DepartmentListItemProps {
   fragment: DepartmentListItemFragment;
+  selectDivision: string;
+  selectDepartment?: string;
 }
 
 export const DepartmentListItem = ({
   fragment,
+  selectDivision,
+  selectDepartment,
 }: DepartmentListItemProps): JSX.Element => {
-  const departmentName = fragment.departmentName ? fragment.departmentName : "";
-  const to = departmentName.length > 1 ? "./" + departmentName : ".";
+  const departmentName = fragment.departmentName;
+  const to =
+    departmentName && departmentName.length > 1
+      ? `/${selectDivision}/${departmentName}`
+      : `/${selectDivision}/${selectDepartment}`;
+
   return (
     <div
       style={{

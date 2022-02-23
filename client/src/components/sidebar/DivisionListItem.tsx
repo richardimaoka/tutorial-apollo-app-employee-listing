@@ -9,12 +9,14 @@ import { DepartmentListItem } from "./DepartmentListItem";
 
 export interface DivisionListItemProps {
   fragment: DivisionListItemFragment;
-  select: boolean;
+  selectDivision: string;
+  selectDepartment?: string;
 }
 
 export const DivisionListItem = ({
   fragment,
-  select,
+  selectDivision,
+  selectDepartment,
 }: DivisionListItemProps): JSX.Element => {
   const divisionName = fragment.divisionName;
   const divisionDisplayName = fragment.divisionDisplayName;
@@ -23,7 +25,9 @@ export const DivisionListItem = ({
   const borderRadiusAllRounded = "10px";
 
   const to =
-    divisionName && divisionName.length > 1 ? "../" + divisionName : ".";
+    divisionName && divisionName.length > 1
+      ? `/${divisionName}`
+      : `/${selectDivision}`;
   const linkText = (
     <Link style={{ color: "#ffffff", textDecorationColor: "#89a3eb" }} to={to}>
       {divisionDisplayName}
@@ -37,9 +41,15 @@ export const DivisionListItem = ({
     ? excludeNullElements<DepartmentListItemFragment>(fragment.departments)
     : [];
   const departmentList = deparments.map((d, index) => (
-    <DepartmentListItem key={index} fragment={d} />
+    <DepartmentListItem
+      key={index}
+      fragment={d}
+      selectDivision={selectDivision}
+      selectDepartment={selectDepartment}
+    />
   ));
 
+  const select = selectDivision === fragment.divisionName;
   return (
     <div style={{ marginBottom: "16px" }}>
       <div

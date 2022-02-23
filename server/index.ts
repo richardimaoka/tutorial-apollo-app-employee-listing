@@ -32,7 +32,12 @@ const resolvers: { Query: QueryResolvers<ServerContext> } = {
       return context.departments;
     },
     department: async (paremtn, args, context, info) => {
-      console.log("divisionName = ", args.divisionName);
+      console.log(
+        "divisionName =",
+        args.divisionName,
+        ", departmentName =",
+        args.departmentName
+      );
       if (
         args.divisionName === "trading" &&
         args.departmentName === "currency-trading"

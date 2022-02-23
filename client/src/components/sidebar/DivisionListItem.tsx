@@ -50,6 +50,7 @@ export const DivisionListItem = ({
   ));
 
   const select = selectDivision === fragment.divisionName;
+  const linkable = selectDepartment || !select; //department is selected, or this division is not selected
   return (
     <div style={{ marginBottom: "16px" }}>
       <div
@@ -61,7 +62,7 @@ export const DivisionListItem = ({
             : borderRadiusAllRounded,
         }}
       >
-        {select ? nonLinkText : linkText}
+        {linkable ? linkText : nonLinkText}
       </div>
       {select ? departmentList : <></>}
     </div>

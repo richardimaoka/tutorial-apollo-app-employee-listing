@@ -1,5 +1,7 @@
 {
   "__typename": "Department",
+  "divisionName": "trading",
+  "divisionDisplayName": "トレーディング部門",
   "departmentName": "currency-trading",
   "departmentDisplayName": "為替トレーディング部",
   "numMembers": 34,

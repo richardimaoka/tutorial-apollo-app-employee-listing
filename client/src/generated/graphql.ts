@@ -94,6 +94,13 @@ export type DivisionCardFragment = {
   divisionColor: string | null;
 };
 
+export type DepartmentBreadcrumbFragment = {
+  __typename?: "Department";
+  divisionName: string | null;
+  divisionDisplayName: string | null;
+  departmentDisplayName: string | null;
+};
+
 export type GetSingleDepartmentQueryVariables = Exact<{
   divisionName: InputMaybe<Scalars["String"]>;
   departmentName: InputMaybe<Scalars["String"]>;
@@ -103,7 +110,9 @@ export type GetSingleDepartmentQuery = {
   __typename?: "Query";
   department: {
     __typename?: "Department";
-    departmentName: string | null;
+    divisionName: string | null;
+    divisionDisplayName: string | null;
+    departmentDisplayName: string | null;
   } | null;
   divisions: Array<{
     __typename?: "Division";
@@ -224,6 +233,13 @@ export const DivisionCardFragmentDoc = gql`
     divisionColor
   }
 `;
+export const DepartmentBreadcrumbFragmentDoc = gql`
+  fragment DepartmentBreadcrumb on Department {
+    divisionName
+    divisionDisplayName
+    departmentDisplayName
+  }
+`;
 export const DivisionBreadcrumbContainerFragmentDoc = gql`
   fragment DivisionBreadcrumbContainer on Division {
     divisionName
@@ -336,10 +352,11 @@ export const GetSingleDepartmentDocument = gql`
   query GetSingleDepartment($divisionName: String, $departmentName: String) {
     ...SideBar
     department(divisionName: $divisionName, departmentName: $departmentName) {
-      departmentName
+      ...DepartmentBreadcrumb
     }
   }
   ${SideBarFragmentDoc}
+  ${DepartmentBreadcrumbFragmentDoc}
 `;
 
 /**

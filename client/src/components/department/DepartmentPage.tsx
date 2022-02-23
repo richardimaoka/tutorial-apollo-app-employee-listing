@@ -2,6 +2,7 @@ import { gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { useGetSingleDepartmentQuery } from "../../generated/graphql";
 import { HeaderContainer } from "../HeaderContainer";
+import { DepartmentBreadcrumb } from "./DepartmentBreadcrumb";
 import { SideBar, SideBarWidth } from "../sidebar/SideBar";
 
 //This is read by GraphQL codegen to generate types
@@ -9,7 +10,7 @@ gql`
   query GetSingleDepartment($divisionName: String, $departmentName: String) {
     ...SideBar
     department(divisionName: $divisionName, departmentName: $departmentName) {
-      departmentName
+      ...DepartmentBreadcrumb
     }
   }
 `;
@@ -42,7 +43,9 @@ export const DepartmentPage = (): JSX.Element => {
             selectDivision={divisionName}
             selectDepartment={departmentName}
           />
-          <div></div>
+          <div>
+            <DepartmentBreadcrumb fragment={data.department} />
+          </div>
           <div
             style={{
               /*to center the main content, we need side bars with the same width on both sides*/

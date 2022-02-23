@@ -8,6 +8,7 @@ const typeDefs = gql`
 
 interface ServerContext {
   tradingDivision: Division;
+  salesDivision: Division;
   currencyTradingDepartment: Department;
   divisions: Division[];
   departments: Department[];
@@ -20,12 +21,15 @@ const resolvers: { Query: QueryResolvers<ServerContext> } = {
     },
     division: async (parent, args, context, info) => {
       console.log("divisionName = ", args.divisionName);
-      if (args.divisionName === "trading") {
-        return context.tradingDivision;
-      } else {
-        throw new Error(
-          `divisionName = "${args.divisionName}" was passed, but currently on divisionName = "trading" is handled.`
-        );
+      switch (args.divisionName) {
+        case "trading":
+          return context.tradingDivision;
+        case "sales":
+          return context.salesDivision;
+        default:
+          throw new Error(
+            `divisionName = "${args.divisionName}" was passed, but currently only divisionName = "trading" or "sales" are handled.`
+          );
       }
     },
     departments: async (paremtn, args, context, info) => {
@@ -67,6 +71,7 @@ const server = new ApolloServer({
     try {
       const divisions = await readJsonFile("/data-divisions.json");
       const tradingDivision = await readJsonFile("/data-trading-division.json");
+      const salesDivision = await readJsonFile("/data-sales-division.json");
       const departments = await readJsonFile("/data-departments.json");
       const currencyTradingDepartment = await readJsonFile(
         "/data-currency-trading-department.json"
@@ -75,6 +80,7 @@ const server = new ApolloServer({
         tradingDivision,
         divisions,
         departments,
+        salesDivision,
         currencyTradingDepartment,
       };
     } catch (err) {

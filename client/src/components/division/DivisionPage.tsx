@@ -29,9 +29,14 @@ export const DivisionPage = (): JSX.Element => {
   if (loading) {
     return <></>;
   } else if (error) {
+    console.log("error: ", error);
     return <></>;
   } else if (!data || !data.divisions || !data.division) {
-    return <></>;
+    return (
+      <>
+        <HeaderContainer />
+      </>
+    );
   } else {
     return (
       <>

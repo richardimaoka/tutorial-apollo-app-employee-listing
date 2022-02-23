@@ -1,25 +1,29 @@
 import { gql } from "@apollo/client";
 import { Link } from "react-router-dom";
 import {
-  DivisionSideBarDepartmentComponentFragment,
+  DepartmentListItemFragment,
+  DivisionListItemFragment,
   DivisionSideBarDivisionComponentFragment,
 } from "../../generated/graphql";
 import { excludeNullElements } from "../../utils/arrayUtils";
 
 export interface DivisionSideBarDivisionComponentProps {
   fragment: DivisionSideBarDivisionComponentFragment;
-  selectedDivision: string;
+  select: boolean;
+}
+
+interface DivisionListItemProps {
+  fragment: DivisionListItemFragment;
+  select: boolean;
 }
 
 const DivisionListItem = ({
-  divisionName,
-  divisionDisplayName,
-  selected,
-}: {
-  divisionName: string | null;
-  divisionDisplayName: string | null;
-  selected: boolean;
-}): JSX.Element => {
+  fragment,
+  select,
+}: DivisionListItemProps): JSX.Element => {
+  const divisionName = fragment.divisionName;
+  const divisionDisplayName = fragment.divisionDisplayName;
+
   const borderRadiusTopRounded = "10px 10px 0px 0px"; //top-left top-right bottom-right bottom-left
   const borderRadiusAllRounded = "10px";
 
@@ -39,26 +43,30 @@ const DivisionListItem = ({
       style={{
         backgroundColor: "#1470C3",
         padding: "8px",
-        borderRadius: selected
-          ? borderRadiusTopRounded
-          : borderRadiusAllRounded,
+        borderRadius: select ? borderRadiusTopRounded : borderRadiusAllRounded,
       }}
     >
-      {selected ? nonLinkText : linkText}
+      {select ? nonLinkText : linkText}
     </div>
   );
 };
 
-const DepartmentListItem = ({
-  departmetName,
-  departmetDisplayName,
-}: {
-  departmetName: string | null;
-  departmetDisplayName: string | null;
-}): JSX.Element => {
-  const to =
-    departmetName && departmetName.length > 1 ? "../" + departmetName : ".";
+DivisionListItem.fragment = gql`
+  fragment DivisionListItem on Division {
+    divisionName
+    divisionDisplayName
+  }
+`;
 
+interface DepartmentListItemProps {
+  fragment: DepartmentListItemFragment;
+}
+
+const DepartmentListItem = ({
+  fragment,
+}: DepartmentListItemProps): JSX.Element => {
+  const departmentName = fragment.departmentName ? fragment.departmentName : "";
+  const to = departmentName.length > 1 ? "../" + departmentName : ".";
   return (
     <div
       style={{
@@ -71,46 +79,54 @@ const DepartmentListItem = ({
         style={{ textDecorationColor: "#dbe1f1", color: "#050505" }}
         to={to}
       >
-        {departmetDisplayName}
+        {fragment.departmentDisplayName}
       </Link>
     </div>
   );
 };
 
-export const DivisionSideBarDivisionComponent = ({
-  fragment,
-  selectedDivision,
-}: DivisionSideBarDivisionComponentProps): JSX.Element => {
-  const departments = fragment.departments
-    ? excludeNullElements<DivisionSideBarDepartmentComponentFragment>(
-        fragment.departments
-      )
+DepartmentListItem.fragment = gql`
+  fragment DepartmentListItem on Department {
+    departmentName
+    departmentDisplayName
+  }
+`;
+
+interface DepartmentListProps {
+  departments: (DepartmentListItemFragment | null)[] | null;
+}
+
+const DepartmentList = ({ departments }: DepartmentListProps): JSX.Element => {
+  const nonNullDepartments = departments
+    ? excludeNullElements<DepartmentListItemFragment>(departments)
     : [];
 
   return (
-    <div style={{ marginBottom: "16px" }}>
-      <DivisionListItem
-        divisionName={fragment.divisionName}
-        divisionDisplayName={fragment.divisionDisplayName}
-        selected={fragment.divisionName === selectedDivision}
-      />
-      {departments.map((d, index) => (
-        <DepartmentListItem
-          key={index}
-          departmetName={d.departmentName}
-          departmetDisplayName={d.departmentDisplayName}
-        />
+    <>
+      {nonNullDepartments.map((d, index) => (
+        <DepartmentListItem key={index} fragment={d} />
       ))}
+    </>
+  );
+};
+
+export const DivisionSideBarDivisionComponent = ({
+  fragment,
+  select,
+}: DivisionSideBarDivisionComponentProps): JSX.Element => {
+  return (
+    <div style={{ marginBottom: "16px" }}>
+      <DivisionListItem fragment={fragment} select={select} />
+      {select ? <DepartmentList departments={fragment.departments} /> : <></>}
     </div>
   );
 };
 
 DivisionSideBarDivisionComponent.fragment = gql`
   fragment DivisionSideBarDivisionComponent on Division {
-    divisionName
-    divisionDisplayName
+    ...DivisionListItem
     departments {
-      ...DivisionSideBarDepartmentComponent
+      ...DepartmentListItem
     }
   }
 `;

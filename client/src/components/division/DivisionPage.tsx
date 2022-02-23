@@ -41,7 +41,7 @@ export const DivisionPage = (): JSX.Element => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <DivisionSideBar
             fragments={data.divisions}
-            selectedDivision={divisionName}
+            selectDivision={divisionName}
           />
           <div>
             <BreadcrumbContainer fragment={data.division} />

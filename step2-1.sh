@@ -1,5 +1,5 @@
 #!/bin/sh
 
-cp -r answers/image-server image-server
-cd image-server
+cp -r answers/file-server file-server
+cd file-server
 npm run start

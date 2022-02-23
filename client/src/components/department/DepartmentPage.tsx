@@ -37,7 +37,11 @@ export const DepartmentPage = (): JSX.Element => {
       <>
         <HeaderContainer />
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <SideBar fragment={data} selectDivision={divisionName} />
+          <SideBar
+            fragment={data}
+            selectDivision={divisionName}
+            selectDepartment={departmentName}
+          />
           <div></div>
           <div
             style={{

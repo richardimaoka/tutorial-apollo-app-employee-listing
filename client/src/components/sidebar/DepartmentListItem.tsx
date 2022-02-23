@@ -13,26 +13,41 @@ export const DepartmentListItem = ({
   selectDivision,
   selectDepartment,
 }: DepartmentListItemProps): JSX.Element => {
+  console.log(
+    "selectDivision: ",
+    selectDivision,
+    " selectDepartment: ",
+    selectDepartment
+  );
   const departmentName = fragment.departmentName;
+  const departmentDisplayName = fragment.departmentDisplayName;
+
+  const backgroundWhite = "#ffffff";
+  const backgroundGray = "#a09d9d";
+
   const to =
     departmentName && departmentName.length > 1
       ? `/${selectDivision}/${departmentName}`
       : `/${selectDivision}/${selectDepartment}`;
+  const linkText = (
+    <Link style={{ textDecorationColor: "#dbe1f1", color: "#050505" }} to={to}>
+      {departmentDisplayName}
+    </Link>
+  );
+  const nonLinkText = (
+    <span style={{ color: "#ffffff" }}>{departmentDisplayName}</span>
+  );
 
+  const select = selectDepartment === fragment.departmentName;
   return (
     <div
       style={{
-        backgroundColor: "#ffffff",
+        backgroundColor: select ? backgroundGray : backgroundWhite,
         padding: "8px",
         margin: "1px 0px",
       }}
     >
-      <Link
-        style={{ textDecorationColor: "#dbe1f1", color: "#050505" }}
-        to={to}
-      >
-        {fragment.departmentDisplayName}
-      </Link>
+      {select ? nonLinkText : linkText}
     </div>
   );
 };

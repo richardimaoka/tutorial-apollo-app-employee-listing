@@ -9,6 +9,7 @@ import { DivisionListItem } from "./DivisionListItem";
 interface SideBarProps {
   fragment: SideBarFragment;
   selectDivision: string;
+  selectDepartment?: string;
 }
 
 export const SideBarWidth = "200px";
@@ -16,6 +17,7 @@ export const SideBarWidth = "200px";
 export const SideBar = ({
   fragment,
   selectDivision,
+  selectDepartment,
 }: SideBarProps): JSX.Element => {
   const divisions = fragment.divisions
     ? excludeNullElements<DivisionListItemFragment>(fragment.divisions)
@@ -25,6 +27,7 @@ export const SideBar = ({
       key={index}
       fragment={d}
       selectDivision={selectDivision}
+      selectDepartment={selectDepartment}
     />
   ));
 

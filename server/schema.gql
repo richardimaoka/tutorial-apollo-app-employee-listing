@@ -16,6 +16,7 @@ type Division {
   numDepartments: Int
   departments: [Department]
   numMembers: Int
+  numMemberPages: Int
   members: [Member]
 }
 
@@ -25,6 +26,7 @@ type Department {
   divisionName: String
   divisionDisplayName: String
   numMembers: Int
+  numMemberPages: Int
   members: [Member]
 }
 

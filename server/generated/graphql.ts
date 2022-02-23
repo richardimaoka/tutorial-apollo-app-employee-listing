@@ -29,6 +29,7 @@ export type Department = {
   divisionDisplayName: Maybe<Scalars["String"]>;
   divisionName: Maybe<Scalars["String"]>;
   members: Maybe<Array<Maybe<Member>>>;
+  numMemberPages: Maybe<Scalars["Int"]>;
   numMembers: Maybe<Scalars["Int"]>;
 };
 
@@ -40,6 +41,7 @@ export type Division = {
   divisionName: Maybe<Scalars["String"]>;
   members: Maybe<Array<Maybe<Member>>>;
   numDepartments: Maybe<Scalars["Int"]>;
+  numMemberPages: Maybe<Scalars["Int"]>;
   numMembers: Maybe<Scalars["Int"]>;
 };
 
@@ -230,6 +232,11 @@ export type DepartmentResolvers<
     ParentType,
     ContextType
   >;
+  numMemberPages: Resolver<
+    Maybe<ResolversTypes["Int"]>,
+    ParentType,
+    ContextType
+  >;
   numMembers: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -264,6 +271,11 @@ export type DivisionResolvers<
     ContextType
   >;
   numDepartments: Resolver<
+    Maybe<ResolversTypes["Int"]>,
+    ParentType,
+    ContextType
+  >;
+  numMemberPages: Resolver<
     Maybe<ResolversTypes["Int"]>,
     ParentType,
     ContextType

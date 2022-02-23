@@ -28,6 +28,7 @@ export type Department = {
   divisionDisplayName: Maybe<Scalars["String"]>;
   divisionName: Maybe<Scalars["String"]>;
   members: Maybe<Array<Maybe<Member>>>;
+  numMemberPages: Maybe<Scalars["Int"]>;
   numMembers: Maybe<Scalars["Int"]>;
 };
 
@@ -39,6 +40,7 @@ export type Division = {
   divisionName: Maybe<Scalars["String"]>;
   members: Maybe<Array<Maybe<Member>>>;
   numDepartments: Maybe<Scalars["Int"]>;
+  numMemberPages: Maybe<Scalars["Int"]>;
   numMembers: Maybe<Scalars["Int"]>;
 };
 

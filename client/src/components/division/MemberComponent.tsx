@@ -19,11 +19,16 @@ export const MemberComponent = ({ fragment }: MemberComponentProps) => {
           margin: "8px",
           display: "flex",
           padding: "8px",
+          borderRadius: "8px",
         }}
       >
         <div>
           {fragment.imageUrl ? (
-            <img width="110px" src={fragment.imageUrl} />
+            <img
+              style={{ borderRadius: "8px" }}
+              width="110px"
+              src={fragment.imageUrl}
+            />
           ) : (
             <></>
           )}

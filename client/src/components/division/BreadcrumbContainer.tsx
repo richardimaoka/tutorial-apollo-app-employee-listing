@@ -16,11 +16,20 @@ export const BreadcrumbContainer = ({
       }}
     >
       <div style={{ marginTop: "8px", padding: "0px 8px" }}>
-        {fragment.divisionDisplayName ? (
-          <span>&gt;{fragment.divisionDisplayName}</span>
-        ) : (
-          <></>
-        )}
+        <div
+          style={{
+            backgroundColor: "#ffffff",
+            marginTop: "8px",
+            padding: "4px 8px",
+            borderRadius: "8px",
+          }}
+        >
+          {fragment.divisionDisplayName ? (
+            <span>&gt;{fragment.divisionDisplayName}</span>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ export const SideBar = ({
       <div
         style={{
           width: SideBarWidth,
-          marginTop: "40px",
+          marginTop: "48px",
         }}
       >
         {divisionList}

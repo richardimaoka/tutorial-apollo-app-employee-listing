@@ -18,6 +18,8 @@ type Division {
 type Department {
   departmentName: String
   departmentDisplayName: String
+  divisionName: String
+  divisionDisplayName: String
   numMembers: Int
   members: [Member]
 }

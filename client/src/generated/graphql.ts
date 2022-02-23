@@ -25,6 +25,8 @@ export type Department = {
   __typename?: "Department";
   departmentDisplayName: Maybe<Scalars["String"]>;
   departmentName: Maybe<Scalars["String"]>;
+  divisionDisplayName: Maybe<Scalars["String"]>;
+  divisionName: Maybe<Scalars["String"]>;
   members: Maybe<Array<Maybe<Member>>>;
   numMembers: Maybe<Scalars["Int"]>;
 };

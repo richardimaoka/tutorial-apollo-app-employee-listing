@@ -110,6 +110,11 @@ export type GetSingleDepartmentQuery = {
   } | null;
 };
 
+export type DepartmentSideBarFragment = {
+  __typename?: "Department";
+  departmentDisplayName: string | null;
+};
+
 export type BreadcrumbContainerFragment = {
   __typename?: "Division";
   divisionName: string | null;
@@ -212,6 +217,11 @@ export const DivisionCardFragmentDoc = gql`
     numDepartments
     numMembers
     divisionColor
+  }
+`;
+export const DepartmentSideBarFragmentDoc = gql`
+  fragment DepartmentSideBar on Department {
+    departmentDisplayName
   }
 `;
 export const BreadcrumbContainerFragmentDoc = gql`

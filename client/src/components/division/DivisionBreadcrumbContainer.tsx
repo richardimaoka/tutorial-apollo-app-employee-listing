@@ -1,13 +1,13 @@
 import { gql } from "@apollo/client";
-import { BreadcrumbContainerFragment } from "../../generated/graphql";
+import { DivisionBreadcrumbContainerFragment } from "../../generated/graphql";
 
-interface BreadCrumContainerProps {
-  fragment: BreadcrumbContainerFragment;
+interface DivisionBreadCrumContainerProps {
+  fragment: DivisionBreadcrumbContainerFragment;
 }
 
-export const BreadcrumbContainer = ({
+export const DivisionBreadcrumbContainer = ({
   fragment,
-}: BreadCrumContainerProps): JSX.Element => {
+}: DivisionBreadCrumContainerProps): JSX.Element => {
   return (
     <div
       style={{
@@ -25,7 +25,9 @@ export const BreadcrumbContainer = ({
           }}
         >
           {fragment.divisionDisplayName ? (
-            <span>&gt;{fragment.divisionDisplayName}</span>
+            <span style={{ fontSize: "12px", color: "#505050" }}>
+              &gt;{fragment.divisionDisplayName}
+            </span>
           ) : (
             <></>
           )}
@@ -35,8 +37,8 @@ export const BreadcrumbContainer = ({
   );
 };
 
-BreadcrumbContainer.fragment = gql`
-  fragment BreadcrumbContainer on Division {
+DivisionBreadcrumbContainer.fragment = gql`
+  fragment DivisionBreadcrumbContainer on Division {
     divisionName
     divisionDisplayName
   }

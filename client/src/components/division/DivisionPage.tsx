@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { useGetSingleDivisionQuery } from "../../generated/graphql";
 import { HeaderContainer } from "../HeaderContainer";
-import { DivisionBreadcrumbContainer } from "./DivisionBreadcrumbContainer";
+import { DivisionBreadcrumb } from "./DivisionBreadcrumb";
 import { DivisionContainer } from "./DivisionContainer";
 import { SideBar, SideBarWidth } from "../sidebar/SideBar";
 
@@ -11,7 +11,7 @@ gql`
   query GetSingleDivision($divisionName: String) {
     ...SideBar
     division(divisionName: $divisionName) {
-      ...DivisionBreadcrumbContainer
+      ...DivisionBreadcrumb
       ...DivisionContainer
     }
   }
@@ -39,7 +39,7 @@ export const DivisionPage = (): JSX.Element => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <SideBar fragment={data} selectDivision={divisionName} />
           <div>
-            <DivisionBreadcrumbContainer fragment={data.division} />
+            <DivisionBreadcrumb fragment={data.division} />
             <DivisionContainer fragment={data.division} />
           </div>
           <div

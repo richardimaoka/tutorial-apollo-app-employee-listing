@@ -1,6 +1,9 @@
 import { gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { useGetSingleDepartmentQuery } from "../../generated/graphql";
+import {
+  DepartmentBreadcrumbFragment,
+  useGetSingleDepartmentQuery,
+} from "../../generated/graphql";
 import { HeaderContainer } from "../HeaderContainer";
 import { DepartmentBreadcrumb } from "./DepartmentBreadcrumb";
 import { SideBar, SideBarWidth } from "../sidebar/SideBar";
@@ -31,9 +34,12 @@ export const DepartmentPage = (): JSX.Element => {
     return <></>;
   } else if (error) {
     return <></>;
-  } else if (!data || !data.divisions || !data.department) {
+  } else if (!data || !data.divisions) {
     return <></>;
   } else {
+    const breadcrumb = (fragment: DepartmentBreadcrumbFragment) => (
+      <DepartmentBreadcrumb fragment={fragment} />
+    );
     return (
       <>
         <HeaderContainer />
@@ -43,9 +49,7 @@ export const DepartmentPage = (): JSX.Element => {
             selectDivision={divisionName}
             selectDepartment={departmentName}
           />
-          <div>
-            <DepartmentBreadcrumb fragment={data.department} />
-          </div>
+          <div>{data.department ? breadcrumb(data.department) : <></>}</div>
           <div
             style={{
               /*to center the main content, we need side bars with the same width on both sides*/

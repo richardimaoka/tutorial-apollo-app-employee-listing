@@ -126,7 +126,7 @@ export type GetSingleDepartmentQuery = {
   } | null> | null;
 };
 
-export type DivisionBreadcrumbContainerFragment = {
+export type DivisionBreadcrumbFragment = {
   __typename?: "Division";
   divisionName: string | null;
   divisionDisplayName: string | null;
@@ -240,8 +240,8 @@ export const DepartmentBreadcrumbFragmentDoc = gql`
     departmentDisplayName
   }
 `;
-export const DivisionBreadcrumbContainerFragmentDoc = gql`
-  fragment DivisionBreadcrumbContainer on Division {
+export const DivisionBreadcrumbFragmentDoc = gql`
+  fragment DivisionBreadcrumb on Division {
     divisionName
     divisionDisplayName
   }
@@ -414,12 +414,12 @@ export const GetSingleDivisionDocument = gql`
   query GetSingleDivision($divisionName: String) {
     ...SideBar
     division(divisionName: $divisionName) {
-      ...DivisionBreadcrumbContainer
+      ...DivisionBreadcrumb
       ...DivisionContainer
     }
   }
   ${SideBarFragmentDoc}
-  ${DivisionBreadcrumbContainerFragmentDoc}
+  ${DivisionBreadcrumbFragmentDoc}
   ${DivisionContainerFragmentDoc}
 `;
 

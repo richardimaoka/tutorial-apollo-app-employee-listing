@@ -99,20 +99,20 @@ export type GetSingleDepartmentQueryVariables = Exact<{
 
 export type GetSingleDepartmentQuery = {
   __typename?: "Query";
-  departments: Array<{
-    __typename?: "Department";
-    departmentName: string | null;
-    departmentDisplayName: string | null;
-  } | null> | null;
   department: {
     __typename?: "Department";
     departmentName: string | null;
   } | null;
-};
-
-export type DepartmentSideBarFragment = {
-  __typename?: "Department";
-  departmentDisplayName: string | null;
+  divisions: Array<{
+    __typename?: "Division";
+    divisionName: string | null;
+    divisionDisplayName: string | null;
+    departments: Array<{
+      __typename?: "Department";
+      departmentName: string | null;
+      departmentDisplayName: string | null;
+    } | null> | null;
+  } | null> | null;
 };
 
 export type BreadcrumbContainerFragment = {
@@ -220,11 +220,6 @@ export const DivisionCardFragmentDoc = gql`
     numDepartments
     numMembers
     divisionColor
-  }
-`;
-export const DepartmentSideBarFragmentDoc = gql`
-  fragment DepartmentSideBar on Department {
-    departmentDisplayName
   }
 `;
 export const BreadcrumbContainerFragmentDoc = gql`
@@ -337,14 +332,12 @@ export type GetDivisionsQueryResult = Apollo.QueryResult<
 >;
 export const GetSingleDepartmentDocument = gql`
   query GetSingleDepartment($divisionName: String, $departmentName: String) {
-    departments {
-      departmentName
-      departmentDisplayName
-    }
+    ...SideBar
     department(divisionName: $divisionName, departmentName: $departmentName) {
       departmentName
     }
   }
+  ${SideBarFragmentDoc}
 `;
 
 /**

@@ -10,7 +10,7 @@ export const DepartmentListItem = ({
   fragment,
 }: DepartmentListItemProps): JSX.Element => {
   const departmentName = fragment.departmentName ? fragment.departmentName : "";
-  const to = departmentName.length > 1 ? "../" + departmentName : ".";
+  const to = departmentName.length > 1 ? "./" + departmentName : ".";
   return (
     <div
       style={{

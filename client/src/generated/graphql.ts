@@ -256,6 +256,16 @@ export const DivisionContainerFragmentDoc = gql`
   }
   ${MemberComponentFragmentDoc}
 `;
+export const DivisionSideBarFragmentDoc = gql`
+  fragment DivisionSideBar on Division {
+    divisionName
+    divisionDisplayName
+    departments {
+      departmentName
+      departmentDisplayName
+    }
+  }
+`;
 export const DivisionListItemFragmentDoc = gql`
   fragment DivisionListItem on Division {
     divisionName
@@ -277,12 +287,6 @@ export const SideBarDivisionComponentFragmentDoc = gql`
   }
   ${DivisionListItemFragmentDoc}
   ${DepartmentListItemFragmentDoc}
-`;
-export const DivisionSideBarFragmentDoc = gql`
-  fragment DivisionSideBar on Division {
-    ...SideBarDivisionComponent
-  }
-  ${SideBarDivisionComponentFragmentDoc}
 `;
 export const GetDivisionsDocument = gql`
   query GetDivisions {

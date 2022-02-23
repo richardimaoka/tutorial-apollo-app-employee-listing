@@ -38,5 +38,11 @@ export const DivisionSideBar = ({
 
 DivisionSideBar.fragment = gql`
   fragment DivisionSideBar on Division {
+    divisionName
+    divisionDisplayName
+    departments {
+      departmentName
+      departmentDisplayName
+    }
   }
 `;

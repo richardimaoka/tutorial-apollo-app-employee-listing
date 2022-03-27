@@ -12,12 +12,12 @@ export const HeaderContainer = () => {
           width: "1080px",
           margin: "0 auto",
           display: "flex", //vertically center the company name
-          padding: "4px 0px",
         }}
       >
         <div
           style={{
             margin: "auto 0", //vertically center the company name
+            padding: "4px",
           }}
         >
           <Link style={{ textDecoration: "none" }} to="/">

@@ -2,7 +2,6 @@
   "__typename": "Division",
   "divisionName": "trading",
   "divisionDisplayName": "トレーディング部門",
-  "divisionColor": "blue",
   "numDepartmens": 9,
   "numMembers": 180,
   "members": [

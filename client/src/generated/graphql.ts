@@ -35,7 +35,6 @@ export type Department = {
 export type Division = {
   __typename?: "Division";
   departments: Maybe<Array<Maybe<Department>>>;
-  divisionColor: Maybe<Scalars["String"]>;
   divisionDisplayName: Maybe<Scalars["String"]>;
   divisionName: Maybe<Scalars["String"]>;
   members: Maybe<Array<Maybe<Member>>>;
@@ -85,7 +84,6 @@ export type GetDivisionsQuery = {
     divisionName: string | null;
     numDepartments: number | null;
     numMembers: number | null;
-    divisionColor: string | null;
   } | null> | null;
 };
 
@@ -95,7 +93,6 @@ export type DivisionCardFragment = {
   divisionName: string | null;
   numDepartments: number | null;
   numMembers: number | null;
-  divisionColor: string | null;
 };
 
 export type DepartmentBreadcrumbFragment = {
@@ -235,7 +232,6 @@ export const DivisionCardFragmentDoc = gql`
     divisionName
     numDepartments
     numMembers
-    divisionColor
   }
 `;
 export const DepartmentBreadcrumbFragmentDoc = gql`

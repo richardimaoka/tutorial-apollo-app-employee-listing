@@ -36,7 +36,6 @@ export type Department = {
 export type Division = {
   __typename?: "Division";
   departments: Maybe<Array<Maybe<Department>>>;
-  divisionColor: Maybe<Scalars["String"]>;
   divisionDisplayName: Maybe<Scalars["String"]>;
   divisionName: Maybe<Scalars["String"]>;
   members: Maybe<Array<Maybe<Member>>>;
@@ -247,11 +246,6 @@ export type DivisionResolvers<
 > = {
   departments: Resolver<
     Maybe<Array<Maybe<ResolversTypes["Department"]>>>,
-    ParentType,
-    ContextType
-  >;
-  divisionColor: Resolver<
-    Maybe<ResolversTypes["String"]>,
     ParentType,
     ContextType
   >;

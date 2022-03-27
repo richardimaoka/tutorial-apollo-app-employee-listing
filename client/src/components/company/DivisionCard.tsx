@@ -8,31 +8,7 @@ export interface DivisionCardProps {
   fragment: DivisionCardFragment;
 }
 
-const divisionColorCode = (colorName: string | null): string => {
-  switch (colorName) {
-    case "blue":
-      return "#1470C3";
-    case "purple":
-      return "#6014C3";
-    case "green":
-      return "#14C314";
-    case "red":
-      return "#C3142C";
-    case "pink":
-      return "#C3148E";
-    case "black":
-      return "#000000";
-    case "orange":
-      return "#C37714";
-    case "emeraldgreen":
-      return "#14C3BD";
-    default:
-      return "#1470C3";
-  }
-};
-
 export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
-  const divisionColor = divisionColorCode(fragment.divisionColor);
   return (
     <div
       //calculating layout grid
@@ -43,37 +19,64 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
     >
       <Link style={{ textDecoration: "none" }} to={`/${fragment.divisionName}`}>
         <div
-          //background
           style={{
-            margin: "8px",
-            height: "180px",
-            backgroundColor: divisionColor,
+            padding: "8px",
           }}
         >
-          <div style={{ padding: "16px" }}>
+          <div
+            style={{
+              height: "53px",
+              borderRadius: "8px 8px 0px 0px",
+              backgroundColor: "#1470C3",
+              paddingLeft: "8px",
+            }}
+          >
             <span
               style={{
                 color: "#f3f3f3",
                 fontFamily: "'Noto Sans JP', sans-serif",
                 fontSize: "28px",
-                paddingBottom: "2px",
-                borderBottom: "1px solid",
+                fontWeight: "700",
+                lineHeight:
+                  "53px" /* same as height of enclosing <div>: vertical centering */,
+                paddingLeft: "4px",
               }}
             >
               {fragment.divisionDisplayName}
             </span>
-            <div style={{ marginTop: "8px", display: "flex" }}>
+          </div>
+          <div
+            //background
+            style={{
+              height: "180px",
+              borderRadius: "0px 0px 8px 8px",
+              backgroundColor: "#ffffff",
+            }}
+          >
+            <div style={{ padding: "4px 16px" }}>
               <div style={{ display: "flex" }}>
-                <DepartmentsIcon />
-                <span style={{ marginLeft: "4px", color: "#f3f3f3" }}>
-                  {fragment.numDepartments}部署
-                </span>
-              </div>
-              <div style={{ display: "flex", marginLeft: "8px" }}>
-                <MembersIcon />
-                <span style={{ marginLeft: "px", color: "#f3f3f3" }}>
-                  {fragment.numMembers}人
-                </span>
+                <div style={{ display: "flex" }}>
+                  <span
+                    style={{
+                      color: "#474646",
+                      fontFamily: "'Noto Sans JP', sans-serif",
+                      fontSize: "14px",
+                    }}
+                  >
+                    {fragment.numDepartments}部署
+                  </span>
+                </div>
+                <div style={{ display: "flex", marginLeft: "8px" }}>
+                  <span
+                    style={{
+                      color: "#474646",
+                      fontFamily: "'Noto Sans JP', sans-serif",
+                      fontSize: "14px",
+                    }}
+                  >
+                    {fragment.numMembers}人
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -89,6 +92,5 @@ DivisionCard.fragment = gql`
     divisionName
     numDepartments
     numMembers
-    divisionColor
   }
 `;

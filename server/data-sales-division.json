@@ -2,7 +2,6 @@
   "__typename": "Division",
   "divisionName": "sales",
   "divisionDisplayName": "セールス部門",
-  "divisionColor": "blue",
   "numDepartmens": 9,
   "numMembers": 180
 }

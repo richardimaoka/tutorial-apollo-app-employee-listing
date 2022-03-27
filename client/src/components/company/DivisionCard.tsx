@@ -54,8 +54,8 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
             <span
               style={{
                 color: "#f3f3f3",
+                fontFamily: "'Noto Sans JP', sans-serif",
                 fontSize: "28px",
-                fontFamily: "'Zen Antique Soft', serif",
                 paddingBottom: "2px",
                 borderBottom: "1px solid",
               }}

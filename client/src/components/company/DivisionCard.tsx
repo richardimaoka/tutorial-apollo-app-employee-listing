@@ -25,7 +25,7 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
         >
           <div
             style={{
-              height: "53px",
+              height: "50px",
               borderRadius: "8px 8px 0px 0px",
               backgroundColor: "#1470C3",
               paddingLeft: "8px",
@@ -38,7 +38,7 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
                 fontSize: "28px",
                 fontWeight: "700",
                 lineHeight:
-                  "53px" /* same as height of enclosing <div>: vertical centering */,
+                  "50px" /* same as height of enclosing <div>: vertical centering */,
                 paddingLeft: "4px",
               }}
             >
@@ -48,36 +48,31 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
           <div
             //background
             style={{
-              height: "180px",
+              height: "130px",
               borderRadius: "0px 0px 8px 8px",
               backgroundColor: "#ffffff",
             }}
           >
             <div style={{ padding: "4px 16px" }}>
-              <div style={{ display: "flex" }}>
-                <div style={{ display: "flex" }}>
-                  <span
-                    style={{
-                      color: "#474646",
-                      fontFamily: "'Noto Sans JP', sans-serif",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {fragment.numDepartments}部署
-                  </span>
-                </div>
-                <div style={{ display: "flex", marginLeft: "8px" }}>
-                  <span
-                    style={{
-                      color: "#474646",
-                      fontFamily: "'Noto Sans JP', sans-serif",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {fragment.numMembers}人
-                  </span>
-                </div>
-              </div>
+              <span
+                style={{
+                  color: "#474646",
+                  fontFamily: "'Noto Sans JP', sans-serif",
+                  fontSize: "14px",
+                }}
+              >
+                {fragment.numDepartments}部署
+              </span>
+              <span
+                style={{
+                  color: "#474646",
+                  fontFamily: "'Noto Sans JP', sans-serif",
+                  fontSize: "14px",
+                  marginLeft: "4px",
+                }}
+              >
+                {fragment.numMembers}人
+              </span>
             </div>
           </div>
         </div>

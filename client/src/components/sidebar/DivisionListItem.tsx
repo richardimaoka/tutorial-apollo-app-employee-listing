@@ -34,6 +34,7 @@ export const DivisionListItem = ({
         color: "#ffffff",
         textDecorationColor: "#89a3eb",
         fontFamily: "'Noto Sans JP', sans-serif",
+        fontWeight: "300",
         fontSize: "18px",
       }}
       to={to}
@@ -46,6 +47,7 @@ export const DivisionListItem = ({
       style={{
         color: "#ffffff",
         fontFamily: "'Noto Sans JP', sans-serif",
+        fontWeight: "300",
         fontSize: "18px",
       }}
     >

@@ -26,7 +26,7 @@ export const MemberComponent = ({ fragment }: MemberComponentProps) => {
           {fragment.imageUrl ? (
             <img
               style={{ borderRadius: "8px" }}
-              width="110px"
+              width="120px"
               src={fragment.imageUrl}
               alt={`${fragment.name}`}
             />
@@ -34,18 +34,80 @@ export const MemberComponent = ({ fragment }: MemberComponentProps) => {
             <></>
           )}
         </div>
-        <div style={{ marginLeft: "8px" }}>
-          <div style={{}}>{fragment.name}</div>
-          <div style={{ fontSize: "12px" }}>
+        <div
+          style={{
+            marginLeft: "8px",
+          }}
+        >
+          <div>
+            <span
+              style={{
+                color: "#474646",
+                fontFamily: "'Noto Sans JP', sans-serif",
+                fontSize: "18px",
+                fontWeight: 700,
+              }}
+            >
+              {fragment.name}
+            </span>
+          </div>
+          <div
+            style={{
+              color: "#A4A4A4",
+              fontFamily: "'Noto Sans JP', sans-serif",
+              fontSize: "12px",
+              fontWeight: "400",
+            }}
+          >
             <span>{fragment.divisionDisplayName}</span>
-            <span style={{ marginLeft: "8px" }}>
+            <span
+              style={{
+                marginLeft: "8px",
+              }}
+            >
               {fragment.departmentDisplayName}
             </span>
           </div>
-          <div style={{ fontSize: "12px" }}>{fragment.title}</div>
-          <div style={{ fontSize: "12px" }}>勤務地: {fragment.location}</div>
-          <div style={{ fontSize: "12px" }}>電話: {fragment.telephone}</div>
-          <div style={{ fontSize: "12px" }}>メール: {fragment.mailAddress}</div>
+          <div
+            style={{
+              color: "#474646",
+              fontFamily: "'Noto Sans JP', sans-serif",
+              fontSize: "12px",
+              fontWeight: 400,
+            }}
+          >
+            {fragment.title}
+          </div>
+          <div
+            style={{
+              color: "#474646",
+              fontFamily: "'Noto Sans JP', sans-serif",
+              fontSize: "12px",
+              fontWeight: 400,
+            }}
+          >
+            勤務地: {fragment.location}
+          </div>
+          <div
+            style={{
+              color: "#474646",
+              fontFamily: "'Noto Sans JP', sans-serif",
+              fontSize: "12px",
+              fontWeight: 400,
+            }}
+          >
+            電話: {fragment.telephone}
+          </div>
+          <div
+            style={{
+              color: "#474646",
+              fontFamily: "'Noto Sans JP', sans-serif",
+              fontSize: "12px",
+              fontWeight: 400,
+            }}
+          >
+            メール: {fragment.mailAddress}
+          </div>
         </div>
       </div>
     </div>

@@ -29,12 +29,28 @@ export const DivisionListItem = ({
       ? `/${divisionName}`
       : `/${selectDivision}`;
   const linkText = (
-    <Link style={{ color: "#ffffff", textDecorationColor: "#89a3eb" }} to={to}>
+    <Link
+      style={{
+        color: "#ffffff",
+        textDecorationColor: "#89a3eb",
+        fontFamily: "'Noto Sans JP', sans-serif",
+        fontSize: "18px",
+      }}
+      to={to}
+    >
       {divisionDisplayName}
     </Link>
   );
   const nonLinkText = (
-    <span style={{ color: "#ffffff" }}>{divisionDisplayName}</span>
+    <span
+      style={{
+        color: "#ffffff",
+        fontFamily: "'Noto Sans JP', sans-serif",
+        fontSize: "18px",
+      }}
+    >
+      {divisionDisplayName}
+    </span>
   );
 
   const deparments = fragment.departments

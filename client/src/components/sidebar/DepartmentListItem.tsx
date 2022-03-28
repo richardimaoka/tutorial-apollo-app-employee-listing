@@ -24,12 +24,28 @@ export const DepartmentListItem = ({
       ? `/${selectDivision}/${departmentName}`
       : `/${selectDivision}/${selectDepartment}`;
   const linkText = (
-    <Link style={{ textDecorationColor: "#dbe1f1", color: "#050505" }} to={to}>
+    <Link
+      style={{
+        textDecorationColor: "#dbe1f1",
+        color: "#474646",
+        fontFamily: "'Noto Sans JP', sans-serif",
+        fontSize: "18px",
+      }}
+      to={to}
+    >
       {departmentDisplayName}
     </Link>
   );
   const nonLinkText = (
-    <span style={{ color: "#ffffff" }}>{departmentDisplayName}</span>
+    <span
+      style={{
+        color: "#474646",
+        fontFamily: "'Noto Sans JP', sans-serif",
+        fontSize: "18px",
+      }}
+    >
+      {departmentDisplayName}
+    </span>
   );
 
   const select = selectDepartment === fragment.departmentName;

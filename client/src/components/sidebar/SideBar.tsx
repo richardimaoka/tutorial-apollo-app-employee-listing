@@ -12,7 +12,7 @@ interface SideBarProps {
   selectDepartment?: string;
 }
 
-export const SideBarWidth = "200px";
+export const SideBarWidth = "254px";
 
 export const SideBar = ({
   fragment,

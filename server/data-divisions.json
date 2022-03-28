@@ -4,14 +4,108 @@
     "divisionDisplayName": "トレーディング部門",
     "divisionDisplayNameEn": "Trading",
     "numDepartments": 4,
-    "numMembers": 105
+    "numMembers": 105,
+    "departments": [
+      {
+        "divisionName": "trading",
+        "divisionDisplayName": "トレーディング部門",
+        "departmentName": "currency-trading",
+        "departmentDisplayName": "為替トレーディング課"
+      },
+      {
+        "divisionName": "trading",
+        "divisionDisplayName": "トレーディング部門",
+        "departmentName": "fixed-income-trading",
+        "departmentDisplayName": "債券トレーディング課"
+      },
+      {
+        "divisionName": "trading",
+        "divisionDisplayName": "トレーディング部門",
+        "departmentName": "commodity-trading",
+        "departmentDisplayName": "商品先物トレーディング課"
+      },
+      {
+        "divisionName": "trading",
+        "divisionDisplayName": "トレーディング部門",
+        "departmentName": "equity-trading",
+        "departmentDisplayName": "株式トレーディング課"
+      }
+    ]
   },
   {
     "divisionName": "sales",
     "divisionDisplayName": "セールス部門",
     "divisionDisplayNameEn": "Sales",
     "numDepartments": 11,
-    "numMembers": 201
+    "numMembers": 201,
+    "departments": [
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "corporate-sales",
+        "departmentDisplayName": "コーポレート・セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "edealing-sales",
+        "departmentDisplayName": "eディーリング・セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "hedgefund-sales",
+        "departmentDisplayName": "ヘッジファンド・セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "government-sales",
+        "departmentDisplayName": "政府・公共団体セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "bank-sales",
+        "departmentDisplayName": "銀行セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "currency-sales",
+        "departmentDisplayName": "為替セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "commodity-sales",
+        "departmentDisplayName": "商品先物セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "equity-sales",
+        "departmentDisplayName": "株式セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "fixed-income-sales",
+        "departmentDisplayName": "債券セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "structued-sales",
+        "departmentDisplayName": "組成商品セールス課"
+      },
+      {
+        "divisionName": "sales",
+        "divisionDisplayName": "セールス部門",
+        "departmentName": "fund-sales",
+        "departmentDisplayName": "ファンド・セールス課"
+      }
+    ]
   },
   {
     "divisionName": "operations",

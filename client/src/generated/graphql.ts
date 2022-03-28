@@ -48,9 +48,9 @@ export type Member = {
   __typename?: "Member";
   departmentDisplayName: Maybe<Scalars["String"]>;
   divisionDisplayName: Maybe<Scalars["String"]>;
+  email: Maybe<Scalars["String"]>;
   imageUrl: Maybe<Scalars["String"]>;
   location: Maybe<Scalars["String"]>;
-  mailAddress: Maybe<Scalars["String"]>;
   name: Maybe<Scalars["String"]>;
   telephone: Maybe<Scalars["String"]>;
   title: Maybe<Scalars["String"]>;
@@ -146,7 +146,7 @@ export type DivisionContainerFragment = {
     title: string | null;
     location: string | null;
     telephone: string | null;
-    mailAddress: string | null;
+    email: string | null;
     imageUrl: string | null;
   } | null> | null;
 };
@@ -170,7 +170,7 @@ export type GetSingleDivisionQuery = {
       title: string | null;
       location: string | null;
       telephone: string | null;
-      mailAddress: string | null;
+      email: string | null;
       imageUrl: string | null;
     } | null> | null;
   } | null;
@@ -194,7 +194,7 @@ export type MemberComponentFragment = {
   title: string | null;
   location: string | null;
   telephone: string | null;
-  mailAddress: string | null;
+  email: string | null;
   imageUrl: string | null;
 };
 
@@ -259,7 +259,7 @@ export const MemberComponentFragmentDoc = gql`
     title
     location
     telephone
-    mailAddress
+    email
     imageUrl
   }
 `;

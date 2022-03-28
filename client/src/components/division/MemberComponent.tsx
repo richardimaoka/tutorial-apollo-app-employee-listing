@@ -106,7 +106,7 @@ export const MemberComponent = ({ fragment }: MemberComponentProps) => {
               fontWeight: 400,
             }}
           >
-            メール: {fragment.mailAddress}
+            メール: {fragment.email}
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@ MemberComponent.fragment = gql`
     title
     location
     telephone
-    mailAddress
+    email
     imageUrl
   }
 `;

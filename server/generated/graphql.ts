@@ -49,9 +49,9 @@ export type Member = {
   __typename?: "Member";
   departmentDisplayName: Maybe<Scalars["String"]>;
   divisionDisplayName: Maybe<Scalars["String"]>;
+  email: Maybe<Scalars["String"]>;
   imageUrl: Maybe<Scalars["String"]>;
   location: Maybe<Scalars["String"]>;
-  mailAddress: Maybe<Scalars["String"]>;
   name: Maybe<Scalars["String"]>;
   telephone: Maybe<Scalars["String"]>;
   title: Maybe<Scalars["String"]>;
@@ -298,13 +298,9 @@ export type MemberResolvers<
     ParentType,
     ContextType
   >;
+  email: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   imageUrl: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   location: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  mailAddress: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
   name: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   telephone: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   title: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;

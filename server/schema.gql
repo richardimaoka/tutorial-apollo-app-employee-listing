@@ -37,6 +37,6 @@ type Member {
   title: String
   location: String
   telephone: String
-  mailAddress: String
+  email: String
   imageUrl: String
 }

@@ -36,6 +36,7 @@ export type Division = {
   __typename?: "Division";
   departments: Maybe<Array<Maybe<Department>>>;
   divisionDisplayName: Maybe<Scalars["String"]>;
+  divisionDisplayNameEn: Maybe<Scalars["String"]>;
   divisionName: Maybe<Scalars["String"]>;
   members: Maybe<Array<Maybe<Member>>>;
   numDepartments: Maybe<Scalars["Int"]>;
@@ -81,6 +82,7 @@ export type GetDivisionsQuery = {
   divisions: Array<{
     __typename?: "Division";
     divisionDisplayName: string | null;
+    divisionDisplayNameEn: string | null;
     divisionName: string | null;
     numDepartments: number | null;
     numMembers: number | null;
@@ -90,6 +92,7 @@ export type GetDivisionsQuery = {
 export type DivisionCardFragment = {
   __typename?: "Division";
   divisionDisplayName: string | null;
+  divisionDisplayNameEn: string | null;
   divisionName: string | null;
   numDepartments: number | null;
   numMembers: number | null;
@@ -229,6 +232,7 @@ export type SideBarFragment = {
 export const DivisionCardFragmentDoc = gql`
   fragment DivisionCard on Division {
     divisionDisplayName
+    divisionDisplayNameEn
     divisionName
     numDepartments
     numMembers

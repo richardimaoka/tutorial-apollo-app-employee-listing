@@ -1,8 +1,6 @@
 import { gql } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { DivisionCardFragment } from "../../generated/graphql";
-import { DepartmentsIcon } from "./DepartmentsIcon";
-import { MembersIcon } from "./MembersIcon";
 
 export interface DivisionCardProps {
   fragment: DivisionCardFragment;
@@ -51,9 +49,13 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
               height: "130px",
               borderRadius: "0px 0px 8px 8px",
               backgroundColor: "#ffffff",
+              padding: "4px 16px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
             }}
           >
-            <div style={{ padding: "4px 16px" }}>
+            <div>
               <span
                 style={{
                   color: "#474646",
@@ -74,6 +76,21 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
                 {fragment.numMembers}人
               </span>
             </div>
+            <div>
+              <span
+                style={{
+                  display: "inline-block",
+                  width: "100%",
+                  textAlign: "right",
+                  fontFamily: "'Noto Sans JP', sans-serif",
+                  fontSize: "28px",
+                  fontWeight: "900",
+                  color: "#1470C3",
+                }}
+              >
+                {fragment.divisionDisplayNameEn}
+              </span>
+            </div>
           </div>
         </div>
       </Link>
@@ -84,6 +101,7 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
 DivisionCard.fragment = gql`
   fragment DivisionCard on Division {
     divisionDisplayName
+    divisionDisplayNameEn
     divisionName
     numDepartments
     numMembers

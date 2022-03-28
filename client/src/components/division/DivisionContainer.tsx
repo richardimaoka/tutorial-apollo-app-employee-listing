@@ -25,6 +25,7 @@ export const DivisionContainer = ({
         style={{
           width: "1080px",
           margin: "0 auto",
+          filter: "drop-shadow(6px 6px 6px #00000029)",
         }}
       >
         <div style={{ display: "flex", flexWrap: "wrap" }}>

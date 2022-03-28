@@ -22,6 +22,7 @@ export const DivisionBreadcrumb = ({
       style={{
         width: "1080px",
         margin: "0 auto",
+        filter: "drop-shadow(6px 6px 6px #00000029)",
       }}
     >
       <div style={{ marginTop: "8px", padding: "0px 8px" }}>

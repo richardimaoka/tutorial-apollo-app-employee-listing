@@ -68,7 +68,12 @@ export const DivisionListItem = ({
   const select = selectDivision === fragment.divisionName;
   const linkable = selectDepartment || !select; //department is selected, or this division is not selected
   return (
-    <div style={{ marginBottom: "16px" }}>
+    <div
+      style={{
+        marginBottom: "16px",
+        filter: "drop-shadow(6px 6px 6px #00000029)",
+      }}
+    >
       <div
         style={{
           backgroundColor: "#1470C3",

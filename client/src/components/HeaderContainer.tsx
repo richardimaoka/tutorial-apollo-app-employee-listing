@@ -5,6 +5,7 @@ export const HeaderContainer = () => {
     <header
       style={{
         backgroundColor: "#ffffff",
+        filter: "drop-shadow(6px 6px 6px #00000029)",
       }}
     >
       <div

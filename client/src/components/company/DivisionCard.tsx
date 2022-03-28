@@ -13,6 +13,7 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
       style={{
         flex: "0 0 33%",
         wordWrap: "break-word",
+        filter: "drop-shadow(6px 6px 6px #00000029)",
       }}
     >
       <Link style={{ textDecoration: "none" }} to={`/${fragment.divisionName}`}>

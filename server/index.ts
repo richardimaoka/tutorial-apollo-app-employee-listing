@@ -7,53 +7,50 @@ const typeDefs = gql`
 `;
 
 interface ServerContext {
-  tradingDivision: Division;
-  salesDivision: Division;
-  currencyTradingDepartment: Department;
+  divisionTrading: Division;
+  divisionSales: Division;
+  departmentCurrencyTrading: Department;
   divisions: Division[];
-  departments: Department[];
 }
 
 const resolvers: { Query: QueryResolvers<ServerContext> } = {
   Query: {
     divisions: async (parent, args, context, info) => {
+      console.log(`divisions`);
+
       return context.divisions;
     },
     division: async (parent, args, context, info) => {
-      console.log("divisionName = ", args.divisionName);
+      console.log(`divisionName = ${args.divisionName}`);
+
       switch (args.divisionName) {
         case "trading":
           const limit = 10;
           const start = args.offset;
           const end = start + limit;
-          const members = context.tradingDivision.members || [];
+          const members = context.divisionTrading.members || [];
           return {
-            ...context.tradingDivision,
+            ...context.divisionTrading,
             members: members.slice(start, end),
           };
         case "sales":
-          return context.salesDivision;
+          return context.divisionSales;
         default:
           throw new Error(
             `divisionName = "${args.divisionName}" was passed, but currently only divisionName = "trading" or "sales" are handled.`
           );
       }
     },
-    departments: async (paremtn, args, context, info) => {
-      return context.departments;
-    },
     department: async (paremtn, args, context, info) => {
       console.log(
-        "divisionName =",
-        args.divisionName,
-        ", departmentName =",
-        args.departmentName
+        `divisionName = ${args.divisionName}, departmentName = ${args.departmentName}`
       );
+
       if (
         args.divisionName === "trading" &&
         args.departmentName === "currency-trading"
       ) {
-        return context.currencyTradingDepartment;
+        return context.departmentCurrencyTrading;
       } else {
         throw new Error(
           `divisionName = "${args.divisionName}" & department = ${args.departmentName} was passed, ` +
@@ -77,18 +74,16 @@ const server = new ApolloServer({
   context: async ({ req }: any) => {
     try {
       const divisions = await readJsonFile("/data-divisions.json");
-      const tradingDivision = await readJsonFile("/data-trading-division.json");
-      const salesDivision = await readJsonFile("/data-sales-division.json");
-      const departments = await readJsonFile("/data-departments.json");
-      const currencyTradingDepartment = await readJsonFile(
-        "/data-currency-trading-department.json"
+      const divisionTrading = await readJsonFile("/data-division-trading.json");
+      const divisionSales = await readJsonFile("/data-division-sales.json");
+      const departmentCurrencyTrading = await readJsonFile(
+        "/data-department-currency-trading.json"
       );
       return {
-        tradingDivision,
+        divisionTrading,
         divisions,
-        departments,
-        salesDivision,
-        currencyTradingDepartment,
+        divisionSales,
+        departmentCurrencyTrading,
       };
     } catch (err) {
       console.log("***ERROR OCURRED***");

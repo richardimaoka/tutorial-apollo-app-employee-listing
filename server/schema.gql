@@ -1,7 +1,6 @@
 type Query {
   divisions: [Division]
   division(divisionName: String, offset: Int = 0): Division
-  departments: [Department]
   department(
     divisionName: String
     departmentName: String

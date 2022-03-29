@@ -59,7 +59,6 @@ export type Member = {
 export type Query = {
   __typename?: "Query";
   department: Maybe<Department>;
-  departments: Maybe<Array<Maybe<Department>>>;
   division: Maybe<Division>;
   divisions: Maybe<Array<Maybe<Division>>>;
 };

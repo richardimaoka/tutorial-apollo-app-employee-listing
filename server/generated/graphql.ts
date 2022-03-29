@@ -60,7 +60,6 @@ export type Member = {
 export type Query = {
   __typename?: "Query";
   department: Maybe<Department>;
-  departments: Maybe<Array<Maybe<Department>>>;
   division: Maybe<Division>;
   divisions: Maybe<Array<Maybe<Division>>>;
 };
@@ -316,11 +315,6 @@ export type QueryResolvers<
     ParentType,
     ContextType,
     RequireFields<QueryDepartmentArgs, "offset">
-  >;
-  departments: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Department"]>>>,
-    ParentType,
-    ContextType
   >;
   division: Resolver<
     Maybe<ResolversTypes["Division"]>,

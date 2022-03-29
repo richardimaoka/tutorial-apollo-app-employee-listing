@@ -16,7 +16,7 @@
       "location": "東京 日本",
       "email": "richard.imaoka@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face0.jpg"
+      "imageUrl": "http://localhost:8080/images/face1.jpg"
     },
     {
       "divisionName": "trading",
@@ -29,7 +29,7 @@
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face1.jpg"
+      "imageUrl": "http://localhost:8080/images/face2.jpg"
     },
     {
       "divisionName": "trading",
@@ -42,7 +42,7 @@
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face2.jpg"
+      "imageUrl": "http://localhost:8080/images/face3.jpg"
     },
     {
       "divisionName": "trading",
@@ -55,7 +55,7 @@
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face3.jpg"
+      "imageUrl": "http://localhost:8080/images/face4.jpg"
     },
     {
       "divisionName": "trading",
@@ -68,7 +68,7 @@
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face4.jpg"
+      "imageUrl": "http://localhost:8080/images/face5.jpg"
     },
     {
       "divisionName": "trading",
@@ -81,7 +81,7 @@
       "location": "ロンドン 英国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face5.jpg"
+      "imageUrl": "http://localhost:8080/images/face6.jpg"
     },
     {
       "divisionName": "trading",
@@ -94,7 +94,7 @@
       "location": "東京 日本",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face6.jpg"
+      "imageUrl": "http://localhost:8080/images/face7.jpg"
     },
     {
       "divisionName": "trading",
@@ -107,7 +107,7 @@
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face7.jpg"
+      "imageUrl": "http://localhost:8080/images/face8.jpg"
     },
     {
       "divisionName": "trading",
@@ -120,7 +120,7 @@
       "location": "ロンドン 英国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face8.jpg"
+      "imageUrl": "http://localhost:8080/images/face9.jpg"
     },
     {
       "divisionName": "trading",
@@ -133,7 +133,7 @@
       "location": "東京 日本",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face9.jpg"
+      "imageUrl": "http://localhost:8080/images/face10.jpg"
     },
     {
       "divisionName": "trading",
@@ -146,7 +146,7 @@
       "location": "東京 日本",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face10.jpg"
+      "imageUrl": "http://localhost:8080/images/face11.jpg"
     },
     {
       "divisionName": "trading",
@@ -159,30 +159,17 @@
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face11.jpg"
-    },
-    {
-      "divisionName": "trading",
-      "divisionDisplayName": "トレーディング部門",
-      "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "ロダリク・サムナー",
-      "role": "トレーダー",
-      "title": "アナリスト",
-      "location": "ニューヨーク 米国",
-      "email": "some.email@mondrickson.com",
-      "telephone": "03-12xy-45ab",
       "imageUrl": "http://localhost:8080/images/face12.jpg"
     },
     {
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "アラステア・ヒッチコック",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "ロダリク・サムナー",
       "role": "トレーダー",
       "title": "アナリスト",
-      "location": "ロンドン 英国",
+      "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
       "imageUrl": "http://localhost:8080/images/face13.jpg"
@@ -191,8 +178,8 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "カルヴァン・ミルン",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "アラステア・ヒッチコック",
       "role": "トレーダー",
       "title": "アナリスト",
       "location": "ロンドン 英国",
@@ -204,8 +191,8 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "シルヴェスター・ランド",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "カルヴァン・ミルン",
       "role": "トレーダー",
       "title": "アナリスト",
       "location": "ロンドン 英国",
@@ -217,8 +204,8 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "アンゲーリケ・フライエンフェルス",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "シルヴェスター・ランド",
       "role": "トレーダー",
       "title": "アナリスト",
       "location": "ロンドン 英国",
@@ -230,10 +217,10 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "エリーゼ・トラウトマン",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "アンゲーリケ・フライエンフェルス",
       "role": "トレーダー",
-      "title": "アソシエイト",
+      "title": "アナリスト",
       "location": "ロンドン 英国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
@@ -243,8 +230,8 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "グラントリー・クィントン",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "エリーゼ・トラウトマン",
       "role": "トレーダー",
       "title": "アソシエイト",
       "location": "ロンドン 英国",
@@ -256,11 +243,11 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "オーガスタス・メリアム",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "グラントリー・クィントン",
       "role": "トレーダー",
-      "title": "アナリスト",
-      "location": "ニューヨーク 米国",
+      "title": "アソシエイト",
+      "location": "ロンドン 英国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
       "imageUrl": "http://localhost:8080/images/face19.jpg"
@@ -269,8 +256,8 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "サイモン＝フェリクス・オーダム",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "オーガスタス・メリアム",
       "role": "トレーダー",
       "title": "アナリスト",
       "location": "ニューヨーク 米国",
@@ -282,10 +269,10 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "マチュー・フォン・ラメロウ",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "サイモン＝フェリクス・オーダム",
       "role": "トレーダー",
-      "title": "アソシエイト",
+      "title": "アナリスト",
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
@@ -295,11 +282,11 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "リューディア・ブッシュバウム",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "マチュー・フォン・ラメロウ",
       "role": "トレーダー",
-      "title": "アナリスト",
-      "location": "東京 日本",
+      "title": "アソシエイト",
+      "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
       "imageUrl": "http://localhost:8080/images/face22.jpg"
@@ -308,11 +295,11 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "アレクシス・ドワイヨン",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "リューディア・ブッシュバウム",
       "role": "トレーダー",
-      "title": "ヴァイス・プレジデント",
-      "location": "ニューヨーク 米国",
+      "title": "アナリスト",
+      "location": "東京 日本",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
       "imageUrl": "http://localhost:8080/images/face23.jpg"
@@ -321,10 +308,10 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "クリスティン・ハインツマン＝ブッフホルツ",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "アレクシス・ドワイヨン",
       "role": "トレーダー",
-      "title": "アナリスト",
+      "title": "ヴァイス・プレジデント",
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
@@ -334,8 +321,8 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "エルドレッド・スターキー",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "クリスティン・ハインツマン＝ブッフホルツ",
       "role": "トレーダー",
       "title": "アナリスト",
       "location": "ニューヨーク 米国",
@@ -347,8 +334,8 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "エーデルトルート・シュナイダー",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "エルドレッド・スターキー",
       "role": "トレーダー",
       "title": "アナリスト",
       "location": "ニューヨーク 米国",
@@ -360,10 +347,10 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "グリゼルダ・ツェルニク",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "エーデルトルート・シュナイダー",
       "role": "トレーダー",
-      "title": "マネージング・ディレクター",
+      "title": "アナリスト",
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
@@ -373,10 +360,10 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "エリス＝ジェフ・ゲーンズボロ",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "グリゼルダ・ツェルニク",
       "role": "トレーダー",
-      "title": "ヴァイス・プレジデント",
+      "title": "マネージング・ディレクター",
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
@@ -386,10 +373,10 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "ラーラ・フィデッサー",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "エリス＝ジェフ・ゲーンズボロ",
       "role": "トレーダー",
-      "title": "アソシエイト",
+      "title": "ヴァイス・プレジデント",
       "location": "ニューヨーク 米国",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
@@ -399,8 +386,8 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
-      "name": "ワーダ・フリージンガー",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "ラーラ・フィデッサー",
       "role": "トレーダー",
       "title": "アソシエイト",
       "location": "ニューヨーク 米国",
@@ -412,14 +399,27 @@
       "divisionName": "trading",
       "divisionDisplayName": "トレーディング部門",
       "departmentName": "currency-trading",
-      "departmentDisplayName": "為替トレーディング課",
+      "departmentDisplayName": "株式トレーディング課",
+      "name": "ワーダ・フリージンガー",
+      "role": "トレーダー",
+      "title": "アソシエイト",
+      "location": "ニューヨーク 米国",
+      "email": "some.email@mondrickson.com",
+      "telephone": "03-12xy-45ab",
+      "imageUrl": "http://localhost:8080/images/face31.jpg"
+    },
+    {
+      "divisionName": "trading",
+      "divisionDisplayName": "トレーディング部門",
+      "departmentName": "currency-trading",
+      "departmentDisplayName": "株式トレーディング課",
       "name": "ヴェリーナ＝マディ・イェーリス",
       "role": "トレーダー",
       "title": "アソシエイト",
       "location": "東京 日本",
       "email": "some.email@mondrickson.com",
       "telephone": "03-12xy-45ab",
-      "imageUrl": "http://localhost:8080/images/face31.jpg"
+      "imageUrl": "http://localhost:8080/images/face32.jpg"
     }
   ]
 }

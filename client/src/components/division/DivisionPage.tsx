@@ -24,7 +24,7 @@ export const DivisionPage = (): JSX.Element => {
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
 
   const divisionName = params.divisionName ? params.divisionName : "";
-  const { loading, error, data, fetchMore } = useGetSingleDivisionQuery({
+  const { loading, error, data } = useGetSingleDivisionQuery({
     variables: {
       divisionName,
       offset: (page - 1) * 10,

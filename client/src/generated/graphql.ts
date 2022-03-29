@@ -107,6 +107,7 @@ export type DepartmentBreadcrumbFragment = {
 export type GetSingleDepartmentQueryVariables = Exact<{
   divisionName: InputMaybe<Scalars["String"]>;
   departmentName: InputMaybe<Scalars["String"]>;
+  offset: InputMaybe<Scalars["Int"]>;
 }>;
 
 export type GetSingleDepartmentQuery = {
@@ -353,9 +354,17 @@ export type GetDivisionsQueryResult = Apollo.QueryResult<
   GetDivisionsQueryVariables
 >;
 export const GetSingleDepartmentDocument = gql`
-  query GetSingleDepartment($divisionName: String, $departmentName: String) {
+  query GetSingleDepartment(
+    $divisionName: String
+    $departmentName: String
+    $offset: Int
+  ) {
     ...SideBar
-    department(divisionName: $divisionName, departmentName: $departmentName) {
+    department(
+      divisionName: $divisionName
+      departmentName: $departmentName
+      offset: $offset
+    ) {
       ...DepartmentBreadcrumb
     }
   }
@@ -377,6 +386,7 @@ export const GetSingleDepartmentDocument = gql`
  *   variables: {
  *      divisionName: // value for 'divisionName'
  *      departmentName: // value for 'departmentName'
+ *      offset: // value for 'offset'
  *   },
  * });
  */

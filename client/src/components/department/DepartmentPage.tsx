@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import {
   DepartmentBreadcrumbFragment,
   useGetSingleDepartmentQuery,
@@ -10,23 +10,35 @@ import { SideBar, SideBarWidth } from "../sidebar/SideBar";
 
 //This is read by GraphQL codegen to generate types
 gql`
-  query GetSingleDepartment($divisionName: String, $departmentName: String) {
+  query GetSingleDepartment(
+    $divisionName: String
+    $departmentName: String
+    $offset: Int
+  ) {
     ...SideBar
-    department(divisionName: $divisionName, departmentName: $departmentName) {
+    department(
+      divisionName: $divisionName
+      departmentName: $departmentName
+      offset: $offset
+    ) {
       ...DepartmentBreadcrumb
+      # ...DepartmentContainer
     }
   }
 `;
 
 export const DepartmentPage = (): JSX.Element => {
   const params = useParams<{ divisionName: string; departmentName: string }>();
-  const divisionName = params.divisionName || "";
-  const departmentName = params.departmentName || "";
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
 
+  const divisionName = params.divisionName ? params.divisionName : "";
+  const departmentName = params.departmentName ? params.departmentName : "";
   const { loading, error, data } = useGetSingleDepartmentQuery({
     variables: {
       divisionName,
       departmentName,
+      offset: (page - 1) * 10,
     },
   });
 

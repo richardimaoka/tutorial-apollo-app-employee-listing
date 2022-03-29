@@ -46,12 +46,9 @@ export const DepartmentPage = (): JSX.Element => {
     return <></>;
   } else if (error) {
     return <></>;
-  } else if (!data || !data.divisions) {
+  } else if (!data || !data.divisions || !data.department) {
     return <></>;
   } else {
-    const breadcrumb = (fragment: DepartmentBreadcrumbFragment) => (
-      <DepartmentBreadcrumb fragment={fragment} />
-    );
     return (
       <>
         <HeaderContainer />
@@ -61,7 +58,9 @@ export const DepartmentPage = (): JSX.Element => {
             selectDivision={divisionName}
             selectDepartment={departmentName}
           />
-          <div>{data.department ? breadcrumb(data.department) : <></>}</div>
+          <div>
+            <DepartmentBreadcrumb fragment={data.department} />
+          </div>
           <div
             style={{
               /*to center the main content, we need side bars with the same width on both sides*/

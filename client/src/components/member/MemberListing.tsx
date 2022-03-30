@@ -1,17 +1,18 @@
 import { gql } from "@apollo/client";
 import { Link, useSearchParams } from "react-router-dom";
 import {
-  MemberListingFragment,
+  DivisionMemberListingFragment,
+  DepartmentMemberListingFragment,
   MemberComponentFragment,
 } from "../../generated/graphql";
 import { excludeNullElements } from "../../utils/arrayUtils";
 import { MemberComponent } from "./MemberComponent";
 
 interface MemberListingProps {
-  fragment: MemberListingFragment;
+  fragment: DivisionMemberListingFragment | DepartmentMemberListingFragment;
 }
 
-export const MemberListingSize = 10;
+const listingPageSize = 10;
 
 export const MemberListing = ({
   fragment,
@@ -22,9 +23,8 @@ export const MemberListing = ({
     const members = excludeNullElements<MemberComponentFragment>(
       fragment.members
     );
-
-    const numPages = members.length % MemberListingSize;
-    const pagesIndices = Array.from({ length: numPages }, (_, i) => i + 1); //=> [1, 2, ... , numPages]
+    const numPages = members.length % listingPageSize;
+    const pageIndices = Array.from({ length: numPages }, (_, i) => i + 1); //=> [1, 2, ... , numPages]
 
     return (
       <main
@@ -41,7 +41,7 @@ export const MemberListing = ({
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div>
-            {pagesIndices.map((i) => (
+            {pageIndices.map((i) => (
               <Link key={i} style={{ marginLeft: "10px" }} to={`.?page=${i}`}>
                 {i}
               </Link>
@@ -53,8 +53,15 @@ export const MemberListing = ({
   }
 };
 
+MemberListing.pageSize = listingPageSize;
+
 MemberListing.fragment = gql`
-  fragment MemberListing on Division {
+  fragment DivisionMemberListing on Division {
+    members {
+      ...MemberComponent
+    }
+  }
+  fragment DepartmentMemberListing on Department {
     members {
       ...MemberComponent
     }

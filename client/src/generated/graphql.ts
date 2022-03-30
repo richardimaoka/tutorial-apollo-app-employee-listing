@@ -224,6 +224,21 @@ export type MemberComponentFragment = {
   imageUrl: string | null;
 };
 
+export type MemberContainerFragment = {
+  __typename?: "Division";
+  members: Array<{
+    __typename?: "Member";
+    name: string | null;
+    divisionDisplayName: string | null;
+    departmentDisplayName: string | null;
+    title: string | null;
+    location: string | null;
+    telephone: string | null;
+    email: string | null;
+    imageUrl: string | null;
+  } | null> | null;
+};
+
 export type DepartmentListItemFragment = {
   __typename?: "Department";
   departmentName: string | null;
@@ -299,6 +314,14 @@ export const DivisionBreadcrumbFragmentDoc = gql`
 `;
 export const DivisionContainerFragmentDoc = gql`
   fragment DivisionContainer on Division {
+    members {
+      ...MemberComponent
+    }
+  }
+  ${MemberComponentFragmentDoc}
+`;
+export const MemberContainerFragmentDoc = gql`
+  fragment MemberContainer on Division {
     members {
       ...MemberComponent
     }

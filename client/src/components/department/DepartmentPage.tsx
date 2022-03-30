@@ -20,7 +20,7 @@ gql`
       offset: $offset
     ) {
       ...DepartmentBreadcrumb
-      ...DepartmentContainer
+      ...DepartmentMemberListing
     }
   }
 `;

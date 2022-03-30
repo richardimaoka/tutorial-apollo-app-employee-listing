@@ -17,15 +17,16 @@ const listingPageSize = 10;
 export const MemberListing = ({
   fragment,
 }: MemberListingProps): JSX.Element => {
-  if (!fragment.members) {
+  if (!fragment.members || !fragment.numMembers) {
     return <></>;
   } else {
     const members = excludeNullElements<MemberComponentFragment>(
       fragment.members
     );
-    const numPages = members.length % listingPageSize;
+    const numPages = fragment.numMembers / listingPageSize;
     const pageIndices = Array.from({ length: numPages }, (_, i) => i + 1); //=> [1, 2, ... , numPages]
-
+    console.log(`numPages ${numPages}`);
+    console.log(`pageIndices ${pageIndices}`);
     return (
       <main
         style={{
@@ -57,11 +58,13 @@ MemberListing.pageSize = listingPageSize;
 
 MemberListing.fragment = gql`
   fragment DivisionMemberListing on Division {
+    numMembers
     members {
       ...MemberComponent
     }
   }
   fragment DepartmentMemberListing on Department {
+    numMembers
     members {
       ...MemberComponent
     }

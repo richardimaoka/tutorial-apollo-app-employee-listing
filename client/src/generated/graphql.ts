@@ -104,21 +104,6 @@ export type DepartmentBreadcrumbFragment = {
   departmentDisplayName: string | null;
 };
 
-export type DepartmentContainerFragment = {
-  __typename?: "Department";
-  members: Array<{
-    __typename?: "Member";
-    name: string | null;
-    divisionDisplayName: string | null;
-    departmentDisplayName: string | null;
-    title: string | null;
-    location: string | null;
-    telephone: string | null;
-    email: string | null;
-    imageUrl: string | null;
-  } | null> | null;
-};
-
 export type GetSingleDepartmentQueryVariables = Exact<{
   divisionName: InputMaybe<Scalars["String"]>;
   departmentName: InputMaybe<Scalars["String"]>;
@@ -132,6 +117,7 @@ export type GetSingleDepartmentQuery = {
     divisionName: string | null;
     divisionDisplayName: string | null;
     departmentDisplayName: string | null;
+    numMembers: number | null;
     members: Array<{
       __typename?: "Member";
       name: string | null;
@@ -162,21 +148,6 @@ export type DivisionBreadcrumbFragment = {
   divisionDisplayName: string | null;
 };
 
-export type DivisionContainerFragment = {
-  __typename?: "Division";
-  members: Array<{
-    __typename?: "Member";
-    name: string | null;
-    divisionDisplayName: string | null;
-    departmentDisplayName: string | null;
-    title: string | null;
-    location: string | null;
-    telephone: string | null;
-    email: string | null;
-    imageUrl: string | null;
-  } | null> | null;
-};
-
 export type GetSingleDivisionQueryVariables = Exact<{
   divisionName: InputMaybe<Scalars["String"]>;
   offset: InputMaybe<Scalars["Int"]>;
@@ -188,6 +159,7 @@ export type GetSingleDivisionQuery = {
     __typename?: "Division";
     divisionName: string | null;
     divisionDisplayName: string | null;
+    numMembers: number | null;
     members: Array<{
       __typename?: "Member";
       name: string | null;
@@ -226,6 +198,7 @@ export type MemberComponentFragment = {
 
 export type DivisionMemberListingFragment = {
   __typename?: "Division";
+  numMembers: number | null;
   members: Array<{
     __typename?: "Member";
     name: string | null;
@@ -241,6 +214,7 @@ export type DivisionMemberListingFragment = {
 
 export type DepartmentMemberListingFragment = {
   __typename?: "Department";
+  numMembers: number | null;
   members: Array<{
     __typename?: "Member";
     name: string | null;
@@ -301,6 +275,12 @@ export const DepartmentBreadcrumbFragmentDoc = gql`
     departmentDisplayName
   }
 `;
+export const DivisionBreadcrumbFragmentDoc = gql`
+  fragment DivisionBreadcrumb on Division {
+    divisionName
+    divisionDisplayName
+  }
+`;
 export const MemberComponentFragmentDoc = gql`
   fragment MemberComponent on Member {
     name
@@ -313,30 +293,9 @@ export const MemberComponentFragmentDoc = gql`
     imageUrl
   }
 `;
-export const DepartmentContainerFragmentDoc = gql`
-  fragment DepartmentContainer on Department {
-    members {
-      ...MemberComponent
-    }
-  }
-  ${MemberComponentFragmentDoc}
-`;
-export const DivisionBreadcrumbFragmentDoc = gql`
-  fragment DivisionBreadcrumb on Division {
-    divisionName
-    divisionDisplayName
-  }
-`;
-export const DivisionContainerFragmentDoc = gql`
-  fragment DivisionContainer on Division {
-    members {
-      ...MemberComponent
-    }
-  }
-  ${MemberComponentFragmentDoc}
-`;
 export const DivisionMemberListingFragmentDoc = gql`
   fragment DivisionMemberListing on Division {
+    numMembers
     members {
       ...MemberComponent
     }
@@ -345,6 +304,7 @@ export const DivisionMemberListingFragmentDoc = gql`
 `;
 export const DepartmentMemberListingFragmentDoc = gql`
   fragment DepartmentMemberListing on Department {
+    numMembers
     members {
       ...MemberComponent
     }
@@ -446,12 +406,12 @@ export const GetSingleDepartmentDocument = gql`
       offset: $offset
     ) {
       ...DepartmentBreadcrumb
-      ...DepartmentContainer
+      ...DepartmentMemberListing
     }
   }
   ${SideBarFragmentDoc}
   ${DepartmentBreadcrumbFragmentDoc}
-  ${DepartmentContainerFragmentDoc}
+  ${DepartmentMemberListingFragmentDoc}
 `;
 
 /**
@@ -511,12 +471,12 @@ export const GetSingleDivisionDocument = gql`
     ...SideBar
     division(divisionName: $divisionName, offset: $offset) {
       ...DivisionBreadcrumb
-      ...DivisionContainer
+      ...DivisionMemberListing
     }
   }
   ${SideBarFragmentDoc}
   ${DivisionBreadcrumbFragmentDoc}
-  ${DivisionContainerFragmentDoc}
+  ${DivisionMemberListingFragmentDoc}
 `;
 
 /**

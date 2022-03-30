@@ -13,7 +13,7 @@ gql`
     ...SideBar
     division(divisionName: $divisionName, offset: $offset) {
       ...DivisionBreadcrumb
-      ...DivisionContainer
+      ...DivisionMemberListing
     }
   }
 `;

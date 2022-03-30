@@ -1,21 +1,21 @@
 import { gql } from "@apollo/client";
 import { Link, useSearchParams } from "react-router-dom";
 import {
-  MemberContainerFragment,
+  MemberListingFragment,
   MemberComponentFragment,
 } from "../../generated/graphql";
 import { excludeNullElements } from "../../utils/arrayUtils";
 import { MemberComponent } from "./MemberComponent";
 
-interface MemberContainerProps {
-  fragment: MemberContainerFragment;
+interface MemberListingProps {
+  fragment: MemberListingFragment;
 }
 
-export const MemberContainerSize = 10;
+export const MemberListingSize = 10;
 
-export const MemberContainer = ({
+export const MemberListing = ({
   fragment,
-}: MemberContainerProps): JSX.Element => {
+}: MemberListingProps): JSX.Element => {
   if (!fragment.members) {
     return <></>;
   } else {
@@ -23,7 +23,7 @@ export const MemberContainer = ({
       fragment.members
     );
 
-    const numPages = members.length % MemberContainerSize;
+    const numPages = members.length % MemberListingSize;
     const pagesIndices = Array.from({ length: numPages }, (_, i) => i + 1); //=> [1, 2, ... , numPages]
 
     return (
@@ -53,8 +53,8 @@ export const MemberContainer = ({
   }
 };
 
-MemberContainer.fragment = gql`
-  fragment MemberContainer on Division {
+MemberListing.fragment = gql`
+  fragment MemberListing on Division {
     members {
       ...MemberComponent
     }

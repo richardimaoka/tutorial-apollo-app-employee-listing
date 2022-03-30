@@ -224,7 +224,7 @@ export type MemberComponentFragment = {
   imageUrl: string | null;
 };
 
-export type MemberContainerFragment = {
+export type MemberListingFragment = {
   __typename?: "Division";
   members: Array<{
     __typename?: "Member";
@@ -320,8 +320,8 @@ export const DivisionContainerFragmentDoc = gql`
   }
   ${MemberComponentFragmentDoc}
 `;
-export const MemberContainerFragmentDoc = gql`
-  fragment MemberContainer on Division {
+export const MemberListingFragmentDoc = gql`
+  fragment MemberListing on Division {
     members {
       ...MemberComponent
     }

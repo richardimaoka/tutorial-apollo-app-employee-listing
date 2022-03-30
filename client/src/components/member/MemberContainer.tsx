@@ -23,7 +23,8 @@ export const MemberContainer = ({
       fragment.members
     );
 
-    const pages = [1, 2, 3];
+    const numPages = members.length % MemberContainerSize;
+    const pagesIndices = Array.from({ length: numPages }, (_, i) => i + 1); //=> [1, 2, ... , numPages]
 
     return (
       <main
@@ -40,7 +41,7 @@ export const MemberContainer = ({
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div>
-            {pages.map((i) => (
+            {pagesIndices.map((i) => (
               <Link key={i} style={{ marginLeft: "10px" }} to={`.?page=${i}`}>
                 {i}
               </Link>

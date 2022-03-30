@@ -11,6 +11,8 @@ interface MemberContainerProps {
   fragment: MemberContainerFragment;
 }
 
+export const MemberContainerSize = 10;
+
 export const MemberContainer = ({
   fragment,
 }: MemberContainerProps): JSX.Element => {
@@ -20,6 +22,8 @@ export const MemberContainer = ({
     const members = excludeNullElements<MemberComponentFragment>(
       fragment.members
     );
+
+    const pages = [1, 2, 3];
 
     return (
       <main
@@ -36,15 +40,11 @@ export const MemberContainer = ({
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div>
-            <Link style={{ marginLeft: "10px" }} to=".?page=1">
-              1
-            </Link>
-            <Link style={{ marginLeft: "10px" }} to=".?page=2">
-              2
-            </Link>
-            <Link style={{ marginLeft: "10px" }} to=".?page=3">
-              3
-            </Link>
+            {pages.map((i) => (
+              <Link key={i} style={{ marginLeft: "10px" }} to={`.?page=${i}`}>
+                {i}
+              </Link>
+            ))}
           </div>
         </div>
       </main>

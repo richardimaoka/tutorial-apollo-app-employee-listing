@@ -1,12 +1,10 @@
 import { gql } from "@apollo/client";
 import { useParams, useSearchParams } from "react-router-dom";
-import {
-  DepartmentBreadcrumbFragment,
-  useGetSingleDepartmentQuery,
-} from "../../generated/graphql";
+import { useGetSingleDepartmentQuery } from "../../generated/graphql";
 import { HeaderContainer } from "../HeaderContainer";
 import { DepartmentBreadcrumb } from "./DepartmentBreadcrumb";
 import { SideBar, SideBarWidth } from "../sidebar/SideBar";
+import { DepartmentContainer } from "./DepartmentContainer";
 
 //This is read by GraphQL codegen to generate types
 gql`
@@ -22,7 +20,7 @@ gql`
       offset: $offset
     ) {
       ...DepartmentBreadcrumb
-      # ...DepartmentContainer
+      ...DepartmentContainer
     }
   }
 `;
@@ -60,6 +58,7 @@ export const DepartmentPage = (): JSX.Element => {
           />
           <div>
             <DepartmentBreadcrumb fragment={data.department} />
+            <DepartmentContainer fragment={data.department} />
           </div>
           <div
             style={{

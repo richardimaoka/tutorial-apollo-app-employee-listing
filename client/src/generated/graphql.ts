@@ -104,6 +104,21 @@ export type DepartmentBreadcrumbFragment = {
   departmentDisplayName: string | null;
 };
 
+export type DepartmentContainerFragment = {
+  __typename?: "Department";
+  members: Array<{
+    __typename?: "Member";
+    name: string | null;
+    divisionDisplayName: string | null;
+    departmentDisplayName: string | null;
+    title: string | null;
+    location: string | null;
+    telephone: string | null;
+    email: string | null;
+    imageUrl: string | null;
+  } | null> | null;
+};
+
 export type GetSingleDepartmentQueryVariables = Exact<{
   divisionName: InputMaybe<Scalars["String"]>;
   departmentName: InputMaybe<Scalars["String"]>;
@@ -117,6 +132,17 @@ export type GetSingleDepartmentQuery = {
     divisionName: string | null;
     divisionDisplayName: string | null;
     departmentDisplayName: string | null;
+    members: Array<{
+      __typename?: "Member";
+      name: string | null;
+      divisionDisplayName: string | null;
+      departmentDisplayName: string | null;
+      title: string | null;
+      location: string | null;
+      telephone: string | null;
+      email: string | null;
+      imageUrl: string | null;
+    } | null> | null;
   } | null;
   divisions: Array<{
     __typename?: "Division";
@@ -245,12 +271,6 @@ export const DepartmentBreadcrumbFragmentDoc = gql`
     departmentDisplayName
   }
 `;
-export const DivisionBreadcrumbFragmentDoc = gql`
-  fragment DivisionBreadcrumb on Division {
-    divisionName
-    divisionDisplayName
-  }
-`;
 export const MemberComponentFragmentDoc = gql`
   fragment MemberComponent on Member {
     name
@@ -261,6 +281,20 @@ export const MemberComponentFragmentDoc = gql`
     telephone
     email
     imageUrl
+  }
+`;
+export const DepartmentContainerFragmentDoc = gql`
+  fragment DepartmentContainer on Department {
+    members {
+      ...MemberComponent
+    }
+  }
+  ${MemberComponentFragmentDoc}
+`;
+export const DivisionBreadcrumbFragmentDoc = gql`
+  fragment DivisionBreadcrumb on Division {
+    divisionName
+    divisionDisplayName
   }
 `;
 export const DivisionContainerFragmentDoc = gql`
@@ -366,10 +400,12 @@ export const GetSingleDepartmentDocument = gql`
       offset: $offset
     ) {
       ...DepartmentBreadcrumb
+      ...DepartmentContainer
     }
   }
   ${SideBarFragmentDoc}
   ${DepartmentBreadcrumbFragmentDoc}
+  ${DepartmentContainerFragmentDoc}
 `;
 
 /**

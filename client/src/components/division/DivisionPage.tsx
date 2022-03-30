@@ -2,10 +2,10 @@ import { gql } from "@apollo/client";
 import { useParams, useSearchParams } from "react-router-dom";
 import { useGetSingleDivisionQuery } from "../../generated/graphql";
 import { HeaderContainer } from "../HeaderContainer";
-import { DivisionBreadcrumb } from "./DivisionBreadcrumb";
-import { DivisionContainer } from "./DivisionContainer";
-import { SideBar } from "../sidebar/SideBar";
+import { MemberListing } from "../member/MemberListing";
 import { EmptySideBar } from "../sidebar/EmptySideBar";
+import { SideBar } from "../sidebar/SideBar";
+import { DivisionBreadcrumb } from "./DivisionBreadcrumb";
 
 //This is read by GraphQL codegen to generate types
 gql`
@@ -50,7 +50,7 @@ export const DivisionPage = (): JSX.Element => {
           <SideBar fragment={data} selectDivision={divisionName} />
           <div>
             <DivisionBreadcrumb fragment={data.division} />
-            <DivisionContainer fragment={data.division} />
+            <MemberListing fragment={data.division} />
           </div>
           <EmptySideBar />
         </div>

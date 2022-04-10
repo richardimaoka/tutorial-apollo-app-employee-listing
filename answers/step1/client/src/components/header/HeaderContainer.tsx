@@ -10,12 +10,10 @@ export const HeaderContainer = () => {
         style={{
           width: "1080px",
           margin: "0 auto",
-          display: "flex", //vertically center the company name
         }}
       >
         <div
           style={{
-            margin: "auto 0", //vertically center the company name
             padding: "4px",
           }}
         >

@@ -11,7 +11,7 @@ export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
     <div
       //calculating layout grid
       style={{
-        flex: "0 0 33%",
+        flex: "0 0 33%" /*flex-grow = 0 flex-shrink = 0 flex-bases = 33%*/,
         wordWrap: "break-word",
         filter: "drop-shadow(6px 6px 6px #00000029)",
       }}

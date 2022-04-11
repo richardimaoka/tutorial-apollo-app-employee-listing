@@ -1,22 +1,19 @@
 #!/bin/sh
 
-# ## 1. React環境のセットアップ
-
-# :large_orange_diamond: Action: 以下のコマンドを実行してください
-
-# npx create-react-app client --template typescript # REMOVE THIS IN aggregate.sh 
-# rm -rf client... # REMOVE THIS IN aggregate.sh 
-# cp -r answers/step1-1/client/src/... # REMOVE THIS IN aggregate.sh 
+# ## graphql 導入
 
 # ```terminal: メイン・ターミナル
-cp -r answers/step1-1/client client
-# shellcheck disable=SC2164 # REMOVE THIS IN aggregate.sh 
-cd client
-npm install
+npm install --save @apollo/client graphql
 # ```
 
 # ```terminal: メイン・ターミナル
-npm set-script client-start "npm run start"
+
+cp -r answers/step1-2/client/src client
+npm run client-start
+# ```
+
+
+# ```terminal: メイン・ターミナル
 npm run client-start
 # ```
 

@@ -13,6 +13,7 @@ npm init -yes
 #```
 
 # ```terminal: サーバー
+echo "node_modules" > .gitignore
 npm install --save-dev typescript ts-node-dev
 npx tsc -init
 #```
@@ -22,6 +23,12 @@ npm install apollo-server @graphql-codegen/cli graphql
 #```
 
 # ```terminal: サーバー
-npm set-script server-start "npm run start"
+cp ../answers/step1-2/server/index.ts index.ts
+cp ../answers/step1-2/server/schema.gql schema.gql
+cp ../answers/step1-2/server/data-divisions.json data-divisions.json
+#```
+
+# ```terminal: サーバー
+npm set-script server-start "ts-node-dev --respawn index.ts"
 npm run server-start
 # ```

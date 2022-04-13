@@ -1,0 +1,58 @@
+[
+  {
+    "divisionName": "trading",
+    "divisionDisplayName": "トレーディング部門",
+    "divisionDisplayNameEn": "Trading",
+    "numDepartments": 4,
+    "numMembers": 105
+  },
+  {
+    "divisionName": "sales",
+    "divisionDisplayName": "セールス部門",
+    "divisionDisplayNameEn": "Sales",
+    "numDepartments": 11,
+    "numMembers": 201
+  },
+  {
+    "divisionName": "operations",
+    "divisionDisplayName": "業務部門",
+    "divisionDisplayNameEn": "Operations",
+    "numDepartments": 32,
+    "numMembers": 1005
+  },
+  {
+    "divisionName": "accounting",
+    "divisionDisplayName": "会計部門",
+    "divisionDisplayNameEn": "Accounting",
+    "numDepartments": 13,
+    "numMembers": 310
+  },
+  {
+    "divisionName": "risk",
+    "divisionDisplayName": "リスク管理部門",
+    "divisionDisplayNameEn": "Risk",
+    "numDepartments": 9,
+    "numMembers": 160
+  },
+  {
+    "divisionName": "legal",
+    "divisionDisplayName": "法務部門",
+    "divisionDisplayNameEn": "Legal",
+    "numDepartments": 1,
+    "numMembers": 32
+  },
+  {
+    "divisionName": "information-technology",
+    "divisionDisplayName": "IT部門",
+    "divisionDisplayNameEn": "IT",
+    "numDepartments": 25,
+    "numMembers": 880
+  },
+  {
+    "divisionName": "executive-office",
+    "divisionDisplayName": "社長室",
+    "divisionDisplayNameEn": "Executive Office",
+    "numDepartments": 1,
+    "numMembers": 14
+  }
+]

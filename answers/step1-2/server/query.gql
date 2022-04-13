@@ -1,0 +1,10 @@
+{
+  divisions {
+    divisionDisplayName
+    divisionDisplayNameEn
+    divisionName
+    numDepartments
+    numMemberPages
+    numMembers
+  }
+}

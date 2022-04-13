@@ -13,7 +13,8 @@ START=$(date +%s) # %s: seconds since 1970-01-01 00:00:00 UTC
 CURRENT="$START"
 while [ $((CURRENT - START)) -le 60 ]
 do
-  HTTP_STATUS_CODE=$(curl -o /dev/null -Isw '%{http_code}\n' "$URL") # https://stackoverflow.com/questions/41875177/check-if-url-returns-200-using-bash
+  # https://stackoverflow.com/questions/41875177/check-if-url-returns-200-using-bash
+  HTTP_STATUS_CODE=$(curl -o /dev/null --request POST --header 'content-type: application/json' --data '{"query":"query { __typename }"}' -sw '%{http_code}\n' "$URL")
   if [ "$HTTP_STATUS_CODE" -eq "200" ]
   then
     exit 0    

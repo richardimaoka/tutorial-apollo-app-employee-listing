@@ -1,5 +1,8 @@
 #!/bin/sh
 
+cd "$(dirname "$0")" || exit # REMOVE THIS IN aggregate.sh 
+cd ../ || exit               # REMOVE THIS IN aggregate.sh - cd to the git repository root
+
 # ## graphql 導入
 
 # ```terminal: メイン・ターミナル

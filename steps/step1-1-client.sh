@@ -8,14 +8,14 @@
 # rm -rf client... # REMOVE THIS IN aggregate.sh 
 # cp -r answers/step1-1/client/src/... # REMOVE THIS IN aggregate.sh 
 
-# ```terminal: メイン・ターミナル
+# ```terminal: クライアント
 cp -r answers/step1-1/client client
 # shellcheck disable=SC2164 # REMOVE THIS IN aggregate.sh 
 cd client
 npm install
 # ```
 
-# ```terminal: メイン・ターミナル
+# ```terminal: クライアント
 npm set-script client-start "npm run start"
 npm run client-start
 # ```

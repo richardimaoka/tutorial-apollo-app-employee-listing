@@ -7,12 +7,19 @@ cd ../ || exit               # REMOVE THIS IN aggregate.sh - cd to the git repos
 
 # :large_orange_diamond: Action: 以下のコマンドを実行してください
 
-# npx create-react-app client --template typescript # REMOVE THIS IN aggregate.sh 
-# rm -rf client... # REMOVE THIS IN aggregate.sh 
-# cp -r answers/step1-1/client/src/... # REMOVE THIS IN aggregate.sh 
+# ```terminal: クライアント
+npx --yes create-react-app client --template typescript 
+# ```
+
 
 # ```terminal: クライアント
-cp -r answers/step1-1/client client
+rm -rf client/public
+rm -rf client/src   
+cp -r  answers/step1-1/client/src client/src
+cp -r  answers/step1-1/client/public client/public
+# ```
+
+# ```terminal: クライアント
 # shellcheck disable=SC2164 # REMOVE THIS IN aggregate.sh 
 cd client
 npm install

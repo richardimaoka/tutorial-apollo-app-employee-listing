@@ -26,6 +26,7 @@ npm install apollo-server @graphql-codegen/cli graphql
 cp ../answers/step1-2/server/index.ts index.ts
 cp ../answers/step1-2/server/schema.gql schema.gql
 cp ../answers/step1-2/server/data-divisions.json data-divisions.json
+cp ../answers/step1-2/server/query.gql query.gql
 #```
 
 # ```terminal: サーバー

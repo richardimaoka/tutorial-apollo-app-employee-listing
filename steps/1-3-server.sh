@@ -21,15 +21,3 @@ npx tsc -init
 # ```terminal: サーバー
 npm install apollo-server @graphql-codegen/cli graphql
 #```
-
-# ```terminal: サーバー
-cp ../answers/step1-2/server/index.ts index.ts
-cp ../answers/step1-2/server/schema.gql schema.gql
-cp ../answers/step1-2/server/data-divisions.json data-divisions.json
-cp ../answers/step1-2/server/query.gql query.gql
-#```
-
-# ```terminal: サーバー
-npm set-script server-start "ts-node-dev --respawn index.ts"
-npm run server-start
-# ```

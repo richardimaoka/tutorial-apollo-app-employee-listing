@@ -1,0 +1,75 @@
+diff --git a/server/index.ts b/server/index.ts
+new file mode 100644
+index 0000000..78c0639
+--- /dev/null
++++ b/server/index.ts
+@@ -0,0 +1,16 @@
++import { ApolloServer, gql } from "apollo-server";
++import * as fs from "fs";
++
++const typeDefs = gql`
++  ${fs.readFileSync(__dirname.concat("/schema.gql"), "utf8")}
++`;
++
++const server = new ApolloServer({
++  typeDefs,
++  mocks: true,
++});
++
++// The `listen` method launches a web server.
++server.listen().then(({ url }) => {
++  console.log(`🚀  Server ready at ${url}`);
++});
+diff --git a/server/query.gql b/server/query.gql
+new file mode 100644
+index 0000000..e05ca00
+--- /dev/null
++++ b/server/query.gql
+@@ -0,0 +1,9 @@
++{
++  divisions {
++    divisionDisplayName
++    divisionDisplayNameEn
++    divisionName
++    numDepartments
++    numMembers
++  }
++}
+diff --git a/server/schema.gql b/server/schema.gql
+new file mode 100644
+index 0000000..decee6f
+--- /dev/null
++++ b/server/schema.gql
+@@ -0,0 +1,11 @@
++type Query {
++  divisions: [Division]
++}
++
++type Division {
++  divisionName: String
++  divisionDisplayName: String
++  divisionDisplayNameEn: String
++  numDepartments: Int
++  numMembers: Int
++}
+diff --git a/start.sh b/start.sh
+new file mode 100755
+index 0000000..b6d9a27
+--- /dev/null
++++ b/start.sh
+@@ -0,0 +1,14 @@
++#!/bin/sh
++
++# (cd answers/step-final/file-server && npm run file-server-start &)
++
++(cd answers/step-final/server && npm run server-start &)
++
++# (cd answers/step-final/server && npm run server-generate &)
++
++(cd answers/step-final/client && npm run client-start &)
++
++# (cd answers/step-final/client && npm run client-generate &)
++
++# wait infinitely
++tail -f /dev/null
+\ No newline at end of file

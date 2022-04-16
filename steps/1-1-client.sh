@@ -11,7 +11,6 @@ cd ../ || exit               # REMOVE THIS IN aggregate.sh - cd to the git repos
 npx --yes create-react-app client --template typescript 
 # ```
 
-
 # ```terminal: クライアント
 rm -rf client/public
 rm -rf client/src   

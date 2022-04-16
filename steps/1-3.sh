@@ -6,20 +6,10 @@ cd ../ || exit               # REMOVE THIS IN aggregate.sh - cd to the git repos
 # :large_orange_diamond: Action: 以下のコマンドを実行してください
 
 # ```terminal: クライアント
-rm -rf client/public
-rm -rf client/src   
-cp -r  answers/step1-1/client/src client/src
-cp -r  answers/step1-1/client/public client/public
+npm install @apollo/client graphql @graphql-cli/codegen
 # ```
 
 # ```terminal: クライアント
-# shellcheck disable=SC2164 # REMOVE THIS IN aggregate.sh 
-cd client
-npm install
-# ```
-
-# ```terminal: クライアント
-npm set-script client-start "npm run start"
-npm run client-start
+cp answers/step1-3/client/src/components/App.tsx client/src/components/App.tsx 
 # ```
 

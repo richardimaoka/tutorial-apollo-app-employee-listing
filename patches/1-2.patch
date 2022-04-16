@@ -1,0 +1,688 @@
+diff --git a/client/public/index.html b/client/public/index.html
+index aa069f2..8bb4989 100644
+--- a/client/public/index.html
++++ b/client/public/index.html
+@@ -1,43 +1,30 @@
+ <!DOCTYPE html>
+ <html lang="en">
+   <head>
+-    <meta charset="utf-8" />
++    <meta charset="UTF-8" />
+     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+-    <meta name="theme-color" content="#000000" />
+-    <meta
+-      name="description"
+-      content="Web site created using create-react-app"
++    <link rel="preconnect" href="https://fonts.googleapis.com" />
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
++    <link
++      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300,400;700;900&display=swap"
++      rel="stylesheet"
+     />
+-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+-    <!--
+-      manifest.json provides metadata used when your web app is installed on a
+-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+-    -->
+-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+-    <!--
+-      Notice the use of %PUBLIC_URL% in the tags above.
+-      It will be replaced with the URL of the `public` folder during the build.
+-      Only files inside the `public` folder can be referenced from the HTML.
+-
+-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+-      work correctly both with client-side routing and a non-root public URL.
+-      Learn how to configure a non-root public URL by running `npm run build`.
+-    -->
+-    <title>React App</title>
++    <title>Mondrickson employee listing</title>
+   </head>
+-  <body>
+-    <noscript>You need to enable JavaScript to run this app.</noscript>
++  <style>
++    body {
++      margin: 0px;
++    }
++    body::-webkit-scrollbar {
++      display: none;
++    }
++    /* HTMLのデバッグ用。divのボーダーが表示されている方が、要素の配置間違いがわかりやすい。  */
++    /* div {
++      border: solid 1px
++    } */
++  </style>
++  <body style="background-color: #f3f3f3">
+     <div id="root"></div>
+-    <!--
+-      This HTML file is a template.
+-      If you open it directly in the browser, you will see an empty page.
+-
+-      You can add webfonts, meta tags, or analytics to this file.
+-      The build step will place the bundled scripts into the <body> tag.
+-
+-      To begin the development, run `npm start` or `yarn start`.
+-      To create a production bundle, use `npm run build` or `yarn build`.
+-    -->
+   </body>
+ </html>
+diff --git a/client/public/logo192.png b/client/public/logo192.png
+deleted file mode 100644
+index fc44b0a3796c0e0a64c3d858ca038bd4570465d9..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 5347
+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
+X@eDJUQo;Ye2mwlRs<JiGX2Jghdw)}T
+
+diff --git a/client/public/logo512.png b/client/public/logo512.png
+deleted file mode 100644
+index a4e47a6545bc15971f8f63fba70e4013df88a664..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 9664
+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
+b{|{}U^kRn2wo}j7|0ATu<;8xA7zX}7|B6mN
+
+diff --git a/client/public/manifest.json b/client/public/manifest.json
+deleted file mode 100644
+index 080d6c7..0000000
+--- a/client/public/manifest.json
++++ /dev/null
+@@ -1,25 +0,0 @@
+-{
+-  "short_name": "React App",
+-  "name": "Create React App Sample",
+-  "icons": [
+-    {
+-      "src": "favicon.ico",
+-      "sizes": "64x64 32x32 24x24 16x16",
+-      "type": "image/x-icon"
+-    },
+-    {
+-      "src": "logo192.png",
+-      "type": "image/png",
+-      "sizes": "192x192"
+-    },
+-    {
+-      "src": "logo512.png",
+-      "type": "image/png",
+-      "sizes": "512x512"
+-    }
+-  ],
+-  "start_url": ".",
+-  "display": "standalone",
+-  "theme_color": "#000000",
+-  "background_color": "#ffffff"
+-}
+diff --git a/client/public/robots.txt b/client/public/robots.txt
+deleted file mode 100644
+index e9e57dc..0000000
+--- a/client/public/robots.txt
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# https://www.robotstxt.org/robotstxt.html
+-User-agent: *
+-Disallow:
+diff --git a/client/src/App.css b/client/src/App.css
+deleted file mode 100644
+index 74b5e05..0000000
+--- a/client/src/App.css
++++ /dev/null
+@@ -1,38 +0,0 @@
+-.App {
+-  text-align: center;
+-}
+-
+-.App-logo {
+-  height: 40vmin;
+-  pointer-events: none;
+-}
+-
+-@media (prefers-reduced-motion: no-preference) {
+-  .App-logo {
+-    animation: App-logo-spin infinite 20s linear;
+-  }
+-}
+-
+-.App-header {
+-  background-color: #282c34;
+-  min-height: 100vh;
+-  display: flex;
+-  flex-direction: column;
+-  align-items: center;
+-  justify-content: center;
+-  font-size: calc(10px + 2vmin);
+-  color: white;
+-}
+-
+-.App-link {
+-  color: #61dafb;
+-}
+-
+-@keyframes App-logo-spin {
+-  from {
+-    transform: rotate(0deg);
+-  }
+-  to {
+-    transform: rotate(360deg);
+-  }
+-}
+diff --git a/client/src/App.test.tsx b/client/src/App.test.tsx
+deleted file mode 100644
+index 2a68616..0000000
+--- a/client/src/App.test.tsx
++++ /dev/null
+@@ -1,9 +0,0 @@
+-import React from 'react';
+-import { render, screen } from '@testing-library/react';
+-import App from './App';
+-
+-test('renders learn react link', () => {
+-  render(<App />);
+-  const linkElement = screen.getByText(/learn react/i);
+-  expect(linkElement).toBeInTheDocument();
+-});
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+deleted file mode 100644
+index a53698a..0000000
+--- a/client/src/App.tsx
++++ /dev/null
+@@ -1,26 +0,0 @@
+-import React from 'react';
+-import logo from './logo.svg';
+-import './App.css';
+-
+-function App() {
+-  return (
+-    <div className="App">
+-      <header className="App-header">
+-        <img src={logo} className="App-logo" alt="logo" />
+-        <p>
+-          Edit <code>src/App.tsx</code> and save to reload.
+-        </p>
+-        <a
+-          className="App-link"
+-          href="https://reactjs.org"
+-          target="_blank"
+-          rel="noopener noreferrer"
+-        >
+-          Learn React
+-        </a>
+-      </header>
+-    </div>
+-  );
+-}
+-
+-export default App;
+diff --git a/client/src/components/App.tsx b/client/src/components/App.tsx
+new file mode 100644
+index 0000000..39361ce
+--- /dev/null
++++ b/client/src/components/App.tsx
+@@ -0,0 +1,11 @@
++import { HeaderContainer } from "./header/HeaderContainer";
++
++function App() {
++  return (
++    <div>
++      <HeaderContainer />
++    </div>
++  );
++}
++
++export default App;
+diff --git a/client/src/components/header/HeaderContainer.tsx b/client/src/components/header/HeaderContainer.tsx
+new file mode 100644
+index 0000000..b8b08cb
+--- /dev/null
++++ b/client/src/components/header/HeaderContainer.tsx
+@@ -0,0 +1,63 @@
++export const HeaderContainer = () => {
++  return (
++    <header
++      style={{
++        backgroundColor: "#ffffff",
++        filter: "drop-shadow(6px 6px 6px #00000029)",
++      }}
++    >
++      <div
++        style={{
++          width: "1080px",
++          margin: "0 auto",
++        }}
++      >
++        <div
++          style={{
++            padding: "4px",
++          }}
++        >
++          <div>
++            <span
++              style={{
++                display: "inline-block",
++                color: "#f3f3f3",
++                fontFamily: "'Noto Sans JP', sans-serif",
++                fontSize: "28px",
++                fontWeight: 900,
++                backgroundColor: "#1470C3",
++                padding: "2px 4px",
++              }}
++            >
++              M
++            </span>
++            <span
++              style={{
++                display: "inline-block",
++                color: "#1470C3",
++                fontFamily: "'Noto Sans JP', sans-serif",
++                fontSize: "28px",
++                fontWeight: 900,
++              }}
++            >
++              ondrickson
++            </span>
++          </div>
++          <div style={{ marginTop: "-6px" }}>
++            <span
++              style={{
++                display: "inline-block",
++                color: "#1470C3",
++                fontFamily: "'Noto Sans JP', sans-serif",
++                fontSize: "8px",
++                fontWeight: 900,
++              }}
++            >
++              モンドリクソン・アンド・カンパニー・ジャパン株式会社
++            </span>
++          </div>
++        </div>
++      </div>
++    </header>
++  );
++};
+diff --git a/client/src/index.css b/client/src/index.css
+deleted file mode 100644
+index ec2585e..0000000
+--- a/client/src/index.css
++++ /dev/null
+@@ -1,13 +0,0 @@
+-body {
+-  margin: 0;
+-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+-    sans-serif;
+-  -webkit-font-smoothing: antialiased;
+-  -moz-osx-font-smoothing: grayscale;
+-}
+-
+-code {
+-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+-    monospace;
+-}
+diff --git a/client/src/index.tsx b/client/src/index.tsx
+index 032464f..7dc7861 100644
+--- a/client/src/index.tsx
++++ b/client/src/index.tsx
+@@ -1,19 +1,10 @@
+-import React from 'react';
+-import ReactDOM from 'react-dom/client';
+-import './index.css';
+-import App from './App';
+-import reportWebVitals from './reportWebVitals';
++import React from "react";
++import ReactDOM from "react-dom";
++import App from "./components/App";
+ 
+-const root = ReactDOM.createRoot(
+-  document.getElementById('root') as HTMLElement
+-);
+-root.render(
++ReactDOM.render(
+   <React.StrictMode>
+     <App />
+-  </React.StrictMode>
++  </React.StrictMode>,
++  document.getElementById("root")
+ );
+-
+-// If you want to start measuring performance in your app, pass a function
+-// to log results (for example: reportWebVitals(console.log))
+-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+-reportWebVitals();
+diff --git a/client/src/logo.svg b/client/src/logo.svg
+deleted file mode 100644
+index 9dfc1c0..0000000
+--- a/client/src/logo.svg
++++ /dev/null
+@@ -1 +0,0 @@
+-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3"><g fill="#61DAFB"><path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z"/><circle cx="420.9" cy="296.5" r="45.7"/><path d="M520.5 78.1z"/></g></svg>
+\ No newline at end of file
+diff --git a/client/src/react-app-env.d.ts b/client/src/react-app-env.d.ts
+deleted file mode 100644
+index 6431bc5..0000000
+--- a/client/src/react-app-env.d.ts
++++ /dev/null
+@@ -1 +0,0 @@
+-/// <reference types="react-scripts" />
+diff --git a/client/src/reportWebVitals.ts b/client/src/reportWebVitals.ts
+deleted file mode 100644
+index 49a2a16..0000000
+--- a/client/src/reportWebVitals.ts
++++ /dev/null
+@@ -1,15 +0,0 @@
+-import { ReportHandler } from 'web-vitals';
+-
+-const reportWebVitals = (onPerfEntry?: ReportHandler) => {
+-  if (onPerfEntry && onPerfEntry instanceof Function) {
+-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+-      getCLS(onPerfEntry);
+-      getFID(onPerfEntry);
+-      getFCP(onPerfEntry);
+-      getLCP(onPerfEntry);
+-      getTTFB(onPerfEntry);
+-    });
+-  }
+-};
+-
+-export default reportWebVitals;
+diff --git a/client/src/setupTests.ts b/client/src/setupTests.ts
+deleted file mode 100644
+index 8f2609b..0000000
+--- a/client/src/setupTests.ts
++++ /dev/null
+@@ -1,5 +0,0 @@
+-// jest-dom adds custom jest matchers for asserting on DOM nodes.
+-// allows you to do things like:
+-// expect(element).toHaveTextContent(/react/i)
+-// learn more: https://github.com/testing-library/jest-dom
+-import '@testing-library/jest-dom';

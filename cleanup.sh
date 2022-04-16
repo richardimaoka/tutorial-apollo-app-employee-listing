@@ -1,5 +1,5 @@
 #!/bin/sh
 
-rm -f index.html
-rm -f profile.png
-
+rm -rf client
+rm -rf server
+rm -rf file-server

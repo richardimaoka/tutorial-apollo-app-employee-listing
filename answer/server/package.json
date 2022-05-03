@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server-start": "ts-node-dev --watch schema.gql,data.json --respawn index.ts"
   },
   "keywords": [],
   "author": "",

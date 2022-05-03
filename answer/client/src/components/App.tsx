@@ -1,7 +1,11 @@
-import React from "react";
+import { HeaderContainer } from "./header/HeaderContainer";
 
 function App() {
-  return <div>empty react application</div>;
+  return (
+    <>
+      <HeaderContainer />
+    </>
+  );
 }
 
 export default App;

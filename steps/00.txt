@@ -50,7 +50,7 @@ Ctrl+C
 npm install --save-dev @graphql-codegen/cli
 (*) codegen setup
 npm install --save-dev @graphql-codegen/typescript-resolvers @graphql-codegen/typescript
-touch config.yml
+touch condegen.yml
 ```
 overwrite: true
 schema: ./schema.gql
@@ -82,6 +82,7 @@ npm set-script server-generate "graphql-codegen --config codegen.yml --watch ./s
 
 
 ## クライアント側
+cd ../
 
 npx --yes create-react-app client --template typescript
 cd client
@@ -93,24 +94,12 @@ Ctrl+C
 
 ## クライアント側 codegen 導入
 
+
 npm install --save-dev @graphql-codegen/cli graphql
-npm set-script client-generate "graphql-codegen --config codegen.yml --watch src/\*_/_.tsx,../server/schema.gql"
-
-npx graphql-codegen init
-  ? What type of application are you building? Application built with React
-  ? Where is your schema?: (path or url) http://localhost:4000
-  ? Where are your operations and fragments?: src/\*_/_.graphql
-  ? Pick plugins: TypeScript (required by other typescript plugins), TypeScript Operations (operations and
-  fragments), TypeScript React Apollo (typed components and HOCs)
-  ? Where to write the output: src/generated/graphql.tsx
-  ? Do you want to generate an introspection file? No
-  ? How to name the config file? codegen.yml
-  ? What script in package.json should run the codegen? client-generate
-
-npm install @graphql-codegen/typescript-react-query @graphql-codegen/typescript @graphql-codegen/typescript-operations
-
-cat << EOF > config.yml
-
+(*) codegen setup
+npm install --save-dev @graphql-codegen/typescript-react-query @graphql-codegen/typescript @graphql-codegen/typescript-operations
+touch codegen.yml
+```
 overwrite: true
 schema: ../server/schema.gql
 documents: "src/**/*.tsx"
@@ -125,7 +114,27 @@ generates:
 hooks:
   afterOneFileWrite:
     - npx prettier --write
-EOF
+```
+
+
+npm set-script client-generate "graphql-codegen --config codegen.yml --watch src/\*_/_.tsx,../server/schema.gql"
+npm run client-generate
+  # .tsxにGrqphQL queryが含まれないと、エラーを吐いてしまう
+      Error: 
+            Unable to find any GraphQL type definitions for the following pointers:
+Ctrl+C
+
+(*) codegen setup
+npx graphql-codegen init
+  ? What type of application are you building? Application built with React
+  ? Where is your schema?: (path or url) http://localhost:4000
+  ? Where are your operations and fragments?: src/\*_/_.graphql
+  ? Pick plugins: TypeScript (required by other typescript plugins), TypeScript Operations (operations and
+  fragments), TypeScript React Apollo (typed components and HOCs)
+  ? Where to write the output: src/generated/graphql.tsx
+  ? Do you want to generate an introspection file? No
+  ? How to name the config file? codegen.yml
+  ? What script in package.json should run the codegen? client-generate
 
 ## file-server 導入
 

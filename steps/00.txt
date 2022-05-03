@@ -1,8 +1,11 @@
+cd $(git rev-parse --show-toplevel)
+
 ## サーバー側 graphql 導入
 
-cd $(git rev-parse --show-toplevel)
 mkdir server
 cd server
+echo "node_modules" >> .gitignore
+
 npm init -yes
 npm install --save-dev typescript ts-node-dev 
 npx tsc -init

@@ -16,8 +16,13 @@ steps/step1-1.test.sh
 # ###############################
 # # finished
 # ###############################
+# ###############################
+# ###############################
+# ###############################
 
 scripts/kill-all-child-pids.sh "$REACT_CLIENT_PID"
 # scripts/kill-all-child-pids.sh "$FILE_SERVER_PID"
+
+
 
 # scripts/cleanup.sh

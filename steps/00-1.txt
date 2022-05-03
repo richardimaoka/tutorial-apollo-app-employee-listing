@@ -56,6 +56,9 @@ cd ../
 npx --yes create-react-app client --template typescript
 cd client
 
+# https://github.com/apollographql/invariant-packages/issues/279
+# WARNING in ./node_modules/ts-invariant/lib/invariant.js
+npm install @apollo/client graphql
 npm set-script client-start "react-scripts start"
 npm run client-start
 Ctrl+C

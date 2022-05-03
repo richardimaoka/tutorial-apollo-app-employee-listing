@@ -1,5 +1,5 @@
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
-import { HeaderContainer } from "./header/HeaderContainer";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { CompanyPage } from "./company/CompanyPage";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",
@@ -9,7 +9,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <HeaderContainer />
+      <CompanyPage />
     </ApolloProvider>
   );
 }

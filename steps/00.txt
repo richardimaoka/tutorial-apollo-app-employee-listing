@@ -48,6 +48,19 @@ Ctrl+C
 
 
 
+
+
+## クライアント側
+cd ../
+
+npx --yes create-react-app client --template typescript
+cd client
+
+npm set-script client-start "react-scripts start"
+npm run client-start
+Ctrl+C
+
+
 ## サーバー側 codegen 導入
 
 npm install --save-dev @graphql-codegen/cli
@@ -82,19 +95,7 @@ npm set-script server-generate "graphql-codegen --config codegen.yml --watch ./s
     ? How to name the config file? codegen.yml
     ? What script in package.json should run the codegen? server-generate
 
-
-
-## クライアント側
-cd ../
-
-npx --yes create-react-app client --template typescript
-cd client
-
-npm set-script client-start "react-scripts start"
-npm run client-start
-Ctrl+C
-
-
+ok
 ## クライアント側 codegen 導入
 
 

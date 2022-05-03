@@ -40,9 +40,9 @@ ok
 ## クライアント側 codegen 導入
 
 
-npm install --save-dev @graphql-codegen/cli graphql
+npm install --save-dev @graphql-codegen/cli
 (*) codegen setup
-npm install --save-dev @graphql-codegen/typescript-react-query @graphql-codegen/typescript @graphql-codegen/typescript-operations
+npm install --save-dev @graphql-codegen/typescript @graphql-codegen/typescript-operations @graphql-codegen/typescript-react-apollo
 touch codegen.yml
 ```
 overwrite: true

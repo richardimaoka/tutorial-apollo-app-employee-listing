@@ -14,10 +14,10 @@ npm init -yes
 
 # ```terminal: サーバー
 echo "node_modules" > .gitignore
-npm install --save-dev typescript ts-node-dev
+npm install --save-dev typescript ts-node-dev @graphql-codegen/cli
 npx tsc -init
 #```
 
 # ```terminal: サーバー
-npm install apollo-server @graphql-codegen/cli graphql
+npm install apollo-server graphql
 #```

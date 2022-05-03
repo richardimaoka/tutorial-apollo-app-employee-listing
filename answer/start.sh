@@ -4,6 +4,10 @@
 SERVER_PID="$!"
 trap 'scripts/kill-all-child-pids.sh "$SERVER_PID"' 2 # 2 means SIGINT = Ctrl + c
 
+(cd server && npm run server-generate &)
+SERVER_GENERATE_PID="$!"
+trap 'scripts/kill-all-child-pids.sh "$SERVER_GENERATE_PID"' 2 # 2 means SIGINT = Ctrl + c
+
 (cd client && npm run client-start &)
 CLIENT_PID="$!"
 trap 'scripts/kill-all-child-pids.sh "$CLIENT_PID"' 2 # 2 means SIGINT = Ctrl + c

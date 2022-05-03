@@ -1,67 +1,9 @@
 cd $(git rev-parse --show-toplevel)
 
-## サーバー側 graphql 導入
-
-mkdir server
-cd server
-echo "node_modules" >> .gitignore
-
-npm init -yes
-npm install --save-dev typescript ts-node-dev 
-npx tsc -init
-
-npm install apollo-server graphql
-//setup index.ts, data.json, schema.gql
-touch index.ts 
-```
-import { ApolloServer, gql } from "apollo-server";
-import * as fs from "fs";
-
-const typeDefs = gql`
-  ${fs.readFileSync(__dirname.concat("/schema.gql"), "utf8")}
-`;
-
-const server = new ApolloServer({
-  typeDefs,
-  mocks: true,
-});
-
-// The `listen` method launches a web server.
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
-});
-```
-
-touch schema.gql
-```
-type Query {
-  hello: String
-}
-```
-
-echo "{}" > data.json
-
-
-npm set-script server-start "ts-node-dev --watch schema.gql,data.json --respawn index.ts"
-npm run server-start
-Ctrl+C
-
-
-
-
-
-## クライアント側
-cd ../
-
-npx --yes create-react-app client --template typescript
-cd client
-
-npm set-script client-start "react-scripts start"
-npm run client-start
-Ctrl+C
 
 
 ## サーバー側 codegen 導入
+cd server
 
 npm install --save-dev @graphql-codegen/cli
 (*) codegen setup
@@ -80,7 +22,6 @@ generates:
 hooks:
   afterOneFileWrite:
     - npx prettier --write
-EOF
 ```
 npm set-script server-generate "graphql-codegen --config codegen.yml --watch ./schema.gql"
 
@@ -139,24 +80,3 @@ npx graphql-codegen init
   ? Do you want to generate an introspection file? No
   ? How to name the config file? codegen.yml
   ? What script in package.json should run the codegen? client-generate
-
-## file-server 導入
-
-cd $(git rev-parse --show-toplevel)
-mkdir server
-cd server
-
-npm init -yes
-npm install http-server
-npm set-script http-server-start "http-server"
-
-
-## start.sh 作成
-
-
-cat << EOF > start.sh
-  ...
-  ...
-  ...
-
-chmod +x start.sh

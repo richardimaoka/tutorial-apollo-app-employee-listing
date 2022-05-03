@@ -1,18 +1,23 @@
 import { gql } from "@apollo/client";
+import { DivisionCardFragment } from "../../generated/graphql";
 
-export const DivisionCard = (): JSX.Element => {
+export interface DivisionCardProps {
+  fragment: DivisionCardFragment;
+}
+
+export const DivisionCard = ({ fragment }: DivisionCardProps): JSX.Element => {
   return (
     <div>
       <div>
         <div>
-          <span>{"トレーディング部門"}</span>
+          <span>{fragment.divisionDisplayName}</span>
         </div>
         <div>
-          <span>{4}部署</span>
-          <span>{105}人</span>
+          <span>{fragment.numDepartments}部署</span>
+          <span>{fragment.numMembers}人</span>
         </div>
         <div>
-          <span>{"Trading"}</span>
+          <span>{fragment.divisionDisplayNameEn}</span>
         </div>
       </div>
     </div>

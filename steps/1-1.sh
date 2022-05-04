@@ -3,9 +3,9 @@
 cd "$(dirname "$0")" || exit # REMOVE THIS IN aggregate.sh 
 cd ../ || exit               # REMOVE THIS IN aggregate.sh - cd to the git repository root
 
-### 開発プロジェクトの初期設定
+## 開発プロジェクトの初期設定
 
-## GraphQL サーバー側 セットアップ
+### GraphQL サーバー側 セットアップ
 
 # :large_orange_diamond: Action: 以下のコマンドを入力してください。
 
@@ -54,7 +54,7 @@ npm set-script server-start "ts-node-dev --watch schema.gql,data.json --respawn 
 
 # :large_orange_diamond: Action: Ctrl+C
 
-## React クライアント側 セットアップ
+### React クライアント側 セットアップ
 
 # :large_orange_diamond: Action: 以下のコマンドを入力してください。
 
@@ -78,7 +78,7 @@ npm set-script client-start "react-scripts start"
 
 # :large_orange_diamond: Action: Ctrl+C
 
-## file-server 導入
+### file-server 導入
 
 # :large_orange_diamond: Action: 以下のコマンドを入力してください。
 

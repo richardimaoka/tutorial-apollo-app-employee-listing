@@ -1,9 +1,0 @@
-{
-  divisions {
-    divisionDisplayName
-    divisionDisplayNameEn
-    divisionName
-    numDepartments
-    numMembers
-  }
-}

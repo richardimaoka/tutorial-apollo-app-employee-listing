@@ -41,7 +41,7 @@ export const CompanyPage = (): JSX.Element => {
             padding: "10px 0",
           }}
         >
-          <div>
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
             {nonNullList.map((x) => (
               <DivisionCard key={x.divisionName} fragment={x} />
             ))}

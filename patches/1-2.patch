@@ -1,138 +1,37 @@
-diff --git a/client/public/index.html b/client/public/index.html
-new file mode 100644
-index 0000000..8bb4989
+commit 6fa56caa95ed30b7de4a7a5bd267070e213d0a0f
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Tue May 3 21:53:29 2022 +0900
+
+    start.sh
+
+diff --git a/scripts b/scripts
+new file mode 120000
+index 0000000..a339954
 --- /dev/null
-+++ b/client/public/index.html
-@@ -0,0 +1,30 @@
-+<!DOCTYPE html>
-+<html lang="en">
-+  <head>
-+    <meta charset="UTF-8" />
-+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-+    <meta name="viewport" content="width=device-width, initial-scale=1" />
-+    <link rel="preconnect" href="https://fonts.googleapis.com" />
-+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-+    <link
-+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300,400;700;900&display=swap"
-+      rel="stylesheet"
-+    />
-+    <title>Mondrickson employee listing</title>
-+  </head>
-+  <style>
-+    body {
-+      margin: 0px;
-+    }
-+    body::-webkit-scrollbar {
-+      display: none;
-+    }
-+    /* HTMLのデバッグ用。divのボーダーが表示されている方が、要素の配置間違いがわかりやすい。  */
-+    /* div {
-+      border: solid 1px
-+    } */
-+  </style>
-+  <body style="background-color: #f3f3f3">
-+    <div id="root"></div>
-+  </body>
-+</html>
-diff --git a/client/src/components/App.tsx b/client/src/components/App.tsx
-new file mode 100644
-index 0000000..39361ce
++++ b/scripts
+@@ -0,0 +1 @@
++../scripts
+\ No newline at end of file
+diff --git a/start.sh b/start.sh
+new file mode 100755
+index 0000000..e098414
 --- /dev/null
-+++ b/client/src/components/App.tsx
-@@ -0,0 +1,11 @@
-+import { HeaderContainer } from "./header/HeaderContainer";
++++ b/start.sh
+@@ -0,0 +1,16 @@
++#!/bin/sh
 +
-+function App() {
-+  return (
-+    <div>
-+      <HeaderContainer />
-+    </div>
-+  );
-+}
++(cd server && npm run server-start &)
++SERVER_PID="$!"
++trap 'scripts/kill-all-child-pids.sh "$SERVER_PID"' 2 # 2 means SIGINT = Ctrl + c
 +
-+export default App;
-diff --git a/client/src/components/header/HeaderContainer.tsx b/client/src/components/header/HeaderContainer.tsx
-new file mode 100644
-index 0000000..b8b08cb
---- /dev/null
-+++ b/client/src/components/header/HeaderContainer.tsx
-@@ -0,0 +1,63 @@
-+export const HeaderContainer = () => {
-+  return (
-+    <header
-+      style={{
-+        backgroundColor: "#ffffff",
-+        filter: "drop-shadow(6px 6px 6px #00000029)",
-+      }}
-+    >
-+      <div
-+        style={{
-+          width: "1080px",
-+          margin: "0 auto",
-+        }}
-+      >
-+        <div
-+          style={{
-+            padding: "4px",
-+          }}
-+        >
-+          <div>
-+            <span
-+              style={{
-+                display: "inline-block",
-+                color: "#f3f3f3",
-+                fontFamily: "'Noto Sans JP', sans-serif",
-+                fontSize: "28px",
-+                fontWeight: 900,
-+                backgroundColor: "#1470C3",
-+                padding: "2px 4px",
-+              }}
-+            >
-+              M
-+            </span>
-+            <span
-+              style={{
-+                display: "inline-block",
-+                color: "#1470C3",
-+                fontFamily: "'Noto Sans JP', sans-serif",
-+                fontSize: "28px",
-+                fontWeight: 900,
-+              }}
-+            >
-+              ondrickson
-+            </span>
-+          </div>
-+          <div style={{ marginTop: "-6px" }}>
-+            <span
-+              style={{
-+                display: "inline-block",
-+                color: "#1470C3",
-+                fontFamily: "'Noto Sans JP', sans-serif",
-+                fontSize: "8px",
-+                fontWeight: 900,
-+              }}
-+            >
-+              モンドリクソン・アンド・カンパニー・ジャパン株式会社
-+            </span>
-+          </div>
-+        </div>
-+      </div>
-+    </header>
-+  );
-+};
-diff --git a/client/src/index.tsx b/client/src/index.tsx
-new file mode 100644
-index 0000000..7dc7861
---- /dev/null
-+++ b/client/src/index.tsx
-@@ -0,0 +1,10 @@
-+import React from "react";
-+import ReactDOM from "react-dom";
-+import App from "./components/App";
++(cd client && npm run client-start &)
++CLIENT_PID="$!"
++trap 'scripts/kill-all-child-pids.sh "$CLIENT_PID"' 2 # 2 means SIGINT = Ctrl + c
 +
-+ReactDOM.render(
-+  <React.StrictMode>
-+    <App />
-+  </React.StrictMode>,
-+  document.getElementById("root")
-+);
++(cd file-server && npm run file-server-start &)
++FILE_SERVER_PID="$!"
++trap 'scripts/kill-all-child-pids.sh "$FILE_SERVER_PID"' 2 # 2 means SIGINT = Ctrl + c
++
++# wait infinitely
++tail -f /dev/null
+\ No newline at end of file

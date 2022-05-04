@@ -1,0 +1,29 @@
+commit a253fa6ca3c7aae1958b1d51147307921f22f0d0
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Tue May 3 23:26:59 2022 +0900
+
+    s: introduce ApolloClient
+
+diff --git a/client/src/components/App.tsx b/client/src/components/App.tsx
+index 291b82d..7fb54b0 100644
+--- a/client/src/components/App.tsx
++++ b/client/src/components/App.tsx
+@@ -1,10 +1,16 @@
++import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+ import { HeaderContainer } from "./header/HeaderContainer";
+ 
++const client = new ApolloClient({
++  uri: "http://localhost:4000",
++  cache: new InMemoryCache(),
++});
++
+ function App() {
+   return (
+-    <>
++    <ApolloProvider client={client}>
+       <HeaderContainer />
+-    </>
++    </ApolloProvider>
+   );
+ }
+ 

@@ -99,7 +99,7 @@ npm set-script http-server-start "http-server"
 
 # ```terminal: メイン
 cd ../ # " # gitレポジトリのルートディレクトリに移動
-git apply patches/1-1.patch
+git apply patches/1-2.patch
 chmod +x start.sh
 ./start.sh
 # ```

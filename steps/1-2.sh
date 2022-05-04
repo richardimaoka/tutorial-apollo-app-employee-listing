@@ -8,7 +8,11 @@ cd ../ || exit               # REMOVE THIS IN aggregate.sh - cd to the git repos
 # ```terminal: メイン
 # shellcheck disable=SC2164 # REMOVE THIS IN aggregate.sh 
 cd "$(git rev-parse --show-toplevel)" # gitレポジトリのルートディレクトリに移動
-rm src/components/App.tsx
+git apply patches/1-3.patch
+# ```
+
+# ```terminal: メイン
+git apply patches/1-4.patch
 # ```
 
 # :large_orange_diamond: Action: 以下のコマンドを入力してください。

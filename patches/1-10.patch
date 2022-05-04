@@ -1,0 +1,42 @@
+commit e2a6c59ebf3b20d6a1d97d0c1ebac5df9bd253ac
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Wed May 4 06:14:31 2022 +0900
+
+    s: DivisionCard barebone
+
+diff --git a/client/src/components/company/DivisionCard.tsx b/client/src/components/company/DivisionCard.tsx
+new file mode 100644
+index 0000000..3dcf5d6
+--- /dev/null
++++ b/client/src/components/company/DivisionCard.tsx
+@@ -0,0 +1,30 @@
++import { gql } from "@apollo/client";
++
++export const DivisionCard = (): JSX.Element => {
++  return (
++    <div>
++      <div>
++        <div>
++          <span>{"トレーディング部門"}</span>
++        </div>
++        <div>
++          <span>{4}部署</span>
++          <span>{105}人</span>
++        </div>
++        <div>
++          <span>{"Trading"}</span>
++        </div>
++      </div>
++    </div>
++  );
++};
++
++DivisionCard.fragment = gql`
++  fragment DivisionCard on Division {
++    divisionDisplayName
++    divisionDisplayNameEn
++    divisionName
++    numDepartments
++    numMembers
++  }
++`;

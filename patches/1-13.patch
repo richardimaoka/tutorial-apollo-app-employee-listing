@@ -1,0 +1,198 @@
+commit 6d7d81fe3a1ec8eb76ca086b6ab895a1988515d5
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Wed May 4 08:43:42 2022 +0900
+
+    s: create company page
+
+diff --git a/client/src/components/App.tsx b/client/src/components/App.tsx
+index 7fb54b0..46223d3 100644
+--- a/client/src/components/App.tsx
++++ b/client/src/components/App.tsx
+@@ -1,5 +1,5 @@
+-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+-import { HeaderContainer } from "./header/HeaderContainer";
++import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
++import { CompanyPage } from "./company/CompanyPage";
+ 
+ const client = new ApolloClient({
+   uri: "http://localhost:4000",
+@@ -9,7 +9,7 @@ const client = new ApolloClient({
+ function App() {
+   return (
+     <ApolloProvider client={client}>
+-      <HeaderContainer />
++      <CompanyPage />
+     </ApolloProvider>
+   );
+ }
+diff --git a/client/src/components/company/CompanyPage.tsx b/client/src/components/company/CompanyPage.tsx
+new file mode 100644
+index 0000000..3d14bb2
+--- /dev/null
++++ b/client/src/components/company/CompanyPage.tsx
+@@ -0,0 +1,53 @@
++import { gql } from "@apollo/client";
++import {
++  DivisionCardFragment,
++  useGetDivisionsQuery,
++} from "../../generated/graphql";
++import { excludeNullElements } from "../../utils/arrayUtils";
++import { HeaderContainer } from "../header/HeaderContainer";
++import { DivisionCard } from "./DivisionCard";
++
++//This is read by GraphQL codegen to generate types
++gql`
++  query GetDivisions {
++    divisions {
++      ...DivisionCard
++    }
++  }
++
++  ${DivisionCard.fragment}
++`;
++
++export const CompanyPage = (): JSX.Element => {
++  const { loading, error, data } = useGetDivisionsQuery();
++
++  if (loading) {
++    return <></>;
++  } else if (error) {
++    return <></>;
++  } else if (!data?.divisions) {
++    return <></>;
++  } else {
++    const nonNullList = excludeNullElements<DivisionCardFragment>(
++      data.divisions
++    );
++    return (
++      <>
++        <HeaderContainer />
++        <main
++          style={{
++            width: "1080px",
++            margin: "0 auto",
++            padding: "10px 0",
++          }}
++        >
++          <div>
++            {nonNullList.map((x) => (
++              <DivisionCard key={x.divisionName} fragment={x} />
++            ))}
++          </div>
++        </main>
++      </>
++    );
++  }
++};
+diff --git a/client/src/generated/graphql.ts b/client/src/generated/graphql.ts
+index a15d600..16ba595 100644
+--- a/client/src/generated/graphql.ts
++++ b/client/src/generated/graphql.ts
+@@ -1,4 +1,5 @@
+ import { gql } from "@apollo/client";
++import * as Apollo from "@apollo/client";
+ export type Maybe<T> = T | null;
+ export type InputMaybe<T> = Maybe<T>;
+ export type Exact<T extends { [key: string]: unknown }> = {
+@@ -10,6 +11,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+ export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+   [SubKey in K]: Maybe<T[SubKey]>;
+ };
++const defaultOptions = {} as const;
+ /** All built-in and custom scalars, mapped to their actual values */
+ export type Scalars = {
+   ID: string;
+@@ -33,6 +35,20 @@ export type Query = {
+   divisions: Maybe<Array<Maybe<Division>>>;
+ };
+ 
++export type GetDivisionsQueryVariables = Exact<{ [key: string]: never }>;
++
++export type GetDivisionsQuery = {
++  __typename?: "Query";
++  divisions: Array<{
++    __typename?: "Division";
++    divisionDisplayName: string | null;
++    divisionDisplayNameEn: string | null;
++    divisionName: string | null;
++    numDepartments: number | null;
++    numMembers: number | null;
++  } | null> | null;
++};
++
+ export type DivisionCardFragment = {
+   __typename?: "Division";
+   divisionDisplayName: string | null;
+@@ -51,3 +67,61 @@ export const DivisionCardFragmentDoc = gql`
+     numMembers
+   }
+ `;
++export const GetDivisionsDocument = gql`
++  query GetDivisions {
++    divisions {
++      ...DivisionCard
++    }
++  }
++  ${DivisionCardFragmentDoc}
++`;
++
++/**
++ * __useGetDivisionsQuery__
++ *
++ * To run a query within a React component, call `useGetDivisionsQuery` and pass it any options that fit your needs.
++ * When your component renders, `useGetDivisionsQuery` returns an object from Apollo Client that contains loading, error, and data properties
++ * you can use to render your UI.
++ *
++ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
++ *
++ * @example
++ * const { data, loading, error } = useGetDivisionsQuery({
++ *   variables: {
++ *   },
++ * });
++ */
++export function useGetDivisionsQuery(
++  baseOptions?: Apollo.QueryHookOptions<
++    GetDivisionsQuery,
++    GetDivisionsQueryVariables
++  >
++) {
++  const options = { ...defaultOptions, ...baseOptions };
++  return Apollo.useQuery<GetDivisionsQuery, GetDivisionsQueryVariables>(
++    GetDivisionsDocument,
++    options
++  );
++}
++export function useGetDivisionsLazyQuery(
++  baseOptions?: Apollo.LazyQueryHookOptions<
++    GetDivisionsQuery,
++    GetDivisionsQueryVariables
++  >
++) {
++  const options = { ...defaultOptions, ...baseOptions };
++  return Apollo.useLazyQuery<GetDivisionsQuery, GetDivisionsQueryVariables>(
++    GetDivisionsDocument,
++    options
++  );
++}
++export type GetDivisionsQueryHookResult = ReturnType<
++  typeof useGetDivisionsQuery
++>;
++export type GetDivisionsLazyQueryHookResult = ReturnType<
++  typeof useGetDivisionsLazyQuery
++>;
++export type GetDivisionsQueryResult = Apollo.QueryResult<
++  GetDivisionsQuery,
++  GetDivisionsQueryVariables
++>;
+diff --git a/client/src/utils/arrayUtils.ts b/client/src/utils/arrayUtils.ts
+new file mode 100644
+index 0000000..560093b
+--- /dev/null
++++ b/client/src/utils/arrayUtils.ts
+@@ -0,0 +1,5 @@
++export const excludeNullElements = <ElementType>(
++  list: (ElementType | null)[]
++): ElementType[] => {
++  return list.filter((elem) => elem) as ElementType[];
++};

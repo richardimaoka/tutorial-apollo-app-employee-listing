@@ -1,0 +1,40 @@
+commit b1009a80eece285011992305f4209dfb35bb95bb
+Author: Richard Imaoka <richard.e.imaoka@gmail.com>
+Date:   Tue May 3 22:21:47 2022 +0900
+
+    s: move App.tsx to components dir
+
+diff --git a/client/src/App.test.tsx b/client/src/App.test.tsx
+index 2a68616..5c61b53 100644
+--- a/client/src/App.test.tsx
++++ b/client/src/App.test.tsx
+@@ -1,8 +1,8 @@
+-import React from 'react';
+-import { render, screen } from '@testing-library/react';
+-import App from './App';
++import React from "react";
++import { render, screen } from "@testing-library/react";
++import App from "./components/App";
+ 
+-test('renders learn react link', () => {
++test("renders learn react link", () => {
+   render(<App />);
+   const linkElement = screen.getByText(/learn react/i);
+   expect(linkElement).toBeInTheDocument();
+diff --git a/client/src/App.tsx b/client/src/components/App.tsx
+similarity index 100%
+rename from client/src/App.tsx
+rename to client/src/components/App.tsx
+diff --git a/client/src/index.tsx b/client/src/index.tsx
+index ccbac81..2f3b8e9 100644
+--- a/client/src/index.tsx
++++ b/client/src/index.tsx
+@@ -1,7 +1,7 @@
+ import React from "react";
+ import ReactDOM from "react-dom/client";
+ import "./index.css";
+-import App from "./App";
++import App from "./components/App";
+ import reportWebVitals from "./reportWebVitals";
+ 
+ const root = ReactDOM.createRoot(

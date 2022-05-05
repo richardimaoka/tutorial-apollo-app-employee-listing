@@ -1,52 +1,39 @@
-commit a44303ecd1b968aa8fe5d9dadc5650d7c734fa01
+commit 3a5c7fbbb84f9ea81acb4f34e0c79944c7fbdab9
 Author: Richard Imaoka <richard.e.imaoka@gmail.com>
-Date:   Tue May 3 22:17:37 2022 +0900
+Date:   Tue May 3 22:20:44 2022 +0900
 
-    s: simplify index.css and update index.html
+    s: empty App.tsx
 
-diff --git a/client/public/index.html b/client/public/index.html
-index aa069f2..5c24876 100644
---- a/client/public/index.html
-+++ b/client/public/index.html
-@@ -24,7 +24,13 @@
-       work correctly both with client-side routing and a non-root public URL.
-       Learn how to configure a non-root public URL by running `npm run build`.
-     -->
--    <title>React App</title>
-+    <link rel="preconnect" href="https://fonts.googleapis.com" />
-+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-+    <link
-+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
-+      rel="stylesheet"
-+    />
-+    <title>Mondrickson employee listing</title>
-   </head>
-   <body>
-     <noscript>You need to enable JavaScript to run this app.</noscript>
-diff --git a/client/src/index.css b/client/src/index.css
-index ec2585e..0272958 100644
---- a/client/src/index.css
-+++ b/client/src/index.css
-@@ -1,13 +1,14 @@
- body {
-   margin: 0;
--  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
--    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
--    sans-serif;
--  -webkit-font-smoothing: antialiased;
--  -moz-osx-font-smoothing: grayscale;
-+  background-color: #f3f3f3;
+diff --git a/client/src/App.tsx b/client/src/App.tsx
+index a53698a..db00f63 100644
+--- a/client/src/App.tsx
++++ b/client/src/App.tsx
+@@ -1,26 +1,7 @@
+-import React from 'react';
+-import logo from './logo.svg';
+-import './App.css';
++import React from "react";
+ 
+ function App() {
+-  return (
+-    <div className="App">
+-      <header className="App-header">
+-        <img src={logo} className="App-logo" alt="logo" />
+-        <p>
+-          Edit <code>src/App.tsx</code> and save to reload.
+-        </p>
+-        <a
+-          className="App-link"
+-          href="https://reactjs.org"
+-          target="_blank"
+-          rel="noopener noreferrer"
+-        >
+-          Learn React
+-        </a>
+-      </header>
+-    </div>
+-  );
++  return <div>empty react application</div>;
  }
  
--code {
--  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
--    monospace;
-+body::-webkit-scrollbar {
-+  display: none;
- }
-+
-+/* HTMLのデバッグ用。普段はコメントとして動作しないようにし、デバッグに使うときはアンコメントして使う。 */
-+/* divのボーダーが表示されている方が、要素の配置間違いがわかりやすい。   */
-+/* div {
-+  border: solid 1px 
-+}  */
+ export default App;

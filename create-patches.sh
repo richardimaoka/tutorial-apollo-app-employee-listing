@@ -23,7 +23,7 @@ git show --relative=answer --patch 6fa56ca > patches/1-2.patch
 git show --relative=answer --patch a44303e > patches/1-3.patch
 
 # s: empty App.tsx
-git show --relative=answer --patch a44303e > patches/1-4.patch
+git show --relative=answer --patch 3a5c7fb > patches/1-4.patch
 
 # s: move App.tsx to components dir
 git show --relative=answer --patch b1009a8 > patches/1-5.patch
